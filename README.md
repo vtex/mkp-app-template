@@ -1,1 +1,1 @@
-# mkp-app-template
+# README

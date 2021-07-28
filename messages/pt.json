@@ -1,0 +1,19 @@
+{
+  "admin/mkp-app.title": "Amazon",
+  "admin/mkp-app.config-title": "Configurações",
+  "admin/mkp-app.saveConfig.success": "Configuração salva com sucesso.",
+  "admin/mkp-app.affiliateId.title": "ID do afiliado",
+  "admin/mkp-app.salesChannel.title": "Política Comercial",
+  "admin/mkp-app.salesChannel.tooltip": "Catálogo que será enviado para o marketplace.",
+  "admin/mkp-app.notificationEndpoint.title": "Endpoint de notificação",
+  "admin/mkp-app.integrationStatus.title": "Status da integração",
+  "admin/mkp-app.integrationStatus.value.on": "Ligado",
+  "admin/mkp-app.integrationStatus.value.off": "Desligado",
+  "admin/mkp-app.integrationStatus.tooltip": "Pausa ou inicia a integração com a Amazon.",
+  "admin/mkp-app.email.tooltip": "E-mail que será notificado pelo sistema VTEX quando algo acontecer com este afiliado.",
+  "admin/mkp-app.input.requiredMessage": "Campo obrigatório",
+  "admin/mkp-app.cultureInfo.title": "País",
+  "admin/mkp-app.error.affiliate.registerFail": "",
+  "admin/mkp-app.error.affiliate.invalidFormat": "",
+  "admin/mkp-app.error.salesChannel.invalidFormat": ""
+}

@@ -1,0 +1,11 @@
+{
+  "section": "marketplace",
+  "titleId": "admin/mkp-app.title",
+  "subSection": "configuration",
+  "subSectionItems": [
+    {
+      "labelId": "admin/mkp-app.config-title",
+      "path": "/admin/{{appPath}}"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "admin/mkp-app.title": "{{appTitle}}",
+  "admin/mkp-app.config-title": "Settings",
+  "admin/mkp-app.saveConfig.success": "Configuration successfully saved.",
+  "admin/mkp-app.affiliateId.title": "Affiliate ID",
+  "admin/mkp-app.salesChannel.title": "Sales Channel",
+  "admin/mkp-app.salesChannel.tooltip": "Catalog that will be sent to the marketplace.",
+  "admin/mkp-app.notificationEndpoint.title": "Notification endpoint",
+  "admin/mkp-app.integrationStatus.title": "Integration status",
+  "admin/mkp-app.integrationStatus.value.on": "On",
+  "admin/mkp-app.integrationStatus.value.off": "Off",
+  "admin/mkp-app.integrationStatus.tooltip": "Pause or start integration with Amazon.",
+  "admin/mkp-app.email.tooltip": "Email that will be notified by the VTEX system when something happens to this affiliate.",
+  "admin/mkp-app.input.requiredMessage": "Required field",
+  "admin/mkp-app.cultureInfo.title": "Country",
+  "admin/mkp-app.error.affiliate.registerFail": "",
+  "admin/mkp-app.error.affiliate.invalidFormat": "",
+  "admin/mkp-app.error.salesChannel.invalidFormat": ""
+}

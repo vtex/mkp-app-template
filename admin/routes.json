@@ -1,0 +1,6 @@
+{
+  "admin.app.example": {
+    "component": "AdminPanel",
+    "path": "/admin/app/{{appPath}}"
+  }
+}

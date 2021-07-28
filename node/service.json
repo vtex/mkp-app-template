@@ -1,0 +1,18 @@
+{
+  "memory": 256,
+  "ttl": 10,
+  "timeout": 2,
+  "minReplicas": 2,
+  "maxReplicas": 4,
+  "workers": 1,
+  "routes": {
+    "amazonAuth": {
+      "path": "/_v/amazon/auth",
+      "public": true
+    },
+    "getConfig": {
+      "path": "/_v/amazon/config",
+      "public": false
+    }
+  }
+}

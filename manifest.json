@@ -1,0 +1,24 @@
+{
+  "name": "{{appName}}",
+  "vendor": "{{vendor}}",
+  "version": "{{version}}",
+  "title": "{{appTitle}}",
+  "description": "{{appDescription}}",
+  "mustUpdateAt": "2018-01-04",
+  "categories": [],
+  "builders": {
+    "react": "3.x",
+    "messages": "1.x",
+    "node": "6.x",
+    "docs": "0.x",
+    "admin": "0.x",
+    "graphql": "1.x"
+  },
+  "policies": [
+    {
+      "name": "vbase-read-write"
+    }
+  ],
+  "credentialType": "absolute",
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

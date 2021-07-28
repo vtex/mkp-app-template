@@ -1,0 +1,3 @@
+mutation saveConfig($config: ConfigurationInput) {
+  saveConfiguration(config: $config)
+}

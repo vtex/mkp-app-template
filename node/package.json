@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "@vtex/clients": "2.4.1",
+    "co-body": "^6.0.0",
+    "http-status-codes": "^2.1.4",
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "@types/co-body": "^0.0.3",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.0.0",
+    "@types/ramda": "types/npm-ramda#dist",
+    "@vtex/test-tools": "^1.0.0",
+    "typescript": "3.9.7",
+    "vtex.mkp-app-amazon": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.mkp-app-amazon@0.1.0/public/@types/vtex.mkp-app-amazon"
+  },
+  "scripts": {
+    "lint": "tsc --noEmit --pretty"
+  },
+  "version": "0.2.0"
+}

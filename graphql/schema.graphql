@@ -1,0 +1,17 @@
+type Query {
+  getConfiguration: Configuration
+  getSalesChannels: [SalesChannel]
+}
+
+type Mutation {
+  saveConfiguration(config: ConfigurationInput): String
+}
+
+input ConfigurationInput {
+  accountName: String
+  active: Boolean
+  affiliateId: String
+  salesChannel: String
+  email: String
+  isAuthenticated: Boolean
+}

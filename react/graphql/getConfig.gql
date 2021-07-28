@@ -1,0 +1,8 @@
+query getConfig {
+  getConfiguration {
+    active
+    affiliateId
+    salesChannel
+    email
+  }
+}
