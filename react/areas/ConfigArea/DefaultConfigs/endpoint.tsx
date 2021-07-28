@@ -3,7 +3,7 @@ import React from "react"
 import InputComponent from "../../../components/InputComponent"
 import { DefaultProps } from "../props"
 
-const CONECTOR_ENDPOINT = "www.google.com"
+const CONECTOR_ENDPOINT = "{{conectorEndpoint}}"
 
 export interface EmailProps extends DefaultProps {
 	config: Configuration
