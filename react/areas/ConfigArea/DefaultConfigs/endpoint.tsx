@@ -1,7 +1,7 @@
 import { Anchor, Box, IconStoreSettings } from "@vtex/admin-ui"
 import React from "react"
-import InputComponent from "../../components/InputComponent"
-import { DefaultProps } from "./props"
+import InputComponent from "../../../components/InputComponent"
+import { DefaultProps } from "../props"
 
 const CONECTOR_ENDPOINT = "www.google.com"
 
@@ -15,7 +15,7 @@ const SearchEndpoint: React.FC<DefaultProps> = ({ intl, config }) => {
             <Box csx={{ flexGrow: 1 }}>
                 <InputComponent
                     id={'searchEndpoint'}
-                    name={intl.formatMessage({ id: 'admin/mkp-app.notificationEndpoint.title' })}
+                    name={intl.formatMessage({ id: 'admin/mkp-app-template.notificationEndpoint.title' })}
                     canEdit={false}
                     type={'text'}
                     initValue={CONECTOR_ENDPOINT}

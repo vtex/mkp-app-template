@@ -35,13 +35,13 @@ const ConfigArea: FC = () => {
     onCompleted: () => {
       if(!loadingConfig)
         setConfig({ ...config, ...data.getConfiguration })
-    },
+    }
   })
-  const { data: salesChannels, loading: loadingSalesChannel } = useQuery(getSalesChannels, {
+  const { data: salesChannels, loading: loadingSC } = useQuery(getSalesChannels, {
     onCompleted: () => {
-      if(!loadingSalesChannel)
+      if(!loadingSC)
         setSC(salesChannels.getSalesChannels)
-    },
+    }
   })
   const [saveConfiguration, { loading: saveConfigLoading }] = useMutation(saveConfig, {
       onCompleted: () => {
@@ -49,7 +49,7 @@ const ConfigArea: FC = () => {
           type: 'success',
           dismissible: true,
           duration: DEFAULT_TOAST_DURATION,
-          message: intl.formatMessage({ id: 'admin/mkp-app.saveConfig.success' }),
+          message: intl.formatMessage({ id: 'admin/mkp-app-template.saveConfig.success' }),
         })
       },
       onError: (error) => {

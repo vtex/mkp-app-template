@@ -1,8 +1,8 @@
 import { Box } from "@vtex/admin-ui"
 import React from "react"
-import InputComponent from "../../components/InputComponent"
-import SelectComponent from "../../components/SelectComponent"
-import { DefaultProps } from "./props"
+import InputComponent from "../../../components/InputComponent"
+import SelectComponent from "../../../components/SelectComponent"
+import { DefaultProps } from "../props"
 
 export interface SalesChannelProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
@@ -22,9 +22,9 @@ const SalesChannel: React.FC<SalesChannelProps> = ({ intl, config, setConfig, sc
         <SelectComponent
           items={sc?.map(sc => { return sc.Name }) ?? []}
           initialSelectedItem={salesChannelName}
-          label={intl.formatMessage({ id: 'admin/mkp-app.salesChannel.title' })}
+          label={intl.formatMessage({ id: 'admin/mkp-app-template.salesChannel.title' })}
           canEdit={true}
-          tooltip={intl.formatMessage({ id: 'admin/mkp-app.salesChannel.tooltip' })}
+          tooltip={intl.formatMessage({ id: 'admin/mkp-app-template.salesChannel.tooltip' })}
           onChange={selectState => {
               if(selectState){
                 var salesChannelId = sc?.find(x => x.Name === selectState)?.Id!
@@ -40,7 +40,7 @@ const SalesChannel: React.FC<SalesChannelProps> = ({ intl, config, setConfig, sc
       <Box>
         <InputComponent
           id={'cultureInfo'}
-          name={intl.formatMessage({ id: 'admin/mkp-app.cultureInfo.title' })}
+          name={intl.formatMessage({ id: 'admin/mkp-app-template.cultureInfo.title' })}
           canEdit={false}
           initValue={cultureInfo}
           type={'text'}

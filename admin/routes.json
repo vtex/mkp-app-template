@@ -1,6 +1,6 @@
 {
   "admin.app.example": {
     "component": "AdminPanel",
-    "path": "/admin/app/{{appPath}}"
+    "path": "/admin/app/mkp-app-template"
   }
 }

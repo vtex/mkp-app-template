@@ -11,8 +11,7 @@
     "@types/node": "^12.0.0",
     "@types/ramda": "types/npm-ramda#dist",
     "@vtex/test-tools": "^1.0.0",
-    "typescript": "3.9.7",
-    "vtex.mkp-app-amazon": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.mkp-app-amazon@0.1.0/public/@types/vtex.mkp-app-amazon"
+    "typescript": "3.9.7"
   },
   "scripts": {
     "lint": "tsc --noEmit --pretty"

@@ -41,7 +41,7 @@ const InputComponent: React.FC<InputProps> = props => {
       onChange={(e: Event) => {
         props.canEdit ? props.onChange!(e?.target?.value ?? '') : {}
       }}
-      errorMessage={intl.formatMessage({ id: "admin/mkp-app.input.requiredMessage" })}
+      errorMessage={intl.formatMessage({ id: "admin/mkp-app-template.input.requiredMessage" })}
       error={(props.required ?? false) && !field}
       onClear={!props.canEdit ? undefined : () => props.onChange!('')}
       csx={props.csx}

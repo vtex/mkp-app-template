@@ -1,9 +1,9 @@
 {
-  "name": "{{appName}}",
-  "vendor": "{{vendor}}",
-  "version": "{{version}}",
-  "title": "{{appTitle}}",
-  "description": "{{appDescription}}",
+  "name": "mkp-app-template",
+  "vendor": "vtex",
+  "version": "0.0.0",
+  "title": "app_title",
+  "description": "app_description",
   "mustUpdateAt": "2018-01-04",
   "categories": [],
   "builders": {
@@ -15,6 +15,13 @@
     "graphql": "1.x"
   },
   "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "*"
+      }
+    },
     {
       "name": "vbase-read-write"
     }

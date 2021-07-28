@@ -1,5 +1,5 @@
 {
-  "name": "mkp-app-amazon",
+  "name": "mkp-app-template",
   "version": "0.0.0",
   "scripts": {
     "test": "vtex-test-tools test"
@@ -22,7 +22,6 @@
     "apollo-cache-inmemory": "^1.6.5",
     "graphql": "^14.6.0",
     "typescript": "3.9.7",
-    "vtex.mkp-app-amazon": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.mkp-app-amazon@0.1.0/public/@types/vtex.mkp-app-amazon",
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.130.0/public/@types/vtex.render-runtime"
   }
 }

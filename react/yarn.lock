@@ -5467,10 +5467,6 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-"vtex.mkp-app-amazon@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.mkp-app-amazon@0.1.0/public/@types/vtex.mkp-app-amazon":
-  version "0.1.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.mkp-app-amazon@0.1.0/public/@types/vtex.mkp-app-amazon#dded35d642a6aa3802dc09ca4a87e5a01fe235b2"
-
 "vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.130.0/public/@types/vtex.render-runtime":
   version "8.130.0"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.130.0/public/@types/vtex.render-runtime#6958e1017c423c0906eae3500bad70d3fb353a98"

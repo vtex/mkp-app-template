@@ -5,7 +5,6 @@ import { mapObjIndexed } from 'ramda'
 import { Clients } from './clients'
 import { mutations, queries } from './resolvers'
 
-import { amazonAuth } from './routes/amazonAuth'
 import { getConfig } from './routes/getConfig'
 
 const prepare = (resolver: any) =>
@@ -53,7 +52,6 @@ export default new Service({
     },
   },
   routes: mapObjIndexed(prepare, {
-    amazonAuth,
     getConfig
   })
 })
