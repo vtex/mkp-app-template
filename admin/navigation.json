@@ -1,11 +1,11 @@
 {
   "section": "marketplace",
-  "titleId": "admin/{{appName}}.template.title",
+  "titleId": "admin/{{appName}}.title",
   "subSection": "{{appName}}.configuration",
   "subSectionItems": [
     {
-      "labelId": "admin/{{appName}}.template.config-title",
-      "path": "/admin/{{appName}}.template"
+      "labelId": "admin/{{appName}}.config-title",
+      "path": "/admin/{{appName}}"
     }
   ]
 }
