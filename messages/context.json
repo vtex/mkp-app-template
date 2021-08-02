@@ -9,7 +9,7 @@
   "admin/{{appName}}.integrationStatus.title": "Integration status",
   "admin/{{appName}}.integrationStatus.value.on": "On",
   "admin/{{appName}}.integrationStatus.value.off": "Off",
-  "admin/{{appName}}.integrationStatus.tooltip": "Pause or start integration with Amazon.",
+  "admin/{{appName}}.integrationStatus.tooltip": "Pause or start integration with {{appTitle}}.",
   "admin/{{appName}}.email.tooltip": "Email that will be notified by the VTEX system when something happens to this affiliate.",
   "admin/{{appName}}.input.requiredMessage": "Required field",
   "admin/{{appName}}.cultureInfo.title": "Country",

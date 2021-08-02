@@ -9,7 +9,7 @@
   "admin/{{appName}}.integrationStatus.title": "Estado de integración",
   "admin/{{appName}}.integrationStatus.value.on": "Encendido",
   "admin/{{appName}}.integrationStatus.value.off": "Apagado",
-  "admin/{{appName}}.integrationStatus.tooltip": "Pausar o iniciar la integración con Amazon.",
+  "admin/{{appName}}.integrationStatus.tooltip": "Pausar o iniciar la integración con {{appTitle}}.",
   "admin/{{appName}}.email.tooltip": "Correo electrónico que será notificado por el sistema VTEX cuando algo le suceda a este afiliado.",
   "admin/{{appName}}.input.requiredMessage": "Campo requerido",
   "admin/{{appName}}.cultureInfo.title": "País",
