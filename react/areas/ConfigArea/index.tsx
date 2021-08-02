@@ -49,7 +49,7 @@ const ConfigArea: FC = () => {
           type: 'success',
           dismissible: true,
           duration: DEFAULT_TOAST_DURATION,
-          message: intl.formatMessage({ id: 'admin/mkp-app-template.saveConfig.success' }),
+          message: intl.formatMessage({ id: 'admin/{{appName}}.saveConfig.success' }),
         })
       },
       onError: (error) => {

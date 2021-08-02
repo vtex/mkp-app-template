@@ -1,5 +1,5 @@
 interface Configuration {
-  accocuntName: string
+  accountName: string
   active: boolean
   affiliateId: string
   salesChannel: string

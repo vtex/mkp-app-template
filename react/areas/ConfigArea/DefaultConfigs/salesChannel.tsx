@@ -22,9 +22,9 @@ const SalesChannel: React.FC<SalesChannelProps> = ({ intl, config, setConfig, sc
         <SelectComponent
           items={sc?.map(sc => { return sc.Name }) ?? []}
           initialSelectedItem={salesChannelName}
-          label={intl.formatMessage({ id: 'admin/mkp-app-template.salesChannel.title' })}
+          label={intl.formatMessage({ id: 'admin/{{appName}}.salesChannel.title' })}
           canEdit={true}
-          tooltip={intl.formatMessage({ id: 'admin/mkp-app-template.salesChannel.tooltip' })}
+          tooltip={intl.formatMessage({ id: 'admin/{{appName}}.salesChannel.tooltip' })}
           onChange={selectState => {
               if(selectState){
                 var salesChannelId = sc?.find(x => x.Name === selectState)?.Id!
@@ -40,7 +40,7 @@ const SalesChannel: React.FC<SalesChannelProps> = ({ intl, config, setConfig, sc
       <Box>
         <InputComponent
           id={'cultureInfo'}
-          name={intl.formatMessage({ id: 'admin/mkp-app-template.cultureInfo.title' })}
+          name={intl.formatMessage({ id: 'admin/{{appName}}.cultureInfo.title' })}
           canEdit={false}
           initValue={cultureInfo}
           type={'text'}

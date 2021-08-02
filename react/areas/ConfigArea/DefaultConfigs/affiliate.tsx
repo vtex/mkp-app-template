@@ -6,7 +6,7 @@ const Affiliate: React.FC<DefaultProps> = ({ intl, config }) => {
     return (
         <InputComponent
             id={'affiliateId'}
-            name={intl.formatMessage({ id: 'admin/mkp-app-template.affiliateId.title' })}
+            name={intl.formatMessage({ id: 'admin/{{appName}}.affiliateId.title' })}
             canEdit={false}
             initValue={config.affiliateId}
             type={'text'}

@@ -10,14 +10,14 @@ export interface IntegrationStatusProps extends DefaultProps {
 const IntegrationStatus: React.FC<IntegrationStatusProps> = ({ intl, config, setConfig, children }) => {
     return (
       <ToggleComponent
-        tooltip={intl.formatMessage({ id: "admin/mkp-app-template.integrationStatus.tooltip" })}
-        title={intl.formatMessage({ id: 'admin/mkp-app-template.integrationStatus.title' })}
+        tooltip={intl.formatMessage({ id: "admin/{{appName}}.integrationStatus.tooltip" })}
+        title={intl.formatMessage({ id: 'admin/{{appName}}.integrationStatus.title' })}
         canEdit={true}
         id={'isIntegrationActive'}
         state={config.active}
         onOffValues={{
-          on: intl.formatMessage({ id: 'admin/mkp-app-template.integrationStatus.value.on' }),
-          off: intl.formatMessage({ id: 'admin/mkp-app-template.integrationStatus.value.off' }),
+          on: intl.formatMessage({ id: 'admin/{{appName}}.integrationStatus.value.on' }),
+          off: intl.formatMessage({ id: 'admin/{{appName}}.integrationStatus.value.off' }),
         }}
         children={ children }
         onChange={() => {

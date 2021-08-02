@@ -1,9 +1,9 @@
 {
-  "name": "mkp-app-template",
-  "vendor": "vtex",
+  "name": "{{appName}}",
+  "vendor": "{{appVendor}}",
   "version": "0.0.0",
-  "title": "app_title",
-  "description": "app_description",
+  "title": "{{manifestTitle}}",
+  "description": "{{manifestDescription}}",
   "mustUpdateAt": "2018-01-04",
   "categories": [],
   "builders": {
