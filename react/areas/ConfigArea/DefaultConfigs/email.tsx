@@ -17,7 +17,7 @@ const Email: React.FC<EmailProps> = ({ intl, config, setConfig }) => {
       initValue={config.email}
       type={'email'}
       required={true}
-      tooltip={intl.formatMessage({ id: "admin/{{appName}}.email.tooltip" })}
+      tooltip={intl.formatMessage({ id: "admin/app.email.tooltip" })}
       onChange={value => {
           if(value !== undefined){
             setConfig(oldConfig => ({ ...oldConfig, email: value }))

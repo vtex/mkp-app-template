@@ -15,7 +15,7 @@ const TitleArea: FC = () => {
             textAlign: 'left',
           }}
         >
-          { intl.formatMessage( { id: "admin/{{appName}}.title" } ) }
+          { intl.formatMessage( { id: "admin/app.title" } ) }
         </Label>
       </Box>
       <Divider />
