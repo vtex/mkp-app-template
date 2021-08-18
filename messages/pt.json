@@ -1,6 +1,6 @@
 {
   "admin/app.title": "{{appTitle}}",
-  "admin/app.config-title": "Configurações",
+  "admin/app.config.title": "Configurações",
   "admin/app.saveConfig.success": "Configuração salva com sucesso.",
   "admin/app.affiliateId.title": "ID do afiliado",
   "admin/app.salesChannel.title": "Política Comercial",
@@ -15,5 +15,6 @@
   "admin/app.cultureInfo.title": "País",
   "admin/app.error.affiliate.registerFail": "Ocorreu um erro ao registrar o afiliado.",
   "admin/app.error.affiliate.invalidFormat": "Afiliado com formato inválido. Precisa ser 3 consoantes.",
-  "admin/app.error.salesChannel.invalidFormat": "Canal de vendas com formato inválido. Precisa ser um número inteiro."
+  "admin/app.error.salesChannel.invalidFormat": "Canal de vendas com formato inválido. Precisa ser um número inteiro.",
+  "admin/app.mapper.title": "Mapeamento de categoria"
 }

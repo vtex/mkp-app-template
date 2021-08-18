@@ -5,7 +5,11 @@
   "subSectionItems": [
     {
       "labelId": "admin/app.config.title",
-      "path": "/admin/{{appName}}"
+      "path": "/admin/{{appVendor}}/{{appName}}"
+    },
+    {
+      "labelId": "admin/app.mapper.title",
+      "path": "/admin/mkp-category-mapper/{{mapperId}}"
     }
   ]
 }

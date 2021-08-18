@@ -1,6 +1,6 @@
 {
   "admin/app.title": "{{appTitle}}",
-  "admin/app.config-title": "Settings",
+  "admin/app.config.title": "Settings",
   "admin/app.saveConfig.success": "Configuration successfully saved.",
   "admin/app.affiliateId.title": "Affiliate ID",
   "admin/app.salesChannel.title": "Sales Channel",
@@ -15,5 +15,6 @@
   "admin/app.cultureInfo.title": "Country",
   "admin/app.error.affiliate.registerFail": "Something gone wrong when registering the affiliate.",
   "admin/app.error.affiliate.invalidFormat": "Affiliate with invalid format. Need to be 3 consonant.",
-  "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. Need to be an integer number."
+  "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. Need to be an integer number.",
+  "admin/app.mapper.title": "Category mapping"
 }
