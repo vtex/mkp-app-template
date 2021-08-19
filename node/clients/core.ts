@@ -30,12 +30,12 @@ export default class CoreClient extends JanusClient {
     })
 
   public getConfigFromVBase = (ctx: Context) =>
-    ctx.clients.vbase.getJSON<Configuration>(VBASE_BUCKET, `${VBASE_CONFIG_BASE_PATH}/${ctx.vtex.account}`)
+    ctx.clients.vbase.getJSON<Configuration>(VBASE_BUCKET, `${VBASE_CONFIG_BASE_PATH}`)
 
   public saveConfigInVBase = async (config: Configuration, ctx: Context) => {
     ctx.clients.vbase.saveJSON(
       VBASE_BUCKET,
-      `${VBASE_CONFIG_BASE_PATH}/${ctx.vtex.account}`,
+      `${VBASE_CONFIG_BASE_PATH}`,
       config
     )
   }
