@@ -15,5 +15,6 @@
   "admin/mkp-app-template.cultureInfo.title": "País",
   "admin/mkp-app-template.error.affiliate.registerFail": "",
   "admin/mkp-app-template.error.affiliate.invalidFormat": "",
-  "admin/mkp-app-template.error.salesChannel.invalidFormat": ""
+  "admin/mkp-app-template.error.salesChannel.invalidFormat": "",
+  "admin/app.mapper.title": "Mapeamento de categorias"
 }
