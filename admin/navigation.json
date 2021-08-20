@@ -6,6 +6,10 @@
     {
       "labelId": "admin/mkp-app-template.template.config-title",
       "path": "/admin/mkp-app-template.template"
+    },
+    {
+      "labelId": "admin/app.mapper.title",
+      "path": "/admin/mkp-category-mapper/{{mapperId}}"
     }
   ]
 }
