@@ -10,7 +10,7 @@ export const saveConfiguration = async (
   validateConfig(config)
   
   return ctx.clients.core.registerAffiliate(config, ctx)
-    .then(() => { ctx.clients.core.saveConfigInVBase(config, ctx) })
+    .then(() => { ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase) })
     .catch((_) => { throw new UserInputError("admin/app.error.affiliate.registerFail") })
 }
 

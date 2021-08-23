@@ -1,5 +1,6 @@
 import { JanusClient, IOContext, InstanceOptions } from '@vtex/api'
 import { CONNECTOR_ENDPOINT, CONNECTOR_NAME, VBASE_BUCKET, VBASE_CONFIG_BASE_PATH, } from '../constants/variables'
+import { VBase } from '@vtex/api/lib/clients/infra'
 
 export default class CoreClient extends JanusClient {
   constructor(context: IOContext, options?: InstanceOptions) {
@@ -29,11 +30,11 @@ export default class CoreClient extends JanusClient {
       searchEndpoint: CONNECTOR_ENDPOINT,
     })
 
-  public getConfigFromVBase = (ctx: Context) =>
-    ctx.clients.vbase.getJSON<Configuration>(VBASE_BUCKET, `${VBASE_CONFIG_BASE_PATH}`)
+  public getConfigFromVBase = (vbase: VBase) =>
+    vbase.getJSON<Configuration>(VBASE_BUCKET, `${VBASE_CONFIG_BASE_PATH}`)
 
-  public saveConfigInVBase = async (config: Configuration, ctx: Context) => {
-    ctx.clients.vbase.saveJSON(
+  public saveConfigInVBase = async (config: Configuration, vbase: VBase) => {
+    vbase.saveJSON(
       VBASE_BUCKET,
       `${VBASE_CONFIG_BASE_PATH}`,
       config
