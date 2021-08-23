@@ -1,18 +1,17 @@
 import httpStatus from 'http-status-codes'
 
-const validateQuery = (query: any) => (query?.appKey && query?.appToken)
+const isHeadersValid = (headers: any) => (headers?.appkey && headers?.apptoken)
 
 export const getConfig = async (ctx: Context) => {
-  const { request: { query }, response, clients: { vtexID } } = ctx
-
+  const { request: { headers }, response, clients: { vtexID } } = ctx
   response.type = "application/json"
 
   var vendor = "{{appVendor}}"
 
-  if(!validateQuery(query)){
+  if(!isHeadersValid(headers)){
     response.status = httpStatus.BAD_REQUEST
     response.body = "appKey and appToken are required"
-  } else if(!await vtexID.validateAppKeyAppToken(vendor, query.appKey, query.appToken)){
+  } else if(!await vtexID.isValidAppKeyAndAppToken(vendor, headers.appkey, headers.apptoken)){
     response.status = httpStatus.FORBIDDEN
     response.body = "Invalid AppKey/AppToken"
   } else {

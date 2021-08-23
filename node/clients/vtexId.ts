@@ -10,11 +10,11 @@ export default class VtexIDClient extends JanusClient {
     })
   }
 
-  public async validateAppKeyAppToken(vendor: string, appKey: string, appToken: string){
+  public async isValidAppKeyAndAppToken(vendor: string, appKey: string, appToken: string){
     var tokenInfo = await this.getTokenInfo(appKey, appToken)
     if(!tokenInfo || tokenInfo.authStatus !== "Success")
       return false
-    return this.validateUserAccess(vendor, tokenInfo.userId)
+    return this.userHasAccessToVendor(vendor, tokenInfo.userId)
   }
 
   private getTokenInfo = async (appKey: string, appToken: string) =>
@@ -28,7 +28,7 @@ export default class VtexIDClient extends JanusClient {
       return res
     })
 
-  private validateUserAccess = async (vendor: string, userId: string) =>
+  private userHasAccessToVendor = async (vendor: string, userId: string) =>
     this.http.get<boolean>(`api/pvt/accounts/${vendor}/logins/${userId}/granted`, {
     }).then((res) => {
       return res
