@@ -96,7 +96,7 @@ const ConfigArea: FC = () => {
                     config,
                   },
                 })}>
-            Save
+            { intl.formatMessage({ id: "admin/app.save" }) }
             </Button>
             {saveConfigLoading && <Spinner csx={{ marginX: 6 }} size={40} />}
           </Grid>

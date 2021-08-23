@@ -1,5 +1,6 @@
 {
   "admin/app.title": "{{appTitle}}",
+  "admin/app.save": "Salvar",
   "admin/app.config.title": "Configurações",
   "admin/app.saveConfig.success": "Configuração salva com sucesso.",
   "admin/app.affiliateId.title": "ID do afiliado",
