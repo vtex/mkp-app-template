@@ -4,6 +4,7 @@ import {
   Label,
   useRadioState,
   Heading,
+  StyleProp,
 } from '@vtex/admin-ui'
 import React, { useEffect } from 'react'
 import TooltipComponent from './TooltipComponent'
@@ -16,6 +17,7 @@ export interface RadioProps {
   canEdit?: boolean
   direction: 'vertical' | 'horizontal'
   onChange: (value: string) => void
+  csx?: StyleProp
 }
 
 export interface RadioItem {
@@ -32,7 +34,8 @@ const RadioComponent: React.FC<RadioProps> = ({
   options,
   title,
   canEdit,
-  tooltip
+  tooltip,
+  csx
 }: RadioProps) => {
   const radioValue = useRadioState()
 
@@ -42,13 +45,14 @@ const RadioComponent: React.FC<RadioProps> = ({
     )
   }, [options])
 
-  const childrenSelected = options.find(x => x.checked)?.children;
+  const childrenSelected = options.find(x => x.checked)?.children
 
   const radioComponent = (
     <RadioGroup
       state={radioValue}
       id={id}
       orientation={direction}
+      csx={csx}
     >
       {options.map((item, idx) => (
         <Label key={`${item.label}-${item.value}-${idx}`}>

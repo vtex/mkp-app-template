@@ -1,15 +1,16 @@
-import { Tooltip } from '@vtex/admin-ui'
+import { StyleProp, Tooltip } from '@vtex/admin-ui'
 import React from 'react'
-import { tooltipOpacity } from '../constants'
 
 export interface TooltipProps {
   label?: string
   placement: "left" | "right"
+	csx?: StyleProp
 }
 
 const TooltipComponent : React.FC<TooltipProps> = ({
 	placement,
 	label,
+	csx,
 	children
 }) => {
 	if(label){
@@ -17,7 +18,7 @@ const TooltipComponent : React.FC<TooltipProps> = ({
 			<Tooltip
 				label={label}
 				placement={placement}
-				csx={{ opacity: tooltipOpacity }}
+				csx={csx}
 			>
 				
 				{ children as JSX.Element }

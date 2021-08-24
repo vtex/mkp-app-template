@@ -12,7 +12,7 @@ const Email: React.FC<EmailProps> = ({ intl, config, setConfig }) => {
   return (
     <InputComponent
       id={'email'}
-      name={'E-mail'}
+      label={'E-mail'}
       canEdit={true}
       initValue={config.email}
       type={'email'}

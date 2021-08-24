@@ -13,7 +13,7 @@ interface Event {
 
 export interface InputProps {
   id: string
-  name: string
+  label: string
   initValue: string
   canEdit: boolean
   type: InputType
@@ -27,7 +27,7 @@ const InputComponent: React.FC<InputProps> = ({
   id,
   initValue,
   canEdit,
-  name,
+  label,
   type,
   csx,
   onChange,
@@ -44,7 +44,7 @@ const InputComponent: React.FC<InputProps> = ({
   const inputComponent = (
     <Input
       id={id}
-      label={name}
+      label={label}
       value={field}
       disabled={!canEdit}
       type={type}

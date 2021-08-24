@@ -15,7 +15,7 @@ const SearchEndpoint: React.FC<DefaultProps> = ({ intl, config }) => {
             <Box csx={{ flexGrow: 1 }}>
                 <InputComponent
                     id={'searchEndpoint'}
-                    name={intl.formatMessage({ id: 'admin/app.notificationEndpoint.title' })}
+                    label={intl.formatMessage({ id: 'admin/app.notificationEndpoint.title' })}
                     canEdit={false}
                     type={'text'}
                     initValue={CONECTOR_ENDPOINT}

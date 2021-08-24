@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Select, useSelectState } from '@vtex/admin-ui'
+import { Select, StyleProp, useSelectState } from '@vtex/admin-ui'
 import TooltipComponent from './TooltipComponent'
 
 export interface SelectProps {
@@ -9,6 +9,7 @@ export interface SelectProps {
   canEdit?: boolean
   tooltip?: string
   onChange: (value: string | undefined) => void
+  csx?: StyleProp
 }
 
 const SelectComponent: React.FC<SelectProps> = ({
@@ -17,7 +18,8 @@ const SelectComponent: React.FC<SelectProps> = ({
   label,
   onChange,
   canEdit,
-  tooltip
+  tooltip,
+  csx
 }: SelectProps) => {
   const selectState = useSelectState({
     items: items,
@@ -36,6 +38,7 @@ const SelectComponent: React.FC<SelectProps> = ({
       label={label}
       disabled={!canEdit ?? false}
       block
+      csx={csx}
     />
   )
 

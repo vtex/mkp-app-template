@@ -39,7 +39,7 @@ const SalesChannel: React.FC<SalesChannelProps> = ({ intl, config, setConfig, sc
       <Box>
         <InputComponent
           id={'cultureInfo'}
-          name={intl.formatMessage({ id: 'admin/app.cultureInfo.title' })}
+          label={intl.formatMessage({ id: 'admin/app.cultureInfo.title' })}
           canEdit={false}
           initValue={cultureInfo}
           type={'text'}

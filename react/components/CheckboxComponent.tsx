@@ -5,6 +5,7 @@ import {
   Heading,
   useCheckboxState,
   CheckboxStateReturn,
+  StyleProp,
 } from '@vtex/admin-ui'
 import React, { useEffect } from 'react'
 import TooltipComponent from './TooltipComponent'
@@ -16,6 +17,7 @@ export interface CheckboxProps {
   tooltip?: string
   direction: 'vertical' | 'horizontal'
   onChange: (value: string[]) => void
+  csx?: StyleProp
 }
 
 export interface CheckboxItem {
@@ -45,7 +47,8 @@ const CheckboxComponent: React.FC<CheckboxProps> = ({
   tooltip,
   title,
   options,
-  onChange
+  onChange,
+  csx
 }: CheckboxProps ) => {
   const checkboxValue = useCheckboxState({ state: [] })
 
@@ -58,7 +61,7 @@ const CheckboxComponent: React.FC<CheckboxProps> = ({
   }, [options])
 
   const checkboxComponent = (
-    <CheckboxGroup id={id} orientation={direction}>
+    <CheckboxGroup id={id} orientation={direction} csx={csx}>
       {options.map((item, idx) => (
         <Label key={`${item.label}-${item.value}-${idx}`}>
           <Checkbox
