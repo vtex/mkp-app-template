@@ -23,34 +23,44 @@ export interface InputProps {
   csx?: StyleProp
 }
 
-const InputComponent: React.FC<InputProps> = props => {
+const InputComponent: React.FC<InputProps> = ({
+  id,
+  initValue,
+  canEdit,
+  name,
+  type,
+  csx,
+  onChange,
+  required,
+  tooltip
+}: InputProps) => {
   const intl = useIntl()
-  const [field, setField] = useState(props.initValue)
+  const [field, setField] = useState(initValue)
 
   useEffect(() => {
-    setField(props.initValue)
-  }, [props.initValue])
+    setField(initValue)
+  }, [initValue])
 
   const inputComponent = (
     <Input
-      id={props.id}
-      label={props.name}
+      id={id}
+      label={name}
       value={field}
-      disabled={!props.canEdit}
-      type={props.type}
+      disabled={!canEdit}
+      type={type}
       onChange={(e: Event) => {
-        props.canEdit ? props.onChange!(e?.target?.value ?? '') : {}
+        canEdit ? onChange!(e?.target?.value ?? '') : {}
       }}
       errorMessage={intl.formatMessage({ id: "admin/app.input.requiredMessage" })}
-      error={(props.required ?? false) && !field}
-      onClear={!props.canEdit ? undefined : () => props.onChange!('')}
-      csx={props.csx}
+      error={(required ?? false) && !field}
+      onClear={!canEdit ? undefined : () => onChange!('')}
+      csx={csx}
     />
   )
 
   return (
     <TooltipComponent
-      label={props.tooltip}
+      label={tooltip}
       placement="left"
     >
       {inputComponent}

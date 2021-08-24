@@ -7,21 +7,25 @@ export interface TooltipProps {
   placement: "left" | "right"
 }
 
-const TooltipComponent : React.FC<TooltipProps> = props => {
-	if(props.label){
+const TooltipComponent : React.FC<TooltipProps> = ({
+	placement,
+	label,
+	children
+}) => {
+	if(label){
 		return (
 			<Tooltip
-				label={props.label}
-				placement={props.placement}
+				label={label}
+				placement={placement}
 				csx={{ opacity: tooltipOpacity }}
 			>
 				
-				{ props.children as JSX.Element }
+				{ children as JSX.Element }
 			</Tooltip>
 		)
 	}
 
-	return <> { props.children } </>
+	return <> { children } </>
 }
 
 export default TooltipComponent

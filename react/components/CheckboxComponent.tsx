@@ -27,39 +27,44 @@ export interface CheckboxItem {
 
 const checkboxOnClick = (item: CheckboxItem,
                         checkboxValue: CheckboxStateReturn,
-                        props: React.PropsWithChildren<CheckboxProps>) => {
+                        onChange: (value: string[]) => void) => {
   
-                          let state = checkboxValue.state as string[]
+  const state = checkboxValue.state as string[]
   const exists = state.find(s => s === item.value)
 
   if (exists) {
-    state = state.filter(s => s !== item.value)
+    onChange(state.filter(s => s !== item.value))
   } else {
-    state = [...state, item.value]
+    onChange([...state, item.value])
   }
-
-  props.onChange(state)
 }
 
-const CheckboxComponent: React.FC<CheckboxProps> = props => {
+const CheckboxComponent: React.FC<CheckboxProps> = ({
+  id,
+  direction,
+  tooltip,
+  title,
+  options,
+  onChange
+}: CheckboxProps ) => {
   const checkboxValue = useCheckboxState({ state: [] })
 
   useEffect(() => {
     checkboxValue.setState(() =>
-      props.options
+      options
         .filter(item => item.checked)
         .map(item => item.value)
     )
-  }, [props.options])
+  }, [options])
 
   const checkboxComponent = (
-    <CheckboxGroup id={props.id} orientation={props.direction}>
-      {props.options.map((item, idx) => (
+    <CheckboxGroup id={id} orientation={direction}>
+      {options.map((item, idx) => (
         <Label key={`${item.label}-${item.value}-${idx}`}>
           <Checkbox
             value={item.value}
             state={checkboxValue}
-            onClick={ () => checkboxOnClick(item, checkboxValue, props) }
+            onClick={ () => checkboxOnClick(item, checkboxValue, onChange) }
             checked={item.checked}
             disabled={!(item.enabled ?? true)}
           />
@@ -72,10 +77,10 @@ const CheckboxComponent: React.FC<CheckboxProps> = props => {
   return (
     <>
       <TooltipComponent
-        label={props.tooltip}
+        label={tooltip}
         placement="left"
       >
-        <Heading csx={{ fontSize: 18 }}>{props.title}</Heading>
+        <Heading csx={{ fontSize: 18 }}>{title}</Heading>
       </TooltipComponent>
       {checkboxComponent}
     </>

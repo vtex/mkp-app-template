@@ -11,23 +11,30 @@ export interface SelectProps {
   onChange: (value: string | undefined) => void
 }
 
-const SelectComponent: React.FC<SelectProps> = props => {
+const SelectComponent: React.FC<SelectProps> = ({
+  initialSelectedItem,
+  items,
+  label,
+  onChange,
+  canEdit,
+  tooltip
+}: SelectProps) => {
   const selectState = useSelectState({
-    items: props.items,
-    initialSelectedItem: props.initialSelectedItem,
-    onSelectedItemChange: (item) => item ? props.onChange(item.selectedItem!) : {}
+    items: items,
+    initialSelectedItem: initialSelectedItem,
+    onSelectedItemChange: (item) => item ? onChange(item.selectedItem!) : {}
   })
 
   useEffect(() => {
-    selectState.selectItem(props.initialSelectedItem)
-  }, [props.initialSelectedItem])
+    selectState.selectItem(initialSelectedItem)
+  }, [initialSelectedItem])
 
   const selectComponent = (
     <Select
-      items={props.items}
+      items={items}
       state={selectState}
-      label={props.label}
-      disabled={!props.canEdit ?? false}
+      label={label}
+      disabled={!canEdit ?? false}
       block
     />
   )
@@ -35,7 +42,7 @@ const SelectComponent: React.FC<SelectProps> = props => {
   return (
     <TooltipComponent
       placement={"left"}
-      label={props.tooltip}
+      label={tooltip}
     >
       {selectComponent}
     </TooltipComponent>

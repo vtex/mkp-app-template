@@ -15,22 +15,33 @@ export interface ToggleProps {
   onChange: () => void
 }
 
-const ToggleComponent: React.FC<ToggleProps> = props => {
-  const toggle = useToggleState({ state: props.state })
+const ToggleComponent: React.FC<ToggleProps> = ({
+  id,
+  onChange,
+  onOffValues,
+  state,
+  arialLabel,
+  canEdit,
+  children,
+  title,
+  tooltip,
+  value
+}: ToggleProps) => {
+  const toggle = useToggleState({ state: state })
 
   useEffect(() => {
-    toggle.setState(props.state ?? false)
-  }, [props.state])
+    toggle.setState(state ?? false)
+  }, [state])
 
   const toggleComponent = (
     <Toggle
-      id={props.id}
-      value={props.value}
+      id={id}
+      value={value}
       state={toggle}
-      aria-label={props.arialLabel}
-      disabled={!props.canEdit}
+      aria-label={arialLabel}
+      disabled={!canEdit}
       onChange={() => {
-        props.onChange()
+        onChange()
       }}
     />
   )
@@ -39,21 +50,21 @@ const ToggleComponent: React.FC<ToggleProps> = props => {
 
   return (
     <>
-      {props.title && (
-        <Heading csx={{ fontSize: 18 }}> {props.title} </Heading>
+      {title && (
+        <Heading csx={{ fontSize: 18 }}> {title} </Heading>
       )}
       <Label csx={{ gap: 2, display: 'flex', alignItems: 'center' }}>
         <TooltipComponent
             placement={"left"}
-            label={props.tooltip}
+            label={tooltip}
         >
           {toggleComponent}
         </TooltipComponent>
 
-        { props.onOffValues[toggleStateAsString] }
+        { onOffValues[toggleStateAsString] }
       </Label>
 
-      { props.children?.[toggleStateAsString] }
+      { children?.[toggleStateAsString] }
     </>
   )
 }
