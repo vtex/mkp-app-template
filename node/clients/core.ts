@@ -31,12 +31,13 @@ export default class CoreClient extends JanusClient {
     })
 
   public getConfigFromVBase = (vbase: VBase) =>
-    vbase.getJSON<Configuration>(VBASE_BUCKET, `${VBASE_CONFIG_BASE_PATH}`)
+    vbase.getJSON<Configuration>(VBASE_BUCKET, VBASE_CONFIG_BASE_PATH)
+      .catch(_ => null)
 
   public saveConfigInVBase = async (config: Configuration, vbase: VBase) => {
     vbase.saveJSON(
       VBASE_BUCKET,
-      `${VBASE_CONFIG_BASE_PATH}`,
+      VBASE_CONFIG_BASE_PATH,
       config
     )
   }
