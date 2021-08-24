@@ -27,10 +27,9 @@ const SalesChannel: React.FC<SalesChannelProps> = ({ intl, config, setConfig, sc
           tooltip={intl.formatMessage({ id: 'admin/app.salesChannel.tooltip' })}
           onChange={selectState => {
               if(selectState){
-                var salesChannelId = sc?.find(x => x.Name === selectState)?.Id!
                 setConfig(oldConfig => ({
                   ...oldConfig,
-                  salesChannel: salesChannelId,
+                  salesChannel: sc?.find(x => x.Name === selectState)?.Id!,
                 }))
               }
             }

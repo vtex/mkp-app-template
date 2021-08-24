@@ -6,7 +6,7 @@ export const getConfig = async (ctx: Context) => {
   const { request: { headers }, response, clients: { vtexID } } = ctx
   response.type = "application/json"
 
-  var vendor = "{{appVendor}}"
+  const vendor = "{{appVendor}}"
 
   if(!isHeadersValid(headers)){
     response.status = httpStatus.BAD_REQUEST
@@ -15,7 +15,7 @@ export const getConfig = async (ctx: Context) => {
     response.status = httpStatus.FORBIDDEN
     response.body = "Invalid AppKey/AppToken"
   } else {
-    var config = await ctx.clients.core.getConfigFromVBase(ctx.clients.vbase)
+    const config = await ctx.clients.core.getConfigFromVBase(ctx.clients.vbase)
     response.body = JSON.stringify(config)
     response.status = httpStatus.OK
   }
