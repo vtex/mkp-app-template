@@ -16,6 +16,9 @@ export const getConfig = async (ctx: Context) => {
     response.body = "Invalid AppKey/AppToken"
   } else {
     const config = await ctx.clients.core.getConfigFromVBase(ctx.clients.vbase)
+    config.accountName = ctx.vtex.account
+    config.cookie = ctx.vtex.adminUserAuthToken ?? ""
+    
     response.body = JSON.stringify(config)
     response.status = httpStatus.OK
   }

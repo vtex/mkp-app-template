@@ -4,4 +4,5 @@ interface Configuration {
   affiliateId: string
   salesChannel: string
   email: string
+  cookie: string
 }
