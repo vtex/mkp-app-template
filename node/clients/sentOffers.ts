@@ -1,7 +1,7 @@
 import { IOContext, InstanceOptions, JanusClient, IOResponse, UserInputError} from '@vtex/api'
 import { CONFLIT_STATUS_CODE, SUCCESS_CODE } from '../constants/statusCode'
 
-export default class SentOffers extends JanusClient{
+export default class SentOffers extends JanusClient {
 
 	private routes = {
 		activeFeed: () => '/api/sent-offers/feeds',
@@ -21,7 +21,7 @@ export default class SentOffers extends JanusClient{
 		)
 	}
 
-	public async createFeed(data: FeedCreationData): Promise<Boolean>{
+	public async createFeed(data: FeedCreationData) {
 
 		const createResponse: any = await this.http.postRaw(
 			this.routes.activeFeed(),
@@ -51,7 +51,5 @@ export default class SentOffers extends JanusClient{
 			if(updateResponse.status != SUCCESS_CODE)
 				throw new UserInputError('error.vtex.sentOffers')
 		}
-
-		return true
 	}
 }
