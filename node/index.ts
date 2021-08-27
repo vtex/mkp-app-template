@@ -9,6 +9,7 @@ import { getConfig } from './routes/getConfig'
 
 const prepare = (resolver: any) =>
   async function prepareContext(ctx: Context) {
+    ctx.set("cache-control", "no-cache")
     return await resolver(ctx)
   }
 
@@ -53,5 +54,5 @@ export default new Service({
   },
   routes: mapObjIndexed(prepare, {
     getConfig
-  })
+  }),
 })

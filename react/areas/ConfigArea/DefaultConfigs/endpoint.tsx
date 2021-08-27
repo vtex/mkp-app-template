@@ -3,7 +3,7 @@ import React from "react"
 import InputComponent from "../../../components/InputComponent"
 import { DefaultProps } from "../props"
 
-const CONECTOR_ENDPOINT = "{{conectorEndpoint}}"
+const CONECTOR_ENDPOINT = "{{connectorEndpoint}}"
 
 export interface EmailProps extends DefaultProps {
 	config: Configuration
@@ -15,7 +15,7 @@ const SearchEndpoint: React.FC<DefaultProps> = ({ intl, config }) => {
             <Box csx={{ flexGrow: 1 }}>
                 <InputComponent
                     id={'searchEndpoint'}
-                    name={intl.formatMessage({ id: 'admin/mkp-app-template.notificationEndpoint.title' })}
+                    label={intl.formatMessage({ id: 'admin/app.notificationEndpoint.title' })}
                     canEdit={false}
                     type={'text'}
                     initValue={CONECTOR_ENDPOINT}

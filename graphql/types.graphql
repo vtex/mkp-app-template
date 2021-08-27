@@ -11,5 +11,4 @@ type Configuration {
   affiliateId: String
   salesChannel: String
   email: String
-  isAuthenticated: Boolean
 }

@@ -1,5 +1,5 @@
 {
-  "name": "mkp-app-template",
+  "name": "{{appName}}",
   "version": "0.0.0",
   "scripts": {
     "test": "vtex-test-tools test"

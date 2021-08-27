@@ -4,6 +4,7 @@ import {
   Label,
   useRadioState,
   Heading,
+  StyleProp,
 } from '@vtex/admin-ui'
 import React, { useEffect } from 'react'
 import TooltipComponent from './TooltipComponent'
@@ -16,6 +17,7 @@ export interface RadioProps {
   canEdit?: boolean
   direction: 'vertical' | 'horizontal'
   onChange: (value: string) => void
+  csx?: StyleProp
 }
 
 export interface RadioItem {
@@ -25,31 +27,41 @@ export interface RadioItem {
   children?: JSX.Element[]
 }
 
-const RadioComponent: React.FC<RadioProps> = props => {
+const RadioComponent: React.FC<RadioProps> = ({
+  direction,
+  id,
+  onChange,
+  options,
+  title,
+  canEdit,
+  tooltip,
+  csx
+}: RadioProps) => {
   const radioValue = useRadioState()
 
   useEffect(() => {
     radioValue.setState(
-      () => props.options?.filter(x => x.checked)[0]?.value ?? undefined
+      () => options?.filter(x => x.checked)[0]?.value ?? undefined
     )
-  }, [props.options])
+  }, [options])
 
-  var childrenSelected = props.options.find(x => x.checked)?.children;
+  const childrenSelected = options.find(x => x.checked)?.children
 
   const radioComponent = (
     <RadioGroup
       state={radioValue}
-      id={props.id}
-      orientation={props.direction}
+      id={id}
+      orientation={direction}
+      csx={csx}
     >
-      {props.options.map((item, idx) => (
+      {options.map((item, idx) => (
         <Label key={`${item.label}-${item.value}-${idx}`}>
           <Radio
             value={item.value}
             state={radioValue}
-            onClick={() => props.onChange(item.value)}
+            onClick={() => onChange(item.value)}
             checked={item.checked}
-            disabled={!props.canEdit}
+            disabled={!canEdit}
           />
           {item.label}
         </Label>
@@ -61,9 +73,9 @@ const RadioComponent: React.FC<RadioProps> = props => {
     <>
       <TooltipComponent
         placement={"left"}
-        label={props.tooltip}
+        label={tooltip}
       >
-        <Heading csx={{ fontSize: 18 }}>{props.title}</Heading>
+        <Heading csx={{ fontSize: 18 }}>{title}</Heading>
       </TooltipComponent>
       {radioComponent}
       {childrenSelected}

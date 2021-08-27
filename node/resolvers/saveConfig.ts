@@ -10,8 +10,8 @@ export const saveConfiguration = async (
   validateConfig(config)
   
   return ctx.clients.core.registerAffiliate(config, ctx)
-    .then(() => { ctx.clients.core.saveConfigInVBase(config, ctx) })
-    .catch((_) => { throw new UserInputError("admin/mkp-app-template.error.affiliate.registerFail") })
+    .then(() => { ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase) })
+    .catch((_) => { throw new UserInputError("admin/app.error.affiliate.registerFail") })
 }
 
 const validateConfig = async (config: Configuration) => {
@@ -19,12 +19,12 @@ const validateConfig = async (config: Configuration) => {
   const regexOnlyConsonants = /^[^AEIOU]{3}$/
 
   if (!regexOnlyNumbers.test(config.salesChannel)) {
-    throw new UserInputError('admin/mkp-app-template.error.salesChannel.invalidFormat')
+    throw new UserInputError('admin/app.error.salesChannel.invalidFormat')
   }
 
   if (!regexOnlyConsonants.test(config.affiliateId)) {
     throw new UserInputError(
-      'admin/mkp-app-template.error.affiliate.invalidFormat'
+      'admin/app.error.affiliate.invalidFormat'
     )
   }
 }

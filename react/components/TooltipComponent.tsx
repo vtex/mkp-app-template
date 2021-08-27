@@ -1,27 +1,32 @@
-import { Tooltip } from '@vtex/admin-ui'
+import { StyleProp, Tooltip } from '@vtex/admin-ui'
 import React from 'react'
-import { tooltipOpacity } from '../constants'
 
 export interface TooltipProps {
   label?: string
   placement: "left" | "right"
+	csx?: StyleProp
 }
 
-const TooltipComponent : React.FC<TooltipProps> = props => {
-	if(props.label){
+const TooltipComponent : React.FC<TooltipProps> = ({
+	placement,
+	label,
+	csx,
+	children
+}) => {
+	if(label){
 		return (
 			<Tooltip
-				label={props.label}
-				placement={props.placement}
-				csx={{ opacity: tooltipOpacity }}
+				label={label}
+				placement={placement}
+				csx={csx}
 			>
 				
-				{ props.children as JSX.Element }
+				{ children as JSX.Element }
 			</Tooltip>
 		)
 	}
 
-	return <> { props.children } </>
+	return <> { children } </>
 }
 
 export default TooltipComponent
