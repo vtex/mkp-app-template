@@ -16,5 +16,6 @@
   "admin/mkp-app-template.error.affiliate.registerFail": "",
   "admin/mkp-app-template.error.affiliate.invalidFormat": "",
   "admin/mkp-app-template.error.salesChannel.invalidFormat": "",
-  "admin/app.mapper.title": "Mapeamento de categorias"
+  "admin/app.mapper.title": "Mapeamento de categorias",
+  "error.vtex.sentOffers": "Algo deu errado ao consumir a API de Sent Offers."
 }
