@@ -13,13 +13,13 @@ export const saveConfiguration = async (
   const { affiliateId, salesChannel } = config
 
   await ctx.clients.sentOffers.createFeed({affiliateId, salesChannel, id: FEED_ID})
-                              .then( async () => {
-                                await ctx.clients.core.registerAffiliate(config,ctx)
-                                                      .catch((_) => { 
-                                                        throw new UserInputError("admin/mkp-app-template.error.affiliate.registerFail") 
-                                                      })
-                              })
-                              .catch( (_) => { throw new UserInputError("error.vtex.sentOffers") })                     
+  .then( async () => {
+    await ctx.clients.core.registerAffiliate(config,ctx)
+    .catch((_) => { 
+      throw new UserInputError("admin/mkp-app-template.error.affiliate.registerFail") 
+    })
+  })
+  .catch( (_) => { throw new UserInputError("error.vtex.sentOffers") })                     
 }
 
 const validateConfig = async (config: Configuration) => {
