@@ -49,7 +49,7 @@ const ConfigArea: FC = () => {
           type: 'success',
           dismissible: true,
           duration: DEFAULT_TOAST_DURATION,
-          message: intl.formatMessage({ id: 'admin/mkp-app-template.saveConfig.success' }),
+          message: intl.formatMessage({ id: 'admin/app.saveConfig.success' }),
         })
       },
       onError: (error) => {
@@ -96,7 +96,7 @@ const ConfigArea: FC = () => {
                     config,
                   },
                 })}>
-            Save
+            { intl.formatMessage({ id: "admin/app.save" }) }
             </Button>
             {saveConfigLoading && <Spinner csx={{ marginX: 6 }} size={40} />}
           </Grid>

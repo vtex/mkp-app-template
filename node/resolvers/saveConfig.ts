@@ -8,7 +8,7 @@ export const saveConfiguration = async (
 ) => {
   validateConfig(config)
   
-  await ctx.clients.core.saveConfigInVBase(config,ctx)
+  await ctx.clients.core.saveConfigInVBase(config,ctx.clients.vbase)
 
   const { affiliateId, salesChannel } = config
 
@@ -27,12 +27,12 @@ const validateConfig = async (config: Configuration) => {
   const regexOnlyConsonants = /^[^AEIOU]{3}$/
 
   if (!regexOnlyNumbers.test(config.salesChannel)) {
-    throw new UserInputError('admin/mkp-app-template.error.salesChannel.invalidFormat')
+    throw new UserInputError('admin/app.error.salesChannel.invalidFormat')
   }
 
   if (!regexOnlyConsonants.test(config.affiliateId)) {
     throw new UserInputError(
-      'admin/mkp-app-template.error.affiliate.invalidFormat'
+      'admin/app.error.affiliate.invalidFormat'
     )
   }
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Select, useSelectState } from '@vtex/admin-ui'
+import { Select, StyleProp, useSelectState } from '@vtex/admin-ui'
 import TooltipComponent from './TooltipComponent'
 
 export interface SelectProps {
@@ -9,33 +9,43 @@ export interface SelectProps {
   canEdit?: boolean
   tooltip?: string
   onChange: (value: string | undefined) => void
+  csx?: StyleProp
 }
 
-const SelectComponent: React.FC<SelectProps> = props => {
+const SelectComponent: React.FC<SelectProps> = ({
+  initialSelectedItem,
+  items,
+  label,
+  onChange,
+  canEdit,
+  tooltip,
+  csx
+}: SelectProps) => {
   const selectState = useSelectState({
-    items: props.items,
-    initialSelectedItem: props.initialSelectedItem,
-    onSelectedItemChange: (item) => item ? props.onChange(item.selectedItem!) : {}
+    items: items,
+    initialSelectedItem: initialSelectedItem,
+    onSelectedItemChange: (item) => item ? onChange(item.selectedItem!) : {}
   })
 
   useEffect(() => {
-    selectState.selectItem(props.initialSelectedItem)
-  }, [props.initialSelectedItem])
+    selectState.selectItem(initialSelectedItem)
+  }, [initialSelectedItem])
 
   const selectComponent = (
     <Select
-      items={props.items}
+      items={items}
       state={selectState}
-      label={props.label}
-      disabled={!props.canEdit ?? false}
+      label={label}
+      disabled={!canEdit ?? false}
       block
+      csx={csx}
     />
   )
 
   return (
     <TooltipComponent
       placement={"left"}
-      label={props.tooltip}
+      label={tooltip}
     >
       {selectComponent}
     </TooltipComponent>

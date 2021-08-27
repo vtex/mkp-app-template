@@ -1,37 +1,45 @@
-import { Heading, Label, Toggle, useToggleState } from '@vtex/admin-ui'
+import { Heading, Label, StyleProp, Toggle, useToggleState } from '@vtex/admin-ui'
 import React, { useEffect } from 'react'
 import TooltipComponent from './TooltipComponent'
 
 export interface ToggleProps {
   title?: string
   id: string
-  arialLabel?: string
   tooltip?: string
   state: boolean
-  value?: string
   canEdit?: boolean
   onOffValues: { on: string; off: string }
   children?: { on?: JSX.Element[], off?: JSX.Element[] }
-  onChange: () => void
+  onChange?: () => void,
+  csx?: StyleProp
 }
 
-const ToggleComponent: React.FC<ToggleProps> = props => {
-  const toggle = useToggleState({ state: props.state })
+const ToggleComponent: React.FC<ToggleProps> = ({
+  id,
+  onChange,
+  onOffValues,
+  state,
+  canEdit,
+  children,
+  title,
+  tooltip,
+  csx
+}: ToggleProps) => {
+  const toggle = useToggleState({ state: state })
 
   useEffect(() => {
-    toggle.setState(props.state ?? false)
-  }, [props.state])
+    toggle.setState(state ?? false)
+  }, [state])
 
   const toggleComponent = (
     <Toggle
-      id={props.id}
-      value={props.value}
+      id={id}
       state={toggle}
-      aria-label={props.arialLabel}
-      disabled={!props.canEdit}
+      disabled={!canEdit}
       onChange={() => {
-        props.onChange()
+        if(onChange) onChange!()
       }}
+      csx={csx}
     />
   )
 
@@ -39,21 +47,21 @@ const ToggleComponent: React.FC<ToggleProps> = props => {
 
   return (
     <>
-      {props.title && (
-        <Heading csx={{ fontSize: 18 }}> {props.title} </Heading>
+      {title && (
+        <Heading csx={{ fontSize: 18 }}> {title} </Heading>
       )}
       <Label csx={{ gap: 2, display: 'flex', alignItems: 'center' }}>
         <TooltipComponent
             placement={"left"}
-            label={props.tooltip}
+            label={tooltip}
         >
           {toggleComponent}
         </TooltipComponent>
 
-        { props.onOffValues[toggleStateAsString] }
+        { onOffValues[toggleStateAsString] }
       </Label>
 
-      { props.children?.[toggleStateAsString] }
+      { children?.[toggleStateAsString] }
     </>
   )
 }
