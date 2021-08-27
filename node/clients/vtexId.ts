@@ -10,7 +10,7 @@ export default class VtexIDClient extends JanusClient {
     })
   }
 
-  public async isValidAppKeyAndAppToken(vendor: string, appKey: string, appToken: string){
+  public async areValidAppKeyAndAppToken(vendor: string, appKey: string, appToken: string){
     const tokenInfo = await this.getTokenInfo(appKey, appToken)
     if(!tokenInfo || tokenInfo.authStatus !== "Success")
       return false
