@@ -14,7 +14,7 @@ interface Event {
 export interface InputProps {
   id: string
   label: string
-  initValue: string
+  initValue: string | undefined
   canEdit: boolean
   type: InputType
   tooltip?: string
@@ -49,7 +49,9 @@ const InputComponent: React.FC<InputProps> = ({
       disabled={!canEdit}
       type={type}
       onChange={(e: Event) => {
-        canEdit ? onChange!(e?.target?.value ?? '') : {}
+        const inputValue = e?.target?.value
+        setField(inputValue)
+        canEdit ? onChange!(inputValue ?? '') : {}
       }}
       errorMessage={intl.formatMessage({ id: "admin/app.input.requiredMessage" })}
       error={(required ?? false) && !field}

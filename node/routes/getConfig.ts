@@ -10,10 +10,10 @@ export const getConfig = async (ctx: Context) => {
 
   if(!isHeadersValid(headers)){
     response.status = httpStatus.BAD_REQUEST
-    response.body = "appKey and appToken are required"
+    response.body = "{ \"error\": \"appKey and appToken are required\" }"
   } else if(!await vtexID.isValidAppKeyAndAppToken(vendor, headers.appkey, headers.apptoken)){
     response.status = httpStatus.FORBIDDEN
-    response.body = "Invalid AppKey/AppToken"
+    response.body = "{ \"error\": \"Invalid appKey and/or appToken\" }"
   } else {
     const config = await ctx.clients.core.getConfigFromVBase(ctx.clients.vbase)
     if(!config){
