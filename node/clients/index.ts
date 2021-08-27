@@ -1,6 +1,7 @@
 import { IOClients } from '@vtex/api'
 import { Affiliate } from '@vtex/clients'
 import CoreClient from './core'
+import SentOffers from './sentOffers'
 
 // Extend the default IOClients implementation with our own custom clients.
 export class Clients extends IOClients {
@@ -10,5 +11,9 @@ export class Clients extends IOClients {
 
   public get core() {
     return this.getOrSet('core', CoreClient)
+  }
+
+  public get sentOffers(){
+    return this.getOrSet('sentOffers', SentOffers)
   }
 }
