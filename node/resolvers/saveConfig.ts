@@ -19,6 +19,8 @@ export const saveConfiguration = async (
                           .catch((_) => { 
                             throw new UserInputError("admin/mkp-app-template.error.affiliate.registerFail") 
                           })
+  else
+    throw new UserInputError("error.vtex.sentOffers")                       
 }
 
 const validateConfig = async (config: Configuration) => {
