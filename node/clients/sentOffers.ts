@@ -49,7 +49,7 @@ export default class SentOffers extends JanusClient {
 			)
 
 			if(updateResponse.status != SUCCESS_CODE)
-				throw new UserInputError('error.vtex.sentOffers')
+				throw new UserInputError('admin/vtex.sentOffers')
 		}
 	}
 }

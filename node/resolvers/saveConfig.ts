@@ -16,10 +16,10 @@ export const saveConfiguration = async (
   .then( async () => {
     await ctx.clients.core.registerAffiliate(config,ctx)
     .catch((_) => { 
-      throw new UserInputError("admin/mkp-app-template.error.affiliate.registerFail") 
+      throw new UserInputError("admin/app.error.affiliate.registerFail") 
     })
   })
-  .catch( (_) => { throw new UserInputError("error.vtex.sentOffers") })                     
+  .catch( (_) => { throw new UserInputError("admin/vtex.sentOffers") })                     
 }
 
 const validateConfig = async (config: Configuration) => {
