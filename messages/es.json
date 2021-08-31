@@ -1,7 +1,7 @@
 {
   "admin/app.title": "{{appTitle}}",
-  "admin/app.save": "Salvar",
-  "admin/app.config.title": "Configuración",
+  "admin/app.save": "Save",
+  "admin/app.config-title": "Configuración",
   "admin/app.saveConfig.success": "Configuración guardada correctamente.",
   "admin/app.affiliateId.title": "Identificación del afiliado",
   "admin/app.salesChannel.title": "Política comercial",
@@ -10,12 +10,13 @@
   "admin/app.integrationStatus.title": "Estado de integración",
   "admin/app.integrationStatus.value.on": "Encendido",
   "admin/app.integrationStatus.value.off": "Apagado",
-  "admin/app.integrationStatus.tooltip": "Pausar o iniciar la integración con {{appTitle}}.",
+  "admin/app.integrationStatus.tooltip": "Pausar o iniciar la integración con Amazon.",
   "admin/app.email.tooltip": "Correo electrónico que será notificado por el sistema VTEX cuando algo le suceda a este afiliado.",
   "admin/app.input.requiredMessage": "Campo requerido",
   "admin/app.cultureInfo.title": "País",
   "admin/app.error.affiliate.registerFail": "Se produjo un error al registrar el afiliado.",
   "admin/app.error.affiliate.invalidFormat": "Afiliado con formato no válido. Debe tener 3 consonantes.",
   "admin/app.error.salesChannel.invalidFormat": "Canal de ventas con formato no válido. Debe ser un número entero.",
-  "admin/app.mapper.title": "Mapeamento de categoría"
+  "admin/app.mapper.title": "Mapeamento de categoría",
+  "admin/vtex.sentOffers": "Se produjo un error al consumir la API de Sent Offers."
 }

@@ -1,6 +1,5 @@
-import {
-  UserInputError,
-} from '@vtex/api'
+import { UserInputError } from '@vtex/api'
+import { FEED_ID } from '../constants/variables'
 
 export const saveConfiguration = async (
   _: unknown,
@@ -9,9 +8,18 @@ export const saveConfiguration = async (
 ) => {
   validateConfig(config)
   
-  return ctx.clients.core.registerAffiliate(config, ctx)
-    .then(() => { ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase) })
-    .catch((_) => { throw new UserInputError("admin/app.error.affiliate.registerFail") })
+  await ctx.clients.core.saveConfigInVBase(config,ctx.clients.vbase)
+
+  const { affiliateId, salesChannel } = config
+
+  await ctx.clients.sentOffers.createFeed({affiliateId, salesChannel, id: FEED_ID})
+  .then( async () => {
+    await ctx.clients.core.registerAffiliate(config,ctx)
+    .catch((_) => { 
+      throw new UserInputError("admin/app.error.affiliate.registerFail") 
+    })
+  })
+  .catch( (_) => { throw new UserInputError("admin/vtex.sentOffers") })                     
 }
 
 const validateConfig = async (config: Configuration) => {
