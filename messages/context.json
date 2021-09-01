@@ -1,7 +1,7 @@
 {
   "admin/app.title": "{{appTitle}}",
   "admin/app.save": "Save",
-  "admin/app.config-title": "Settings",
+  "admin/app.config.title": "Settings",
   "admin/app.saveConfig.success": "Configuration successfully saved.",
   "admin/app.affiliateId.title": "Affiliate ID",
   "admin/app.salesChannel.title": "Sales Channel",
@@ -10,7 +10,7 @@
   "admin/app.integrationStatus.title": "Integration status",
   "admin/app.integrationStatus.value.on": "On",
   "admin/app.integrationStatus.value.off": "Off",
-  "admin/app.integrationStatus.tooltip": "Pause or start integration with Amazon.",
+  "admin/app.integrationStatus.tooltip": "Pause or start integration with {{appTitle}}.",
   "admin/app.email.tooltip": "Email that will be notified by the VTEX system when something happens to this affiliate.",
   "admin/app.input.requiredMessage": "Required field",
   "admin/app.cultureInfo.title": "Country",

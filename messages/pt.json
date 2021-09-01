@@ -1,7 +1,7 @@
 {
   "admin/app.title": "{{appTitle}}",
   "admin/app.save": "Save",
-  "admin/app.config-title": "Configurações",
+  "admin/app.config.title": "Configurações",
   "admin/app.saveConfig.success": "Configuração salva com sucesso.",
   "admin/app.affiliateId.title": "ID do afiliado",
   "admin/app.salesChannel.title": "Política Comercial",
@@ -10,7 +10,7 @@
   "admin/app.integrationStatus.title": "Status da integração",
   "admin/app.integrationStatus.value.on": "Ligado",
   "admin/app.integrationStatus.value.off": "Desligado",
-  "admin/app.integrationStatus.tooltip": "Pausa ou inicia a integração com a Amazon.",
+  "admin/app.integrationStatus.tooltip": "Pausa ou inicia a integração com a {{appTitle}}.",
   "admin/app.email.tooltip": "E-mail que será notificado pelo sistema VTEX quando algo acontecer com este afiliado.",
   "admin/app.input.requiredMessage": "Campo obrigatório",
   "admin/app.cultureInfo.title": "País",
