@@ -1,7 +1,7 @@
 {
   "admin/app.title": "{{appTitle}}",
   "admin/app.save": "Save",
-  "admin/app.config-title": "Configuración",
+  "admin/app.config.title": "Configuración",
   "admin/app.saveConfig.success": "Configuración guardada correctamente.",
   "admin/app.affiliateId.title": "Identificación del afiliado",
   "admin/app.salesChannel.title": "Política comercial",
