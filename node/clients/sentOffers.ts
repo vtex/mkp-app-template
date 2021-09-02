@@ -1,5 +1,5 @@
 import { IOContext, InstanceOptions, JanusClient, IOResponse, UserInputError} from '@vtex/api'
-import { CONFLIT_STATUS_CODE, SUCCESS_CODE } from '../constants/statusCode'
+import { CONFLIT_STATUS_CODE, NOT_FOUND, SUCCESS_CODE } from '../constants/statusCode'
 
 export default class SentOffers extends JanusClient {
 
@@ -35,7 +35,7 @@ export default class SentOffers extends JanusClient {
 		)
 
 		// You already created the feed
-		if(createResponse.status == CONFLIT_STATUS_CODE){
+		if(createResponse.status === CONFLIT_STATUS_CODE){
 
 			const updateResponse: IOResponse<any> = await this.http.putRaw(
 				this.routes.updateFeedById(data.id),
@@ -48,8 +48,11 @@ export default class SentOffers extends JanusClient {
 				}
 			)
 
-			if(updateResponse.status != SUCCESS_CODE)
+			if(updateResponse.status !== SUCCESS_CODE)
 				throw new UserInputError('admin/vtex.sentOffers')
 		}
+
+		if(createResponse.status === NOT_FOUND)
+			throw new UserInputError('admin/vtex.sentOffers')
 	}
 }
