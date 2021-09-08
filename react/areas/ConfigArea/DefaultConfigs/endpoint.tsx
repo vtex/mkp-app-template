@@ -1,7 +1,7 @@
 import { Anchor, Box, IconStoreSettings } from "@vtex/admin-ui"
 import React from "react"
 import InputComponent from "../../../components/InputComponent"
-import { DefaultProps } from "../props"
+import { DefaultProps } from "../../../typings/props"
 
 const CONECTOR_ENDPOINT = "{{connectorEndpoint}}"
 

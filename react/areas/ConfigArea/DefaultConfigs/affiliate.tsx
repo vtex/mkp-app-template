@@ -1,6 +1,7 @@
 import React from "react"
 import InputComponent from "../../../components/InputComponent"
-import { DefaultProps } from "../props"
+import { DefaultProps } from "../../../typings/props"
+
 
 const Affiliate: React.FC<DefaultProps> = ({ intl, config }) => {
     return (

@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { Grid, Box, Card } from '@vtex/admin-ui'
 
-import TitleArea from './TitleArea'
-import ConfigArea from './ConfigArea'
+import TitleArea from './titleArea'
+import ConfigArea from './configArea'
 
 const MainPanel: FC = () => {
   return (

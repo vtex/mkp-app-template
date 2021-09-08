@@ -4,7 +4,7 @@ import Affiliate from './affiliate'
 import SearchEndpoint from './endpoint'
 import SalesChannel from './salesChannel'
 import Email from './email'
-import { DefaultProps } from '../props'
+import { DefaultProps } from '../../../typings/props'
 
 export interface DefaultConfigsProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>

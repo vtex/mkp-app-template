@@ -1,6 +1,6 @@
 import React from "react"
 import ToggleComponent from "../../components/ToggleComponent"
-import { DefaultProps } from "./props"
+import { DefaultProps } from "../../typings/props"
 
 export interface IntegrationStatusProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
