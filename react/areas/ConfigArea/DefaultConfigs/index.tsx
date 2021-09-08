@@ -11,7 +11,7 @@ export interface DefaultConfigsProps extends DefaultProps {
   sc: SalesChannel[] | undefined
 }
 
-const ConfigArea: React.FC<DefaultConfigsProps> = ({ config, setConfig, intl, sc }) => {
+const DefaultConfigsArea: React.FC<DefaultConfigsProps> = ({ config, setConfig, intl, sc }) => {
   return (
     <div>      
       <Affiliate
@@ -37,4 +37,4 @@ const ConfigArea: React.FC<DefaultConfigsProps> = ({ config, setConfig, intl, sc
   )
 }
 
-export default ConfigArea
+export default DefaultConfigsArea
