@@ -3,7 +3,6 @@ import InputComponent from "../../../components/InputComponent"
 import { DefaultProps } from "../../../typings/props"
 
 export interface EmailProps extends DefaultProps {
-  config: Configuration
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
 }
 

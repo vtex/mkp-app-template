@@ -14,8 +14,8 @@ import getConfig from '../../graphql/getConfig.gql'
 import getSalesChannels from '../../graphql/getSalesChannels.gql'
 
 import IntegrationStatus from './integrationStatus'
-import DefaultConfigs from './DefaultConfigs'
-import CustomConfigs from './CustomConfigs'
+import DefaultConfigs from './defaultConfigs'
+import CustomConfigs from './customConfigs'
 
 const defaultConfigs: Configuration = {
   active: false,
@@ -82,7 +82,11 @@ const ConfigArea: FC = () => {
                     intl={intl}
                     sc={sc}
                   />,
-                  <CustomConfigs />
+                  <CustomConfigs 
+                    config={config}
+                    intl={intl}
+                    setConfig={setConfig}
+                  />
                 ]
               }
             }
