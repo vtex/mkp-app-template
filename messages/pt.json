@@ -18,5 +18,6 @@
   "admin/app.error.affiliate.invalidFormat": "Afiliado com formato inválido. Deve consistir em 3 consoantes.",
   "admin/app.error.salesChannel.invalidFormat": "Canal de vendas com formato inválido. Deve ser um número inteiro.",
   "admin/app.mapper.title": "Mapeamento de categorias",
-  "admin/vtex.sentOffers": "Ocorreu um erro ao consumir a API de Anúncios Enviados."
+  "admin/app.sentoffers.error": "Ocorreu um erro ao consumir a API do Sent Offers.",
+  "admin/app.default.error": "Ocorreu um erro."
 }

@@ -18,5 +18,6 @@
   "admin/app.error.affiliate.invalidFormat": "Affiliate with invalid format. It needs to be 3 consonants.",
   "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. It needs to be an integer number.",
   "admin/app.mapper.title": "Category mapping",
-  "admin/vtex.sentOffers": "Something went wrong when consuming Sent Offers API."
+  "admin/app.sentoffers.error": "Something went wrong when consuming Sent Offers API.",
+  "admin/app.default.error": "Something went wrong."
 }
