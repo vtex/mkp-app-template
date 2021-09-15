@@ -4,14 +4,14 @@ import Affiliate from './affiliate'
 import SearchEndpoint from './endpoint'
 import SalesChannel from './salesChannel'
 import Email from './email'
-import { DefaultProps } from '../props'
+import { DefaultProps } from '../../../typings/props'
 
 export interface DefaultConfigsProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
   sc: SalesChannel[] | undefined
 }
 
-const ConfigArea: React.FC<DefaultConfigsProps> = ({ config, setConfig, intl, sc }) => {
+const DefaultConfigsArea: React.FC<DefaultConfigsProps> = ({ config, setConfig, intl, sc }) => {
   return (
     <div>      
       <Affiliate
@@ -37,4 +37,4 @@ const ConfigArea: React.FC<DefaultConfigsProps> = ({ config, setConfig, intl, sc
   )
 }
 
-export default ConfigArea
+export default DefaultConfigsArea

@@ -2,7 +2,7 @@ import { Box } from "@vtex/admin-ui"
 import React from "react"
 import InputComponent from "../../../components/InputComponent"
 import SelectComponent from "../../../components/SelectComponent"
-import { DefaultProps } from "../props"
+import { DefaultProps } from "../../../typings/props"
 
 export interface SalesChannelProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>

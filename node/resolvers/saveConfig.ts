@@ -19,7 +19,7 @@ export const saveConfiguration = async (
       throw new UserInputError("admin/app.error.affiliate.registerFail") 
     })
   })
-  .catch( (_) => { throw new UserInputError("admin/vtex.sentOffers") })                     
+  .catch( (_) => { throw new UserInputError("admin/app.sentoffers.error") })                     
 }
 
 const validateConfig = async (config: Configuration) => {

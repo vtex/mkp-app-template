@@ -1,13 +1,9 @@
 import { Anchor, Box, IconStoreSettings } from "@vtex/admin-ui"
 import React from "react"
 import InputComponent from "../../../components/InputComponent"
-import { DefaultProps } from "../props"
+import { DefaultProps } from "../../../typings/props"
 
-const CONECTOR_ENDPOINT = "{{connectorEndpoint}}"
-
-export interface EmailProps extends DefaultProps {
-	config: Configuration
-}
+const CONNECTOR_ENDPOINT = "{{connectorEndpoint}}"
 
 const SearchEndpoint: React.FC<DefaultProps> = ({ intl, config }) => {
     return (
@@ -18,7 +14,7 @@ const SearchEndpoint: React.FC<DefaultProps> = ({ intl, config }) => {
                     label={intl.formatMessage({ id: 'admin/app.notificationEndpoint.title' })}
                     canEdit={false}
                     type={'text'}
-                    initValue={CONECTOR_ENDPOINT}
+                    initValue={CONNECTOR_ENDPOINT}
                 />
             </Box>
             <Anchor

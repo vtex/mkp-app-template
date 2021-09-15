@@ -14,7 +14,8 @@ import getConfig from '../../graphql/getConfig.gql'
 import getSalesChannels from '../../graphql/getSalesChannels.gql'
 
 import IntegrationStatus from './integrationStatus'
-import DefaultConfigs from './DefaultConfigs'
+import DefaultConfigs from './defaultConfigs'
+import CustomConfigs from './customConfigs'
 
 const defaultConfigs: Configuration = {
   active: false,
@@ -54,11 +55,27 @@ const ConfigArea: FC = () => {
       },
       onError: (error) => {
         error.graphQLErrors.map((ex, _) => {
+          var message = intl.formatMessage({ id: "admin/app.default.error" })
+          switch(ex.message){
+            case "admin/app.sentoffers.error":
+              message = intl.formatMessage({ id: "admin/app.sentoffers.error" })
+              break
+            case "admin/app.error.affiliate.registerFail":
+              message = intl.formatMessage({ id: "admin/app.error.affiliate.registerFail" })
+              break
+            case "admin/app.error.salesChannel.invalidFormat":
+              message = intl.formatMessage({ id: "admin/app.error.salesChannel.invalidFormat" })
+              break
+            case "admin/app.error.affiliate.invalidFormat":
+              message = intl.formatMessage({ id: "admin/app.error.affiliate.invalidFormat" })
+              break
+          }
+
           toast.dispatch({
             type: 'error',
             dismissible: true,
             duration: DEFAULT_TOAST_DURATION,
-            message: intl.formatMessage({ id: ex.message })
+            message: message
           })
         })
       },
@@ -80,6 +97,11 @@ const ConfigArea: FC = () => {
                     setConfig={setConfig}
                     intl={intl}
                     sc={sc}
+                  />,
+                  <CustomConfigs 
+                    config={config}
+                    intl={intl}
+                    setConfig={setConfig}
                   />
                 ]
               }

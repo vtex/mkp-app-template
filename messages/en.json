@@ -11,12 +11,13 @@
   "admin/app.integrationStatus.value.on": "On",
   "admin/app.integrationStatus.value.off": "Off",
   "admin/app.integrationStatus.tooltip": "Pause or start integration with {{appTitle}}.",
-  "admin/app.email.tooltip": "Email that will be notified by the VTEX system when something happens to this affiliate.",
+  "admin/app.email.tooltip": "Email that will receive a VTEX system notification when something happens to this affiliate.",
   "admin/app.input.requiredMessage": "Required field",
   "admin/app.cultureInfo.title": "Country",
-  "admin/app.error.affiliate.registerFail": "Something gone wrong when registering the affiliate.",
-  "admin/app.error.affiliate.invalidFormat": "Affiliate with invalid format. Need to be 3 consonant.",
-  "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. Need to be an integer number.",
+  "admin/app.error.affiliate.registerFail": "Something went wrong when registering the affiliate.",
+  "admin/app.error.affiliate.invalidFormat": "Affiliate with invalid format. It needs to be 3 consonants.",
+  "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. It needs to be an integer number.",
   "admin/app.mapper.title": "Category mapping",
-  "admin/vtex.sentOffers": "Something went wrong when consuming Sent Offers API."
+  "admin/app.sentoffers.error": "Something went wrong when consuming Sent Offers API.",
+  "admin/app.default.error": "Something went wrong."
 }
