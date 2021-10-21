@@ -1,16 +1,16 @@
-import { ClientsConfig, LRUCache, Service, ServiceContext } from '@vtex/api'
-
+import type { ClientsConfig, ServiceContext } from '@vtex/api'
+import { LRUCache, Service } from '@vtex/api'
 import { mapObjIndexed } from 'ramda'
 
 import { Clients } from './clients'
 import { mutations, queries } from './resolvers'
-
 import { getConfig } from './routes/getConfig'
 
 const prepare = (resolver: any) =>
   async function prepareContext(ctx: Context) {
-    ctx.set("cache-control", "no-cache")
-    return await resolver(ctx)
+    ctx.set('cache-control', 'no-cache')
+
+    return resolver(ctx)
   }
 
 const TIMEOUT_MS = 800
@@ -53,6 +53,6 @@ export default new Service({
     },
   },
   routes: mapObjIndexed(prepare, {
-    getConfig
+    getConfig,
   }),
 })

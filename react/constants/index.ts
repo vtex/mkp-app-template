@@ -1,1 +1,1 @@
-export const tooltipOpacity = 0.7;
+export const tooltipOpacity = 0.7

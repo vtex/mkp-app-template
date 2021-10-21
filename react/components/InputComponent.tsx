@@ -1,6 +1,8 @@
-import { Input, InputType, StyleProp } from '@vtex/admin-ui'
+import type { InputType, StyleProp } from '@vtex/admin-ui'
+import { Input } from '@vtex/admin-ui'
 import React, { useState, useEffect } from 'react'
 import { useIntl } from 'react-intl'
+
 import TooltipComponent from './TooltipComponent'
 
 interface Target {
@@ -32,7 +34,7 @@ const InputComponent: React.FC<InputProps> = ({
   csx,
   onChange,
   required,
-  tooltip
+  tooltip,
 }: InputProps) => {
   const intl = useIntl()
   const [field, setField] = useState(initValue)
@@ -50,10 +52,13 @@ const InputComponent: React.FC<InputProps> = ({
       type={type}
       onChange={(e: Event) => {
         const inputValue = e?.target?.value
+
         setField(inputValue)
         canEdit ? onChange!(inputValue ?? '') : {}
       }}
-      errorMessage={intl.formatMessage({ id: "admin/app.input.requiredMessage" })}
+      errorMessage={intl.formatMessage({
+        id: 'admin/app.input.requiredMessage',
+      })}
       error={(required ?? false) && !field}
       onClear={!canEdit ? undefined : () => onChange!('')}
       csx={csx}
@@ -61,10 +66,7 @@ const InputComponent: React.FC<InputProps> = ({
   )
 
   return (
-    <TooltipComponent
-      label={tooltip}
-      placement="left"
-    >
+    <TooltipComponent label={tooltip} placement="left">
       {inputComponent}
     </TooltipComponent>
   )
