@@ -13,5 +13,4 @@ input ConfigurationInput {
   affiliateId: String
   salesChannel: String
   email: String
-  orderProcessingNotificationEndpoint: String
 }

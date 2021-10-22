@@ -5,5 +5,4 @@ interface Configuration {
   salesChannel: string
   email: string
   cookie: string
-  orderProcessingNotificationEndpoint: string
 }
