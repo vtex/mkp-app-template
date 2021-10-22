@@ -12,11 +12,3 @@ type Configuration {
   salesChannel: String
   email: String
 }
-
-type ConnectorConfiguration {
-  accountName: String
-  active: Boolean
-  affiliateId: String
-  salesChannel: String
-  email: String
-}
