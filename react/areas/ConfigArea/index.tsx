@@ -16,6 +16,8 @@ const defaultConfigs: Configuration = {
   affiliateId: '{{affiliateId}}',
   salesChannel: '',
   email: 'email@email.com',
+  orderProcessingNotificationEndpoint:
+    '{{orderProcessingNotificationEndpoint}}',
 }
 
 const DEFAULT_TOAST_DURATION = 10000
