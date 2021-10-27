@@ -5,6 +5,7 @@ import { mapObjIndexed } from 'ramda'
 import { Clients } from './clients'
 import { mutations, queries } from './resolvers'
 import { getConfig } from './routes/getConfig'
+import { getConnectorConfig } from './routes/getConnectorConfig'
 
 const prepare = (resolver: any) =>
   async function prepareContext(ctx: Context) {
@@ -54,5 +55,6 @@ export default new Service({
   },
   routes: mapObjIndexed(prepare, {
     getConfig,
+    getConnectorConfig,
   }),
 })
