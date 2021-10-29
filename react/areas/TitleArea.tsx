@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import type { FC } from 'react'
+import React from 'react'
 import { Grid, Label, Box, Divider } from '@vtex/admin-ui'
 import { useIntl } from 'react-intl'
 
@@ -15,7 +16,7 @@ const TitleArea: FC = () => {
             textAlign: 'left',
           }}
         >
-          { intl.formatMessage( { id: "admin/app.title" } ) }
+          {intl.formatMessage({ id: 'admin/app.title' })}
         </Label>
       </Box>
       <Divider />

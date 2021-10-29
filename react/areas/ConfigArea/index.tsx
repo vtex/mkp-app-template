@@ -1,21 +1,15 @@
-import React, { FC, useState } from 'react'
-import {
-  Grid,
-  Box,
-  Button,
-  toast,
-  Spinner
-} from '@vtex/admin-ui'
+import type { FC } from 'react'
+import React, { useState } from 'react'
+import { Grid, Box, Button, toast, Spinner } from '@vtex/admin-ui'
 import { useMutation, useQuery } from 'react-apollo'
 import { useIntl } from 'react-intl'
 
 import saveConfig from '../../graphql/saveConfig.gql'
 import getConfig from '../../graphql/getConfig.gql'
 import getSalesChannels from '../../graphql/getSalesChannels.gql'
-
-import IntegrationStatus from './integrationStatus'
-import DefaultConfigs from './defaultConfigs'
-import CustomConfigs from './customConfigs'
+import IntegrationStatus from './IntegrationStatus'
+import DefaultConfigs from './DefaultConfigs'
+import CustomConfigs from './CustomConfigs'
 
 const defaultConfigs: Configuration = {
   active: false,
@@ -34,17 +28,22 @@ const ConfigArea: FC = () => {
 
   const { data, loading: loadingConfig } = useQuery(getConfig, {
     onCompleted: () => {
-      if(!loadingConfig)
-        setConfig({ ...config, ...data.getConfiguration })
-    }
+      if (!loadingConfig) setConfig({ ...config, ...data.getConfiguration })
+    },
   })
-  const { data: salesChannels, loading: loadingSC } = useQuery(getSalesChannels, {
-    onCompleted: () => {
-      if(!loadingSC)
-        setSC(salesChannels.getSalesChannels)
+
+  const { data: salesChannels, loading: loadingSC } = useQuery(
+    getSalesChannels,
+    {
+      onCompleted: () => {
+        if (!loadingSC) setSC(salesChannels.getSalesChannels)
+      },
     }
-  })
-  const [saveConfiguration, { loading: saveConfigLoading }] = useMutation(saveConfig, {
+  )
+
+  const [saveConfiguration, { loading: saveConfigLoading }] = useMutation(
+    saveConfig,
+    {
       onCompleted: () => {
         toast.dispatch({
           type: 'success',
@@ -54,20 +53,34 @@ const ConfigArea: FC = () => {
         })
       },
       onError: (error) => {
-        error.graphQLErrors.map((ex, _) => {
-          var message = intl.formatMessage({ id: "admin/app.default.error" })
-          switch(ex.message){
-            case "admin/app.sentoffers.error":
-              message = intl.formatMessage({ id: "admin/app.sentoffers.error" })
+        error.graphQLErrors.forEach((ex, _) => {
+          let message = intl.formatMessage({ id: 'admin/app.default.error' })
+
+          switch (ex.message) {
+            case 'admin/app.sentoffers.error':
+              message = intl.formatMessage({ id: 'admin/app.sentoffers.error' })
               break
-            case "admin/app.error.affiliate.registerFail":
-              message = intl.formatMessage({ id: "admin/app.error.affiliate.registerFail" })
+
+            case 'admin/app.error.affiliate.registerFail':
+              message = intl.formatMessage({
+                id: 'admin/app.error.affiliate.registerFail',
+              })
               break
-            case "admin/app.error.salesChannel.invalidFormat":
-              message = intl.formatMessage({ id: "admin/app.error.salesChannel.invalidFormat" })
+
+            case 'admin/app.error.salesChannel.invalidFormat':
+              message = intl.formatMessage({
+                id: 'admin/app.error.salesChannel.invalidFormat',
+              })
               break
-            case "admin/app.error.affiliate.invalidFormat":
-              message = intl.formatMessage({ id: "admin/app.error.affiliate.invalidFormat" })
+
+            case 'admin/app.error.affiliate.invalidFormat':
+              message = intl.formatMessage({
+                id: 'admin/app.error.affiliate.invalidFormat',
+              })
+              break
+
+            default:
+              message = ''
               break
           }
 
@@ -75,7 +88,7 @@ const ConfigArea: FC = () => {
             type: 'error',
             dismissible: true,
             duration: DEFAULT_TOAST_DURATION,
-            message: message
+            message,
           })
         })
       },
@@ -87,29 +100,36 @@ const ConfigArea: FC = () => {
       <div>
         <Box csx={{ bg: 'light.primary' }}>
           <IntegrationStatus
+            key="integrationStatus"
             config={config}
             setConfig={setConfig}
             intl={intl}
-            children={
-              { on: [
-                  <DefaultConfigs 
-                    config={config}
-                    setConfig={setConfig}
-                    intl={intl}
-                    sc={sc}
-                  />,
-                  <CustomConfigs 
-                    config={config}
-                    intl={intl}
-                    setConfig={setConfig}
-                  />
-                ]
-              }
-            }
-          />
+          >
+            {{
+              on: [
+                <DefaultConfigs
+                  key="DefaultConfigs"
+                  config={config}
+                  setConfig={setConfig}
+                  intl={intl}
+                  sc={sc}
+                />,
+                <CustomConfigs
+                  key="CustomConfigs"
+                  config={config}
+                  intl={intl}
+                  setConfig={setConfig}
+                />,
+              ],
+            }}
+          </IntegrationStatus>
         </Box>
         <Box>
-          <Grid className="grid" csx={{ marginY: 2 }} templateColumns="25fr 75fr">
+          <Grid
+            className="grid"
+            csx={{ marginY: 2 }}
+            templateColumns="25fr 75fr"
+          >
             <Button
               variant="primary"
               onClick={() =>
@@ -117,8 +137,10 @@ const ConfigArea: FC = () => {
                   variables: {
                     config,
                   },
-                })}>
-            { intl.formatMessage({ id: "admin/app.save" }) }
+                })
+              }
+            >
+              {intl.formatMessage({ id: 'admin/app.save' })}
             </Button>
             {saveConfigLoading && <Spinner csx={{ marginX: 6 }} size={40} />}
           </Grid>

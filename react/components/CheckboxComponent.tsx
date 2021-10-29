@@ -1,13 +1,13 @@
+import type { CheckboxStateReturn, StyleProp } from '@vtex/admin-ui'
 import {
   CheckboxGroup,
   Checkbox,
   Label,
   Heading,
   useCheckboxState,
-  CheckboxStateReturn,
-  StyleProp,
 } from '@vtex/admin-ui'
 import React, { useEffect } from 'react'
+
 import TooltipComponent from './TooltipComponent'
 
 export interface CheckboxProps {
@@ -27,15 +27,16 @@ export interface CheckboxItem {
   enabled?: boolean
 }
 
-const checkboxOnClick = (item: CheckboxItem,
-                        checkboxValue: CheckboxStateReturn,
-                        onChange: (value: string[]) => void) => {
-  
+const checkboxOnClick = (
+  item: CheckboxItem,
+  checkboxValue: CheckboxStateReturn,
+  onChange: (value: string[]) => void
+) => {
   const state = checkboxValue.state as string[]
-  const exists = state.find(s => s === item.value)
+  const exists = state.find((s) => s === item.value)
 
   if (exists) {
-    onChange(state.filter(s => s !== item.value))
+    onChange(state.filter((s) => s !== item.value))
   } else {
     onChange([...state, item.value])
   }
@@ -48,15 +49,13 @@ const CheckboxComponent: React.FC<CheckboxProps> = ({
   title,
   options,
   onChange,
-  csx
-}: CheckboxProps ) => {
+  csx,
+}: CheckboxProps) => {
   const checkboxValue = useCheckboxState({ state: [] })
 
   useEffect(() => {
     checkboxValue.setState(() =>
-      options
-        .filter(item => item.checked)
-        .map(item => item.value)
+      options.filter((item) => item.checked).map((item) => item.value)
     )
   }, [options])
 
@@ -67,7 +66,7 @@ const CheckboxComponent: React.FC<CheckboxProps> = ({
           <Checkbox
             value={item.value}
             state={checkboxValue}
-            onClick={ () => checkboxOnClick(item, checkboxValue, onChange) }
+            onClick={() => checkboxOnClick(item, checkboxValue, onChange)}
             checked={item.checked}
             disabled={!(item.enabled ?? true)}
           />
@@ -79,10 +78,7 @@ const CheckboxComponent: React.FC<CheckboxProps> = ({
 
   return (
     <>
-      <TooltipComponent
-        label={tooltip}
-        placement="left"
-      >
+      <TooltipComponent label={tooltip} placement="left">
         <Heading csx={{ fontSize: 18 }}>{title}</Heading>
       </TooltipComponent>
       {checkboxComponent}

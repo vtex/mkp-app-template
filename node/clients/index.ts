@@ -1,5 +1,6 @@
 import { IOClients } from '@vtex/api'
 import { Affiliate } from '@vtex/clients'
+
 import CoreClient from './core'
 import SentOffers from './sentOffers'
 import VtexIDClient from './vtexId'
@@ -10,15 +11,15 @@ export class Clients extends IOClients {
     return this.getOrSet('affiliate', Affiliate)
   }
 
-  public get vtexID(){
-    return this.getOrSet("vtexID", VtexIDClient)
+  public get vtexID() {
+    return this.getOrSet('vtexID', VtexIDClient)
   }
 
   public get core() {
     return this.getOrSet('core', CoreClient)
   }
 
-  public get sentOffers(){
+  public get sentOffers() {
     return this.getOrSet('sentOffers', SentOffers)
   }
 }

@@ -9,6 +9,11 @@
     "getConfig": {
       "path": "/_v/{{appVendor}}/{{appName}}/config",
       "public": true
+    },
+
+    "getConnectorConfig": {
+      "path": "/_v/{{appVendor}}/{{appName}}/connectorConfig",
+      "public": true
     }
   }
 }

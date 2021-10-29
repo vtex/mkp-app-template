@@ -1,6 +1,6 @@
 interface SalesChannel {
-    Id: string
-    Name: string
-    CountryCode: string
-    CultureInfo: string
+  Id: string
+  Name: string
+  CountryCode: string
+  CultureInfo: string
 }

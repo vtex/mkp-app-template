@@ -1,10 +1,13 @@
 import httpStatus from 'http-status-codes'
 
-import { APP_VENDOR } from '../constants/variables'
+import {
+  APP_VENDOR,
+  CONNECTOR_ORDER_PROCESSING_NOTIFICATION_ENDPOINT,
+} from '../constants/variables'
 
 const headersExist = (headers: any) => headers?.appkey && headers?.apptoken
 
-export const getConfig = async (ctx: Context) => {
+export const getConnectorConfig = async (ctx: Context) => {
   const {
     request: { headers },
     response,
@@ -30,14 +33,14 @@ export const getConfig = async (ctx: Context) => {
       message: 'Invalid appKey and/or appToken',
     })
   } else {
-    const config = await ctx.clients.core.getConfigFromVBase(ctx.clients.vbase)
+    const config: ConnectorConfiguration = {
+      orderProcessingNotificationEndpoint:
+        CONNECTOR_ORDER_PROCESSING_NOTIFICATION_ENDPOINT,
+    }
 
     if (!config) {
       response.status = httpStatus.NOT_FOUND
     } else {
-      config.accountName = ctx.vtex.account
-      config.cookie = ctx.vtex.adminUserAuthToken ?? ctx.vtex.authToken ?? ''
-
       response.body = JSON.stringify(config)
       response.status = httpStatus.OK
     }
