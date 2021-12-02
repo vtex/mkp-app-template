@@ -15,5 +15,11 @@
       "path": "/_v/{{appVendor}}/{{appName}}/connectorConfig",
       "public": true
     }
+  },
+  "events": {
+    "someStates": {
+      "sender": "vtex.orders-broadcast",
+      "topics": ["waiting-ffmt-authorization"]
+    }
   }
 }
