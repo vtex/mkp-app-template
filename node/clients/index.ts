@@ -2,6 +2,7 @@ import { IOClients } from '@vtex/api'
 import { Affiliate } from '@vtex/clients'
 
 import CoreClient from './core'
+import NotificatorClient from './notificator'
 import SentOffers from './sentOffers'
 import VtexIDClient from './vtexId'
 
@@ -21,5 +22,9 @@ export class Clients extends IOClients {
 
   public get sentOffers() {
     return this.getOrSet('sentOffers', SentOffers)
+  }
+
+  public get notificator(){
+    return this.getOrSet('notificator', NotificatorClient)
   }
 }

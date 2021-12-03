@@ -5,7 +5,10 @@ import {
   CONNECTOR_ORDER_PROCESSING_NOTIFICATION_ENDPOINT,
 } from '../constants/variables'
 
-const headersExist = (headers: any) => headers?.appkey && headers?.apptoken
+const HEADER_VTEX_APP_KEY = "x-vtex-api-appkey"
+const HEADER_VTEX_APP_TOKEN = "x-vtex-api-apptoken"
+
+const headersExist = (headers: any) => headers?.[HEADER_VTEX_APP_KEY] && headers?.[HEADER_VTEX_APP_TOKEN]
 
 export const getConnectorConfig = async (ctx: Context) => {
   const {
@@ -19,18 +22,18 @@ export const getConnectorConfig = async (ctx: Context) => {
   if (!headersExist(headers)) {
     response.status = httpStatus.BAD_REQUEST
     response.body = JSON.stringify({
-      message: 'AppKey and AppToken are required',
+      message: HEADER_VTEX_APP_KEY + ' and ' + HEADER_VTEX_APP_TOKEN + ' are required',
     })
   } else if (
     !(await vtexID.areValidAppKeyAndAppToken(
       APP_VENDOR,
-      headers.appkey,
-      headers.apptoken
+      headers?.[HEADER_VTEX_APP_KEY],
+      headers?.[HEADER_VTEX_APP_TOKEN]
     ))
   ) {
     response.status = httpStatus.FORBIDDEN
     response.body = JSON.stringify({
-      message: 'Invalid appKey and/or appToken',
+      message: 'Invalid ' + HEADER_VTEX_APP_KEY + ' and/or ' + HEADER_VTEX_APP_TOKEN,
     })
   } else {
     const config: ConnectorConfiguration = {
