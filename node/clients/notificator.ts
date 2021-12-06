@@ -3,7 +3,7 @@ import { ExternalClient } from '@vtex/api'
 
 export default class NotificatorClient extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super("https://portal.vtexcommercebeta.com.br", context, {
+    super("", context, {
       ...options,
       headers: {
         VtexIdclientAutCookie:
@@ -14,7 +14,7 @@ export default class NotificatorClient extends ExternalClient {
   // Validar no OrderIntegration (subir um beta para conseguir fazer a chamada)
   public notifyOrderStatusChange = (orderStatusChange: OrderStatusChange) =>
     this.http
-      .post('/api/order-integration/orders/status-change', orderStatusChange, {
+      .post('{{orderStatusChangeNotificationEndpoint}}', orderStatusChange, {
         params: {
           an: this.context.account,
         },
