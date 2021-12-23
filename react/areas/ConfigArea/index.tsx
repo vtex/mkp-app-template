@@ -13,9 +13,10 @@ import CustomConfigs from './CustomConfigs'
 
 const defaultConfigs: Configuration = {
   active: false,
-  affiliateId: '{{affiliateId}}',
+  affiliateId: 'BBB',
   salesChannel: '',
   email: 'email@email.com',
+  allowFranchiseAccounts: false
 }
 
 const DEFAULT_TOAST_DURATION = 10000
@@ -93,6 +94,10 @@ const ConfigArea: FC = () => {
         })
       },
     }
+  )
+
+  if(loadingConfig || loadingSC) return (
+  <Spinner />
   )
 
   return (

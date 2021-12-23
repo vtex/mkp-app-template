@@ -3,6 +3,7 @@ import { UserInputError } from '@vtex/api'
 import { FEED_ID } from '../constants/variables'
 
 const validateConfig = async (config: Configuration) => {
+  console.log(config)
   const regexOnlyNumbers = /^[0-9]+$/
   const regexOnlyConsonants = /^[^AEIOU]{3}$/
 

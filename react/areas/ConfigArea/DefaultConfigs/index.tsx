@@ -5,6 +5,7 @@ import SearchEndpoint from './endpoint'
 import SalesChannel from './salesChannel'
 import Email from './email'
 import type { DefaultProps } from '../../../typings/props'
+import AllowFranchiseAccount from './allowFranchiseAccountsAccount'
 
 export interface DefaultConfigsProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
@@ -23,6 +24,7 @@ const DefaultConfigsArea: React.FC<DefaultConfigsProps> = ({
       <SearchEndpoint config={config} intl={intl} />
       <SalesChannel intl={intl} config={config} setConfig={setConfig} sc={sc} />
       <Email intl={intl} config={config} setConfig={setConfig} />
+      <AllowFranchiseAccount intl={intl} config={config} setConfig={setConfig} />
     </div>
   )
 }
