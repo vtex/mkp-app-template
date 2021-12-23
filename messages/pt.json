@@ -5,6 +5,7 @@
   "admin/app.saveConfig.success": "Configuração salva com êxito.",
   "admin/app.affiliateId.title": "ID do afiliado",
   "admin/app.salesChannel.title": "Canal de Vendas",
+  "admin/app.allow-franchise.title": "Permitir Contas Franquia",
   "admin/app.salesChannel.tooltip": "Catálogo que será enviado para o marketplace.",
   "admin/app.notificationEndpoint.title": "Endpoint de notificação",
   "admin/app.integrationStatus.title": "Status da integração",

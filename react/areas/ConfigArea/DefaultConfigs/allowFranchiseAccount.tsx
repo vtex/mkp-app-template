@@ -12,7 +12,7 @@ const AllowFranchiseAccount: React.FC<AllowFranchiseAccountProps> = ({intl, conf
 
   return (
     <ToggleComponent
-    title='Allow Franchise'
+    title={intl.formatMessage({id: "admin/app.allow-franchise.title"})}
     id="franchiseAccountToggle"
     state={toggleButtonState}
     canEdit
