@@ -3,11 +3,11 @@ import ToggleComponent from '../../../components/ToggleComponent'
 
 import type { DefaultProps } from '../../../typings/props'
 
-export interface AllowFranchiseAccountProps extends DefaultProps {
+export interface AllowFranchiseAccountsProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
 }
 
-const AllowFranchiseAccount: React.FC<AllowFranchiseAccountProps> = ({intl, config, setConfig}) => {
+const AllowFranchiseAccounts: React.FC<AllowFranchiseAccountsProps> = ({intl, config, setConfig}) => {
   const [toggleButtonState, setToggleButtonState] = useState(config.allowFranchiseAccounts)
 
   return (
@@ -33,4 +33,4 @@ const AllowFranchiseAccount: React.FC<AllowFranchiseAccountProps> = ({intl, conf
   )
 }
 
-export default AllowFranchiseAccount
+export default AllowFranchiseAccounts
