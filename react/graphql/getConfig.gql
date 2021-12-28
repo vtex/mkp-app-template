@@ -4,5 +4,6 @@ query getConfig {
     affiliateId
     salesChannel
     email
+    allowFranchiseAccounts
   }
 }
