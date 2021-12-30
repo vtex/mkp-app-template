@@ -12,10 +12,11 @@ const CustomConfigsArea: React.FC<CustomConfigsProps> =  ({
   setConfig,
   intl
 }) => {
-  return (<div>
-          <AllowFranchiseAccounts intl={intl} config={config} setConfig={setConfig} />
-
-  </div>)
+  return (
+    <div>
+      <AllowFranchiseAccounts intl={intl} config={config} setConfig={setConfig} />
+    </div>
+  )
 }
 
 export default CustomConfigsArea
