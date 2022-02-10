@@ -5,7 +5,7 @@ import { notifyConnectorAppUpdate } from './notifyConnectorAppUpdate'
 
 export const mutations = {
   saveConfiguration,
-  notifyConnectorAppUpdate
+  notifyConnectorAppUpdate,
 }
 
 export const queries = {

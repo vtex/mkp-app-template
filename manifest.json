@@ -23,6 +23,13 @@
       }
     },
     {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "{{CONNECTOR_APP_UPDATE_NOTIFICATION_ENDPOINT}}",
+        "path": "*"
+      }
+    },
+    {
       "name": "vbase-read-write"
     }
   ],

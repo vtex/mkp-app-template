@@ -11,6 +11,8 @@ export default class ConnectorClient extends ExternalClient {
 
   public async notifyConnectorAppUpdate(config: Configuration)
   {
-    return this.http.post<void>("", config)
+    config.accountName = this.context.account,
+    this.http.post<void>("", config)
+    return ""
   }
 }
