@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
   saveConfiguration(config: ConfigurationInput): String
+  notifyConnectorAppUpdate(config: ConfigurationInput): String
 }
 
 input ConfigurationInput {

@@ -9,7 +9,7 @@ export default class ConnectorClient extends ExternalClient {
     )
   }
 
-  public async sendAppUpdateNotification(config: Configuration)
+  public async notifyConnectorAppUpdate(config: Configuration)
   {
     return this.http.post<void>("", config)
   }
