@@ -5,6 +5,8 @@ import { useMutation, useQuery } from 'react-apollo'
 import { useIntl } from 'react-intl'
 
 import saveConfig from '../../graphql/saveConfig.gql'
+import notifyConnectorAppUpdate from '../../graphql/notifyConnectorAppUpdate.gql'
+
 import getConfig from '../../graphql/getConfig.gql'
 import getSalesChannels from '../../graphql/getSalesChannels.gql'
 import IntegrationStatus from './IntegrationStatus'
@@ -41,6 +43,8 @@ const ConfigArea: FC = () => {
       },
     }
   )
+
+  const [notifyConnector] = useMutation(notifyConnectorAppUpdate)
 
   const [saveConfiguration, { loading: saveConfigLoading }] = useMutation(
     saveConfig,
@@ -138,11 +142,18 @@ const ConfigArea: FC = () => {
             <Button
               variant="primary"
               onClick={() =>
-                saveConfiguration({
-                  variables: {
-                    config,
-                  },
-                })
+                {
+                  notifyConnector({
+                    variables: {
+                      config,
+                    },
+                  })
+                  saveConfiguration({
+                    variables: {
+                      config,
+                    },
+                  })
+                }
               }
             >
               {intl.formatMessage({ id: 'admin/app.save' })}
