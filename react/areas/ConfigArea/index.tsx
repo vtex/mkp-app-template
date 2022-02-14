@@ -13,6 +13,7 @@ import CustomConfigs from './CustomConfigs'
 
 const defaultConfigs: Configuration = {
   active: false,
+  affiliateId: '{{affiliateId}}',
   salesChannel: '',
   email: 'email@email.com',
   allowFranchiseAccounts: false
