@@ -16,7 +16,7 @@ export default class ConnectorClient extends ExternalClient {
 
     if (CONNECTOR_APP_UPDATE_NOTIFICATION_ENDPOINT.match(regex)) {
       config.accountName = this.context.account,
-      this.http.post<void>("", config)
+      this.http.post("", config)
     }
 
   }
