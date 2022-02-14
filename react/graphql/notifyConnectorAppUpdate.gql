@@ -1,3 +1,0 @@
-mutation notifyConnectorAppUpdate($config: ConfigurationInput) {
-  notifyConnectorAppUpdate(config: $config)
-}
