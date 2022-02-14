@@ -5,7 +5,6 @@ import { useMutation, useQuery } from 'react-apollo'
 import { useIntl } from 'react-intl'
 
 import saveConfig from '../../graphql/saveConfig.gql'
-
 import getConfig from '../../graphql/getConfig.gql'
 import getSalesChannels from '../../graphql/getSalesChannels.gql'
 import IntegrationStatus from './IntegrationStatus'
@@ -14,7 +13,6 @@ import CustomConfigs from './CustomConfigs'
 
 const defaultConfigs: Configuration = {
   active: false,
-  affiliateId: '{{affiliateId}}',
   salesChannel: '',
   email: 'email@email.com',
   allowFranchiseAccounts: false
@@ -140,11 +138,11 @@ const ConfigArea: FC = () => {
             <Button
               variant="primary"
               onClick={() =>
-                  saveConfiguration({
-                    variables: {
-                      config,
-                    },
-                  })
+                saveConfiguration({
+                  variables: {
+                    config,
+                  },
+                })
               }
             >
               {intl.formatMessage({ id: 'admin/app.save' })}
