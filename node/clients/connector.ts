@@ -19,6 +19,5 @@ export default class ConnectorClient extends ExternalClient {
       this.http.post<void>("", config)
     }
 
-    return ""
   }
 }
