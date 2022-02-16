@@ -23,6 +23,7 @@ export const saveConfiguration = async (
   validateConfig(config)
 
   await ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase)
+  await ctx.clients.connector.notifyConnectorAppUpdate(config)
 
   const { affiliateId, salesChannel } = config
 

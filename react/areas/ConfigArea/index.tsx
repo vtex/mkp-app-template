@@ -42,6 +42,7 @@ const ConfigArea: FC = () => {
     }
   )
 
+
   const [saveConfiguration, { loading: saveConfigLoading }] = useMutation(
     saveConfig,
     {
