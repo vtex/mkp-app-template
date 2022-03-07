@@ -1,3 +1,3 @@
 interface ConnectorConfiguration {
-  orderProcessingNotificationEndpoint: string
+  connectorEndpoint: string
 }

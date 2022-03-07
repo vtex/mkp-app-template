@@ -5,6 +5,7 @@ import InputComponent from '../../../components/InputComponent'
 import type { DefaultProps } from '../../../typings/props'
 
 const CONNECTOR_ENDPOINT = '{{connectorEndpoint}}'
+const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";
 
 const SearchEndpoint: React.FC<DefaultProps> = ({ intl, config }) => {
   return (
@@ -17,7 +18,7 @@ const SearchEndpoint: React.FC<DefaultProps> = ({ intl, config }) => {
           })}
           canEdit={false}
           type="text"
-          initValue={CONNECTOR_ENDPOINT}
+          initValue={CONNECTOR_ENDPOINT.replace(/\/+$/, '').concat(AFILLIATE_CATALOG_NOTIFICATION_PATH)}
         />
       </Box>
       <Anchor

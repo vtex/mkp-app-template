@@ -2,7 +2,7 @@ import httpStatus from 'http-status-codes'
 
 import {
   APP_VENDOR,
-  CONNECTOR_ORDER_PROCESSING_NOTIFICATION_ENDPOINT,
+  CONNECTOR_ENDPOINT,
 } from '../constants/variables'
 
 const headersExist = (headers: any) => headers?.appkey && headers?.apptoken
@@ -34,8 +34,8 @@ export const getConnectorConfig = async (ctx: Context) => {
     })
   } else {
     const config: ConnectorConfiguration = {
-      orderProcessingNotificationEndpoint:
-        CONNECTOR_ORDER_PROCESSING_NOTIFICATION_ENDPOINT,
+      connectorEndpoint:
+        CONNECTOR_ENDPOINT,
     }
 
     if (!config) {
