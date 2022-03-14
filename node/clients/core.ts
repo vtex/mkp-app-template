@@ -9,6 +9,8 @@ import {
   VBASE_CONFIG_BASE_PATH,
 } from '../constants/variables'
 
+const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";
+
 export default class CoreClient extends JanusClient {
   constructor(context: IOContext, options?: InstanceOptions) {
     super(context, {
@@ -37,7 +39,7 @@ export default class CoreClient extends JanusClient {
       id: config.affiliateId,
       followUpEmail: config.email,
       salesChannelId: config.salesChannel,
-      searchEndpoint: CONNECTOR_ENDPOINT,
+      searchEndpoint: CONNECTOR_ENDPOINT.replace(/\/+$/, '').concat(AFILLIATE_CATALOG_NOTIFICATION_PATH),
     })
 
   public getConfigFromVBase = (vbase: VBase) =>
