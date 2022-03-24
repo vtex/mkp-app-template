@@ -3,6 +3,6 @@ export async function getMapperId(_: unknown, __: unknown, ctx: Context) {
   if (storedId != null) return storedId
   const createdId = await ctx.clients.mapper.registerMapper()
 
-  ctx.clients.core.saveMapperIdInVBase(createdId, ctx.clients.vbase)
-  return createdId
+  ctx.clients.core.saveMapperIdInVBase(createdId.data.mapperEndpoint, ctx.clients.vbase)
+  return createdId.data.mapperEndpoint
 }
