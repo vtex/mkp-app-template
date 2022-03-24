@@ -15,4 +15,5 @@ input ConfigurationInput {
   salesChannel: String
   email: String
   allowFranchiseAccounts: Boolean
+  mapperId: String
 }

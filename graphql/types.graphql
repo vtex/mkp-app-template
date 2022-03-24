@@ -12,4 +12,5 @@ type Configuration {
   salesChannel: String
   email: String
   allowFranchiseAccounts: Boolean
+  mapperId: String
 }

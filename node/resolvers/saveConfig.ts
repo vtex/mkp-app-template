@@ -30,11 +30,9 @@ export const saveConfiguration = async (
       await ctx.clients.core.removeMapperIdFromVBase(ctx.clients.vbase)
     }
   }
-  else {
-    console.log(await getMapperId(_, null, ctx))
-  }
+  const mapperId = config.active == false ? null : await getMapperId(_, null, ctx)
 
-  await ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase)
+  await ctx.clients.core.saveConfigInVBase({...config, mapperId}, ctx.clients.vbase)
   await ctx.clients.connector.notifyConnectorAppUpdate(config)
 
   const { affiliateId, salesChannel } = config
