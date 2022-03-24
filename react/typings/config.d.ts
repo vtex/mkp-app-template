@@ -4,4 +4,5 @@ interface Configuration {
   salesChannel: string
   email: string
   allowFranchiseAccounts: boolean
+  mapperId?: string
 }
