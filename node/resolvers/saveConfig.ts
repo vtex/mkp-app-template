@@ -1,6 +1,7 @@
 import { UserInputError } from '@vtex/api'
 
 import { FEED_ID } from '../constants/variables'
+import { getMapperId } from './getMapperId'
 
 const validateConfig = async (config: Configuration) => {
   const regexOnlyNumbers = /^[0-9]+$/
@@ -21,6 +22,17 @@ export const saveConfiguration = async (
   ctx: Context
 ) => {
   validateConfig(config)
+
+  if (config.active == false) {
+    const storedId = await ctx.clients.core.getMapperIdFromVBase(ctx.clients.vbase)
+    if (storedId != null) {
+      await ctx.clients.mapper.deleteMapperConfig(storedId)
+      await ctx.clients.core.removeMapperIdFromVBase(ctx.clients.vbase)
+    }
+  }
+  else {
+    console.log(await getMapperId(_, null, ctx))
+  }
 
   await ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase)
   await ctx.clients.connector.notifyConnectorAppUpdate(config)

@@ -7,6 +7,7 @@ import { CONNECTOR_NAME } from '../constants/variables'
 export default class Mapper extends JanusClient {
   private routes = {
     registerMapper: () => '/api/mkp-category-mapper/connector/register',
+    deleteMapperConfig: (mapperId: string) => `/api/mkp-category-mapper/connector/configuration/${mapperId}`,
   }
 
   constructor(ctx: IOContext, options?: InstanceOptions) {
@@ -19,7 +20,6 @@ export default class Mapper extends JanusClient {
   }
 
   public async registerMapper() {
-    console.log("registering mapper")
     const data = {
       "displayName": CONNECTOR_NAME,
       "categoryTreeEndpoint": "http://api.vtexinternal.com.br/",
@@ -39,5 +39,9 @@ export default class Mapper extends JanusClient {
       }
       )
       return createResponse
+  }
+
+  public async deleteMapperConfig(mapperId: string) {
+    this.http.delete(this.routes.deleteMapperConfig(mapperId))
   }
 }

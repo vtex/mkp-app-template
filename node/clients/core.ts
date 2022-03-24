@@ -57,6 +57,10 @@ export default class CoreClient extends JanusClient {
       .getJSON<string>(VBASE_BUCKET, VBASE_MAPPER_ID_BASE_PATH)
       .catch((_) => null)
 
+
+  public removeMapperIdFromVBase = (vbase: VBase) =>
+  vbase.deleteFile(VBASE_BUCKET, VBASE_MAPPER_ID_BASE_PATH)
+
   public saveMapperIdInVBase = async (mapperId: string, vbase: VBase) => {
     vbase.saveJSON(VBASE_BUCKET, VBASE_MAPPER_ID_BASE_PATH, mapperId)
   }
