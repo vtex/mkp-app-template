@@ -1,8 +1,16 @@
 import type { IOContext, InstanceOptions } from '@vtex/api'
 import { JanusClient } from '@vtex/api'
-import { CONNECTOR_NAME } from '../constants/variables'
+import { CATEGORY_TREE_ENDPOINT, CONNECTOR_NAME, MAPPING_ENDPOINT } from '../constants/variables'
 
 
+const mappingRegistrationData = {
+  "displayName": CONNECTOR_NAME,
+  "categoryTreeEndpoint": CATEGORY_TREE_ENDPOINT,
+  "mappingEndpoint": MAPPING_ENDPOINT,
+  "properties": {
+    "allowsRemap": true,
+  }
+}
 
 export default class Mapper extends JanusClient {
   private routes = {
@@ -20,17 +28,9 @@ export default class Mapper extends JanusClient {
   }
 
   public async registerMapper() {
-    const data = {
-      "displayName": CONNECTOR_NAME,
-      "categoryTreeEndpoint": "http://api.vtexinternal.com.br/",
-      "mappingEndpoint": "http://api.vtexinternal.com.br/",
-      "properties": {
-        "allowsRemap": true,
-      }
-    }
     const createResponse: any = await this.http.postRaw(
       this.routes.registerMapper(),
-      data,
+      mappingRegistrationData,
       {
         params: {
           an: this.context.account,
