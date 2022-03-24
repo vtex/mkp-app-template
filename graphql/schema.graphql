@@ -1,6 +1,7 @@
 type Query {
   getConfiguration: Configuration
   getSalesChannels: [SalesChannel]
+  getMapperId: String
 }
 
 type Mutation {

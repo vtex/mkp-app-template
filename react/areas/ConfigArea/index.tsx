@@ -25,6 +25,7 @@ const ConfigArea: FC = () => {
   const intl = useIntl()
 
   const [config, setConfig] = useState<Configuration>(defaultConfigs)
+  const [mapperId, setMapperId] = useState<string>("")
   const [sc, setSC] = useState<[SalesChannel]>()
 
   const { data, loading: loadingConfig } = useQuery(getConfig, {

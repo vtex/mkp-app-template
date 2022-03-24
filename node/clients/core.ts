@@ -7,6 +7,7 @@ import {
   CONNECTOR_NAME,
   VBASE_BUCKET,
   VBASE_CONFIG_BASE_PATH,
+  VBASE_MAPPER_ID_BASE_PATH,
 } from '../constants/variables'
 
 const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";
@@ -49,5 +50,14 @@ export default class CoreClient extends JanusClient {
 
   public saveConfigInVBase = async (config: Configuration, vbase: VBase) => {
     vbase.saveJSON(VBASE_BUCKET, VBASE_CONFIG_BASE_PATH, config)
+  }
+
+  public getMapperIdFromVBase = (vbase: VBase) =>
+    vbase
+      .getJSON<string>(VBASE_BUCKET, VBASE_MAPPER_ID_BASE_PATH)
+      .catch((_) => null)
+
+  public saveMapperIdInVBase = async (mapperId: string, vbase: VBase) => {
+    vbase.saveJSON(VBASE_BUCKET, VBASE_MAPPER_ID_BASE_PATH, mapperId)
   }
 }

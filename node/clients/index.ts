@@ -3,6 +3,7 @@ import { Affiliate } from '@vtex/clients'
 import ConnectorClient from './connector'
 
 import CoreClient from './core'
+import Mapper from './mapper'
 import SentOffers from './sentOffers'
 import VtexIDClient from './vtexId'
 
@@ -22,6 +23,10 @@ export class Clients extends IOClients {
 
   public get sentOffers() {
     return this.getOrSet('sentOffers', SentOffers)
+  }
+
+  public get mapper() {
+    return this.getOrSet('mapper', Mapper)
   }
 
   public get connector() {
