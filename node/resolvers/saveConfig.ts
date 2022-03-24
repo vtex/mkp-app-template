@@ -23,6 +23,7 @@ export const saveConfiguration = async (
 ) => {
   validateConfig(config)
 
+  //delete mapper config when integration is deactivated
   if (config.active == false) {
     const storedId = await ctx.clients.core.getMapperIdFromVBase(ctx.clients.vbase)
     if (storedId != null) {

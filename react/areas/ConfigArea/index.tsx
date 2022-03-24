@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { FC, useEffect } from 'react'
 import React, { useState } from 'react'
 import { Grid, Box, Button, toast, Spinner } from '@vtex/admin-ui'
 import { useMutation, useQuery } from 'react-apollo'
@@ -27,11 +27,15 @@ const ConfigArea: FC = () => {
   const [config, setConfig] = useState<Configuration>(defaultConfigs)
   const [sc, setSC] = useState<[SalesChannel]>()
 
-  const { data, loading: loadingConfig } = useQuery(getConfig, {
+  const { data, loading: loadingConfig, refetch } = useQuery(getConfig, {
     onCompleted: () => {
       if (!loadingConfig) setConfig({ ...config, ...data.getConfiguration })
     },
   })
+
+  useEffect(() => {
+    if (!loadingConfig) setConfig({ ...config, ...data.getConfiguration })
+  }, [data])
 
   const { data: salesChannels, loading: loadingSC } = useQuery(
     getSalesChannels,
@@ -53,6 +57,7 @@ const ConfigArea: FC = () => {
           duration: DEFAULT_TOAST_DURATION,
           message: intl.formatMessage({ id: 'admin/app.saveConfig.success' }),
         })
+        refetch()
       },
       onError: (error) => {
         error.graphQLErrors.forEach((ex, _) => {
@@ -136,6 +141,26 @@ const ConfigArea: FC = () => {
             csx={{ marginY: 2 }}
             templateColumns="25fr 75fr"
           >
+            {config.mapperId &&  config.active && (
+              <Button
+                variant="secondary"
+                onClick={() =>
+                  {
+
+                    if (config.mapperId)
+                    window.open('/admin/mkp-category-mapper/'+ config.mapperId, '_blank')
+                  }
+                }
+              >
+                {intl.formatMessage({id: 'admin/app.mapper.title'})}
+              </Button>
+            )}
+          </Grid>
+          <Grid
+            className="grid"
+            csx={{ marginY: 2 }}
+            templateColumns="25fr 75fr"
+          >
             <Button
               variant="primary"
               onClick={() =>
@@ -147,19 +172,6 @@ const ConfigArea: FC = () => {
               }
             >
               {intl.formatMessage({ id: 'admin/app.save' })}
-            </Button>
-
-            <Button
-              variant="primary"
-              onClick={() =>
-                {
-
-                  if (config.mapperId)
-                  window.open('/admin/mkp-category-mapper/'+ config.mapperId, '_top')
-                }
-              }
-            >
-              {intl.formatMessage({id: 'admin/app.mapper.title'})}
             </Button>
             {saveConfigLoading && <Spinner csx={{ marginX: 6 }} size={40} />}
           </Grid>
