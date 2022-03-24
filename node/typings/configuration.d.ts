@@ -6,4 +6,5 @@ interface Configuration {
   email: string
   cookie: string
   allowFranchiseAccounts: boolean
+  mapperId: string
 }
