@@ -26,13 +26,12 @@ export const saveConfiguration = async (
   if (config.active == false) {
     const storedId = await ctx.clients.core.getMapperIdFromVBase(ctx.clients.vbase)
     if (storedId != null) {
-      await ctx.clients.mapper.deleteMapperConfig(storedId)
       await ctx.clients.core.removeMapperIdFromVBase(ctx.clients.vbase)
+      await ctx.clients.mapper.deleteMapperConfig(storedId)
     }
   }
-  const mapperId = config.active == false ? null : await getMapperId(_, null, ctx)
-
-  await ctx.clients.core.saveConfigInVBase({...config, mapperId}, ctx.clients.vbase)
+  const mapperId = (config.active === false ? null : await getMapperId(_, null, ctx))
+  await ctx.clients.core.saveConfigInVBase({...config,mapperId: mapperId}, ctx.clients.vbase)
   await ctx.clients.connector.notifyConnectorAppUpdate(config)
 
   const { affiliateId, salesChannel } = config

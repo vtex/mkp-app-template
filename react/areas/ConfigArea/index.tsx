@@ -148,6 +148,19 @@ const ConfigArea: FC = () => {
             >
               {intl.formatMessage({ id: 'admin/app.save' })}
             </Button>
+
+            <Button
+              variant="primary"
+              onClick={() =>
+                {
+
+                  if (config.mapperId)
+                  window.open('/admin/mkp-category-mapper/'+ config.mapperId, '_top')
+                }
+              }
+            >
+              {intl.formatMessage({id: 'admin/app.mapper.title'})}
+            </Button>
             {saveConfigLoading && <Spinner csx={{ marginX: 6 }} size={40} />}
           </Grid>
         </Box>
