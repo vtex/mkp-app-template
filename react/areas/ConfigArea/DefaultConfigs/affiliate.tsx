@@ -8,7 +8,7 @@ const Affiliate: React.FC<DefaultProps> = ({ intl, config }) => {
     <InputComponent
       id="affiliateId"
       label={intl.formatMessage({ id: 'admin/app.affiliateId.title' })}
-      canEdit={false}
+      canEdit={true}
       initValue={config.affiliateId}
       type="text"
     />
