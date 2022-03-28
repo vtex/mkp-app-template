@@ -5,6 +5,6 @@
   },
   "admin.app.mapper": {
     "component": "MkpCategoryMapperSpinner",
-    "path": "/admin/mkp-category-mapper.{{appVendor}}.{{appName}}"
+    "path": "/admin/app/mkp-category-mapper.{{appVendor}}.{{appName}}"
   }
 }
