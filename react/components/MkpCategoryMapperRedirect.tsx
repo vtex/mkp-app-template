@@ -24,17 +24,12 @@ const MkpCategoryMapperRedirect: FC = () => {
     },
   })
 
-  if (idNotFound)
-  {
-    return (<div>{"Mapper Id not found, please "}</div>)
-  }
-
   return (
-
     <div className="w-100 vh-50 flex items-center justify-center">
       <div className="w-100 flex justify-center">
-        {idNotFound ? (<div>{"Mapper Id not found, please activate the integration"}</div>) :<Spinner /> }
-
+        {idNotFound ?
+        (<div>{"Mapper Id not found, please activate the integration"}</div>)
+        : <Spinner /> }
       </div>
     </div>
   )
