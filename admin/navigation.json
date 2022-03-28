@@ -9,7 +9,7 @@
     },
     {
       "labelId": "admin/app.mapper.title",
-      "path": "/admin/mkp-category-mapper/{{mapperId}}"
+      "path": "/admin/mkp-category-mapper.{{appVendor}}.{{appName}}"
     }
   ]
 }

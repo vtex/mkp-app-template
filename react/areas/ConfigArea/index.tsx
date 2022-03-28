@@ -141,26 +141,6 @@ const ConfigArea: FC = () => {
             csx={{ marginY: 2 }}
             templateColumns="25fr 75fr"
           >
-            {config.mapperId &&  config.active && (
-              <Button
-                variant="secondary"
-                onClick={() =>
-                  {
-
-                    if (config.mapperId)
-                    window.open('/admin/mkp-category-mapper/'+ config.mapperId, '_blank')
-                  }
-                }
-              >
-                {intl.formatMessage({id: 'admin/app.mapper.title'})}
-              </Button>
-            )}
-          </Grid>
-          <Grid
-            className="grid"
-            csx={{ marginY: 2 }}
-            templateColumns="25fr 75fr"
-          >
             <Button
               variant="primary"
               onClick={() =>

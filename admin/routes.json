@@ -2,5 +2,9 @@
   "admin.app.example": {
     "component": "AdminPanel",
     "path": "/admin/app/{{appVendor}}/{{appName}}"
+  },
+  "admin.app.mapper": {
+    "component": "MkpCategoryMapperSpinner",
+    "path": "/admin/mkp-category-mapper.{{appVendor}}.{{appName}}"
   }
 }
