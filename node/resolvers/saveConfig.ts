@@ -24,12 +24,10 @@ export const saveConfiguration = async (
 
   const currentStoreConfig = await ctx.clients.core.getConfigFromVBase(ctx.clients.vbase)
 
-  if(currentStoreConfig != null){
-    if(currentStoreConfig.affiliateId != affiliateId) {
-      const res = await ctx.clients.affiliate.isAffiliateAlreadyRegistered(affiliateId)
-      if(res){
-        throw new UserInputError('admin/app.error.affiliate.alreadyRegistered')  
-      }
+  if(currentStoreConfig === null || currentStoreConfig.affiliateId !== affiliateId){
+    const res = await ctx.clients.affiliate.isAffiliateAlreadyRegistered(affiliateId)
+    if(res){
+      throw new UserInputError('admin/app.error.affiliate.alreadyRegistered')  
     }
   }
 
