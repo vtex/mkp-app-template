@@ -27,14 +27,13 @@ export const saveConfiguration = async (
 
   const { affiliateId, salesChannel } = config
 
-  await ctx.clients.sentOffers
-    .createFeed({ affiliateId, salesChannel, id: FEED_ID })
-    .then(async () => {
-      await ctx.clients.core.registerAffiliate(config, ctx).catch((__) => {
-        throw new UserInputError('admin/app.error.affiliate.registerFail')
-      })
+  await ctx.clients.core.registerAffiliate(config, ctx)
+    .catch((_) => {
+      throw new UserInputError('admin/app.error.affiliate.registerFail')
     })
-    .catch((___) => {
+
+  await ctx.clients.sentOffers.createFeed({ affiliateId, salesChannel, id: FEED_ID })
+    .catch((_) => {
       throw new UserInputError('admin/app.sentoffers.error')
     })
 }
