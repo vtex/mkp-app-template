@@ -80,7 +80,11 @@ const ConfigArea: FC = () => {
                 id: 'admin/app.error.affiliate.invalidFormat',
               })
               break
-
+            case 'admin/app.error.affiliate.alreadyRegistered':
+              message = intl.formatMessage({
+                id: 'admin/app.error.affiliate.alreadyRegistered',
+              })
+              break
             default:
               message = ''
               break

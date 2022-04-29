@@ -17,7 +17,7 @@
   "admin/app.input.requiredMessage": "Required field",
   "admin/app.cultureInfo.title": "Country",
   "admin/app.error.affiliate.registerFail": "Something went wrong when registering the affiliate.",
-  "admin/app.error.affiliate.alreadyRegistered": "The selected affiliate id already exist. Change the affiliate id or delete the one registered to continue.",
+  "admin/app.error.affiliate.alreadyRegistered": "The selected affiliate id already exist. Change the affiliate id or delete the one registered and try again.",
   "admin/app.error.affiliate.invalidFormat": "Affiliate with invalid format. It needs to be 3 consonants.",
   "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. It needs to be an integer number.",
   "admin/app.mapper.title": "Category mapping",

@@ -17,7 +17,7 @@
   "admin/app.input.requiredMessage": "Campo obrigatório",
   "admin/app.cultureInfo.title": "País",
   "admin/app.error.affiliate.registerFail": "Ocorreu um erro ao registrar o afiliado.",
-  "admin/app.error.affiliate.alreadyRegistered": "O ID de afiliado selecionado já existe. Troque o ID do afiliado ou delete o já registrado para continuar.",
+  "admin/app.error.affiliate.alreadyRegistered": "O ID de afiliado selecionado já existe. Troque o ID do afiliado ou delete o já registrado e tente novamente.",
   "admin/app.error.affiliate.invalidFormat": "Afiliado com formato inválido. Deve consistir em 3 consoantes.",
   "admin/app.error.salesChannel.invalidFormat": "Canal de vendas com formato inválido. Deve ser um número inteiro.",
   "admin/app.mapper.title": "Mapeamento de categorias",
