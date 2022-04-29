@@ -1,4 +1,5 @@
 import { UserInputError } from '@vtex/api'
+import { FEED_ID } from '../constants/variables'
 
 const validateConfig = (config: Configuration) => {
   const regexOnlyNumbers = /^[0-9]+$/
@@ -37,4 +38,10 @@ export const saveConfiguration = async (
     })
 
   await ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase)
+  await ctx.clients.connector.notifyConnectorAppUpdate(config)
+  
+  await ctx.clients.sentOffers.createFeed({ affiliateId: config.affiliateId, salesChannel: config.salesChannel, id: FEED_ID })
+    .catch(_ => {
+      throw new UserInputError('admin/app.sentOffers.error')
+    })
 }
