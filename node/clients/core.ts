@@ -9,6 +9,10 @@ import {
   VBASE_CONFIG_BASE_PATH,
 } from '../constants/variables'
 
+import {
+  NOT_FOUND,
+} from '../constants/statusCode'
+
 const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";
 
 export default class CoreClient extends JanusClient {
@@ -20,6 +24,17 @@ export default class CoreClient extends JanusClient {
           context.adminUserAuthToken ?? context.authToken ?? '',
       },
     })
+  }
+
+  public isAffiliateAlreadyRegisted = (affiliateId) => {
+    const getAffiliateResponse = this.https
+      .get(`api/fulfillment/affiliates/${affiliateId}`, {
+        params: {
+          an: this.context.account,
+        }
+      })
+
+    return !(getAffiliateResponse.status === NOT_FOUND)
   }
 
   public getSalesChannelsAsync = () =>

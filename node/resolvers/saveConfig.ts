@@ -22,15 +22,24 @@ export const saveConfiguration = async (
 ) => {
   validateConfig(config)
 
-  await ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase)
-  await ctx.clients.connector.notifyConnectorAppUpdate(config)
-
   const { affiliateId, salesChannel } = config
+
+  const currentStoreConfig = ctx.client.core.getConfigFromVBase(ctx.clients.vbase)
+  if(currentStoreConfig != null){
+    if(currentStoreConfig.affiliateId != affiliateId) {
+      if(ctx.clients.core.isAffiliateAlreadyRegisted(affiliateId)) {
+        throw new UserInputError('admin/app.error.affiliate.alreadyRegistered')
+      }
+    }
+  }
 
   await ctx.clients.core.registerAffiliate(config, ctx)
     .catch((_) => {
       throw new UserInputError('admin/app.error.affiliate.registerFail')
     })
+
+  await ctx.clients.core.saveConfigInVBase(config, ctx.clients.vbase)
+  await ctx.clients.connector.notifyConnectorAppUpdate(config)
 
   await ctx.clients.sentOffers.createFeed({ affiliateId, salesChannel, id: FEED_ID })
     .catch((_) => {
