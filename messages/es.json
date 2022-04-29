@@ -4,6 +4,7 @@
   "admin/app.config.title": "Configuración",
   "admin/app.saveConfig.success": "La configuración se guardó con éxito.",
   "admin/app.affiliateId.title": "ID del afiliado",
+  "admin/app.affiliateId.tooltip": "ID (3 consonantes) que representará su conexión con este mercado. Debe ser único en su cuenta.",
   "admin/app.salesChannel.title": "Canal de ventas",
   "admin/app.allow-franchise.title": "Permitir Cuentas Franquicia",
   "admin/app.salesChannel.tooltip": "Catálogo que se enviará al marketplace.",
