@@ -19,7 +19,7 @@ const DefaultConfigsArea: React.FC<DefaultConfigsProps> = ({
 }) => {
   return (
     <div>
-      <Affiliate config={config} intl={intl} />
+      <Affiliate config={config} intl={intl} setConfig={setConfig} />
       <SearchEndpoint config={config} intl={intl} />
       <SalesChannel intl={intl} config={config} setConfig={setConfig} sc={sc} />
       <Email intl={intl} config={config} setConfig={setConfig} />
