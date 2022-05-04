@@ -15,6 +15,8 @@ export default class ConnectorClient extends ExternalClient {
     var expression = /^([^:\/\s]+:\/?\/?([^\/\s@]*@)?([^\/@:]*)?:?(\d+)?)?(\/[^?]*)?(\?[^#]*)?$/gi
     var regex = new RegExp(expression)
 
+    config.cookie = this.context.authToken ?? ''
+
     if (CONNECTOR_ENDPOINT.match(regex)) {
       config.accountName = this.context.account
       this.http.post(`store-config/notification${getQueryStringFromEndpoint(CONNECTOR_ENDPOINT)}`, config)
