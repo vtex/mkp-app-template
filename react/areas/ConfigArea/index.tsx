@@ -13,7 +13,7 @@ import CustomConfigs from './CustomConfigs'
 
 const defaultConfigs: Configuration = {
   active: false,
-  affiliateId: '{{affiliateId}}',
+  affiliateId: '',
   salesChannel: '',
   email: 'email@email.com',
   allowFranchiseAccounts: false
@@ -80,7 +80,11 @@ const ConfigArea: FC = () => {
                 id: 'admin/app.error.affiliate.invalidFormat',
               })
               break
-
+            case 'admin/app.error.affiliate.alreadyRegistered':
+              message = intl.formatMessage({
+                id: 'admin/app.error.affiliate.alreadyRegistered',
+              })
+              break
             default:
               message = ''
               break
