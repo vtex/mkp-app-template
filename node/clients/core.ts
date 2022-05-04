@@ -3,15 +3,15 @@ import { JanusClient } from '@vtex/api'
 import type { VBase } from '@vtex/api/lib/clients/infra'
 
 import {
-  CONNECTOR_ENDPOINT,
-  CONNECTOR_NAME,
   VBASE_BUCKET,
   VBASE_CONFIG_BASE_PATH,
 } from '../constants/variables'
 
-const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";
-
 export default class CoreClient extends JanusClient {
+  private routes = {
+    getSalesChannelList: () => `/api/catalog_system/pvt/saleschannel/list`,
+  }
+
   constructor(context: IOContext, options?: InstanceOptions) {
     super(context, {
       ...options,
@@ -24,7 +24,7 @@ export default class CoreClient extends JanusClient {
 
   public getSalesChannelsAsync = () =>
     this.http
-      .get<[SalesChannel]>('api/catalog_system/pvt/saleschannel/list', {
+      .get<[SalesChannel]>(this.routes.getSalesChannelList(), {
         params: {
           an: this.context.account,
         },
@@ -33,16 +33,7 @@ export default class CoreClient extends JanusClient {
         return salesChannels.filter((sc) => sc.IsActive)
       })
 
-  public registerAffiliate = (config: Configuration, ctx: Context) =>
-    ctx.clients.affiliate.registerAffiliate({
-      name: CONNECTOR_NAME,
-      id: config.affiliateId,
-      followUpEmail: config.email,
-      salesChannelId: config.salesChannel,
-      searchEndpoint: CONNECTOR_ENDPOINT.replace(/\/+$/, '').concat(AFILLIATE_CATALOG_NOTIFICATION_PATH),
-    })
-
-  public getConfigFromVBase = (vbase: VBase) =>
+  public getConfigFromVBase = async (vbase: VBase) =>
     vbase
       .getJSON<Configuration>(VBASE_BUCKET, VBASE_CONFIG_BASE_PATH)
       .catch((_) => null)
