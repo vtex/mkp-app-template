@@ -7,7 +7,7 @@ import {
   CONNECTOR_NAME,
 } from '../constants/variables'
 
-import { buildNotificationEndpoint } from '../../utils';
+import { buildNotificationEndpoint } from '../utils';
 
 const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";
 

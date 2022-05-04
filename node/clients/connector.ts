@@ -2,7 +2,7 @@ import type { IOContext, InstanceOptions } from '@vtex/api'
 import { CONNECTOR_ENDPOINT } from '../constants/variables'
 import { ExternalClient } from '@vtex/api'
 
-import { getEndpointWithoutQueryString, getQueryStringFromEndpoint } from '../../utils'
+import { getEndpointWithoutQueryString, getQueryStringFromEndpoint } from '../utils'
 
 export default class ConnectorClient extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
@@ -12,7 +12,7 @@ export default class ConnectorClient extends ExternalClient {
   }
 
   public async notifyConnectorAppUpdate(config: Configuration) {
-    var expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi
+    var expression = /^([^:\/\s]+:\/?\/?([^\/\s@]*@)?([^\/@:]*)?:?(\d+)?)?(\/[^?]*)?(\?[^#]*)?$/gi
     var regex = new RegExp(expression)
 
     if (CONNECTOR_ENDPOINT.match(regex)) {

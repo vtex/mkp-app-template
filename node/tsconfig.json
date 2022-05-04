@@ -22,6 +22,6 @@
   "typeAcquisition": {
     "enable": false
   },
-  "include": ["global.ts", "./**/*", "../utils"],
+  "include": ["global.ts", "./**/*"],
   "exclude": ["node_modules"]
 }

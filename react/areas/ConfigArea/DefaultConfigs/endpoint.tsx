@@ -3,7 +3,7 @@ import React from 'react'
 
 import InputComponent from '../../../components/InputComponent'
 import type { DefaultProps } from '../../../typings/props'
-import { buildNotificationEndpoint } from '../../../../utils'
+import { buildNotificationEndpoint } from '../../../utils'
 
 const CONNECTOR_ENDPOINT = '{{connectorEndpoint}}'
 const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";

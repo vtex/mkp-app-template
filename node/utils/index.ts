@@ -1,3 +1,5 @@
+import { URL } from "url"
+
 export const buildNotificationEndpoint = (connectorEndpoint: string, notificationPath: string) => {
   var url = new URL(connectorEndpoint)
   return url.origin + url.pathname.replace(/\/+$/, '') + notificationPath + url.search
