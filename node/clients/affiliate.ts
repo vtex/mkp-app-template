@@ -7,6 +7,8 @@ import {
   CONNECTOR_NAME,
 } from '../constants/variables'
 
+import { buildNotificationEndpoint } from '../../utils';
+
 const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";
 
 export default class AffiliateClient extends JanusClient {
@@ -39,19 +41,19 @@ export default class AffiliateClient extends JanusClient {
 
   public registerAffiliate = async (config: Configuration) =>
     this.http
-        .put(this.routes.registerAffiliate(config.affiliateId),
+      .put(this.routes.registerAffiliate(config.affiliateId),
         {
-            id: config.affiliateId,
-            name: `${CONNECTOR_NAME}-${config.affiliateId}`,
-            followUpEmail: config.email,
-            salesChannel: config.salesChannel,
-            searchURIEndpoint: CONNECTOR_ENDPOINT.replace(/\/+$/, '').concat(AFILLIATE_CATALOG_NOTIFICATION_PATH),
-            SearchURIEndpointVersion: "1.x.x",
-            SearchURIEndpointAvailableVersions: ["1.x.x"]
+          id: config.affiliateId,
+          name: `${CONNECTOR_NAME}-${config.affiliateId}`,
+          followUpEmail: config.email,
+          salesChannel: config.salesChannel,
+          searchURIEndpoint: buildNotificationEndpoint(CONNECTOR_ENDPOINT, AFILLIATE_CATALOG_NOTIFICATION_PATH),
+          SearchURIEndpointVersion: "1.x.x",
+          SearchURIEndpointAvailableVersions: ["1.x.x"]
         },
         {
-            params: {
-                an: this.context.account
-            }
+          params: {
+            an: this.context.account
+          }
         })
 }

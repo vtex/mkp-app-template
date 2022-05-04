@@ -2,9 +2,11 @@ import type { IOContext, InstanceOptions } from '@vtex/api'
 import { CONNECTOR_ENDPOINT } from '../constants/variables'
 import { ExternalClient } from '@vtex/api'
 
+import { getEndpointWithoutQueryString, getQueryStringFromEndpoint } from '../../utils'
+
 export default class ConnectorClient extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super(CONNECTOR_ENDPOINT,
+    super(getEndpointWithoutQueryString(CONNECTOR_ENDPOINT),
       context, options
     )
   }
@@ -15,7 +17,7 @@ export default class ConnectorClient extends ExternalClient {
 
     if (CONNECTOR_ENDPOINT.match(regex)) {
       config.accountName = this.context.account
-      this.http.post("store-config/notification", config)
+      this.http.post(`store-config/notification${getQueryStringFromEndpoint(CONNECTOR_ENDPOINT)}`, config)
     }
   }
 }
