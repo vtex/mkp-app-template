@@ -36,7 +36,7 @@ export const getConfig = async (ctx: Context) => {
       response.status = httpStatus.NOT_FOUND
     } else {
       config.accountName = ctx.vtex.account
-      config.cookie = ctx.vtex.adminUserAuthToken ?? ctx.vtex.authToken ?? ''
+      config.cookie = ctx.vtex.authToken ?? ''
 
       response.body = JSON.stringify(config)
       response.status = httpStatus.OK
