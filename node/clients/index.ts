@@ -1,5 +1,5 @@
 import { IOClients } from '@vtex/api'
-import { Affiliate } from '@vtex/clients'
+import AffiliateClient from './affiliate'
 import ConnectorClient from './connector'
 
 import CoreClient from './core'
@@ -9,7 +9,7 @@ import VtexIDClient from './vtexId'
 // Extend the default IOClients implementation with our own custom clients.
 export class Clients extends IOClients {
   public get affiliate() {
-    return this.getOrSet('affiliate', Affiliate)
+    return this.getOrSet('affiliate', AffiliateClient)
   }
 
   public get vtexID() {
