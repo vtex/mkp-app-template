@@ -1,14 +1,20 @@
 import React from 'react'
-import { DefaultProps } from '../../../typings/props'
+
+import type { DefaultProps } from '../../../typings/props'
+import AllowFranchiseAccounts from '../CustomConfigs/AllowFranchiseAccounts'
 
 export interface CustomConfigsProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
 }
 
-const CustomConfigsArea: React.FC<CustomConfigsProps> = () => {
+const CustomConfigsArea: React.FC<CustomConfigsProps> =  ({
+  config,
+  setConfig,
+  intl
+}) => {
   return (
-    <div>      
-      
+    <div>
+      <AllowFranchiseAccounts intl={intl} config={config} setConfig={setConfig} />
     </div>
   )
 }

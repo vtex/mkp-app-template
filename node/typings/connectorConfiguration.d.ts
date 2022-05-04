@@ -1,0 +1,3 @@
+interface ConnectorConfiguration {
+  connectorEndpoint: string
+}

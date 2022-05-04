@@ -1,5 +1,5 @@
-interface FeedCreationData{
-	id: string
-	affiliateId: string
-	salesChannel: string
+interface FeedCreationData {
+  id: string
+  affiliateId: string
+  salesChannel: string
 }
