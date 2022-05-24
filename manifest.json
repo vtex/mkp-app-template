@@ -31,6 +31,21 @@
     },
     {
       "name": "vbase-read-write"
+    },
+    {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "CancelAction"
+    },
+    {
+      "name": "ShippingAction"
+    },
+    {
+      "name": "RefundAction"
+    },
+    {
+      "name": "WorkflowAction"
     }
   ],
   "credentialType": "absolute",
