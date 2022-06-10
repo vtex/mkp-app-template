@@ -1,4 +1,4 @@
-export const cultureInfoData = {
+export const cultureInfoData: { [code: string]: string } = {
   'af-ZA': 'South Africa (af-ZA)',
   'am-ET': 'Ethiopia (am-ET)',
   'ar-AE': 'U.A.E. (ar-AE)',

@@ -10,6 +10,7 @@ import getSalesChannels from '../../graphql/getSalesChannels.gql'
 import IntegrationStatus from './IntegrationStatus'
 import DefaultConfigs from './DefaultConfigs'
 import CustomConfigs from './CustomConfigs'
+import { SalesChannelCreationContextProvider } from './../../contexts/SalesChannelCreationContext'
 
 const defaultConfigs: Configuration = {
   active: false,
@@ -17,6 +18,14 @@ const defaultConfigs: Configuration = {
   salesChannel: '',
   email: 'email@email.com',
   allowFranchiseAccounts: false
+}
+const defaultSalesChannel: SalesChannel = {
+  Id: '',
+  Name: '',
+  CountryCode: '',
+  CurrencyCode: '',
+  TimeZone: '',
+  CultureInfo: ''
 }
 
 const DEFAULT_TOAST_DURATION = 10000
@@ -26,6 +35,7 @@ const ConfigArea: FC = () => {
 
   const [config, setConfig] = useState<Configuration>(defaultConfigs)
   const [sc, setSC] = useState<[SalesChannel]>()
+  const [salesChannelConfig, setSalesChannelConfig] = useState<SalesChannel>(defaultSalesChannel);
 
   const { data, loading: loadingConfig } = useQuery(getConfig, {
     onCompleted: () => {
@@ -41,7 +51,6 @@ const ConfigArea: FC = () => {
       },
     }
   )
-
 
   const [saveConfiguration, { loading: saveConfigLoading }] = useMutation(
     saveConfig,
@@ -107,55 +116,60 @@ const ConfigArea: FC = () => {
 
   return (
     <Grid.Item area="config">
-      <div>
-        <Box csx={{ bg: 'light.primary' }}>
-          <IntegrationStatus
-            key="integrationStatus"
-            config={config}
-            setConfig={setConfig}
-            intl={intl}
-          >
-            {{
-              on: [
-                <DefaultConfigs
-                  key="DefaultConfigs"
-                  config={config}
-                  setConfig={setConfig}
-                  intl={intl}
-                  sc={sc}
-                />,
-                <CustomConfigs
-                  key="CustomConfigs"
-                  config={config}
-                  intl={intl}
-                  setConfig={setConfig}
-                />,
-              ],
-            }}
-          </IntegrationStatus>
-        </Box>
-        <Box>
-          <Grid
-            className="grid"
-            csx={{ marginY: 2 }}
-            templateColumns="25fr 75fr"
-          >
-            <Button
-              variant="primary"
-              onClick={() =>
-                saveConfiguration({
-                  variables: {
-                    config,
-                  },
-                })
-              }
+      <SalesChannelCreationContextProvider
+        salesChannelConfig={salesChannelConfig}
+        setSalesChannelConfig={setSalesChannelConfig}
+      >
+        <div>
+          <Box csx={{ bg: 'light.primary' }}>
+            <IntegrationStatus
+              key="integrationStatus"
+              config={config}
+              setConfig={setConfig}
+              intl={intl}
             >
-              {intl.formatMessage({ id: 'admin/app.save' })}
-            </Button>
-            {saveConfigLoading && <Spinner csx={{ marginX: 6 }} size={40} />}
-          </Grid>
-        </Box>
-      </div>
+              {{
+                on: [
+                  <DefaultConfigs
+                    key="DefaultConfigs"
+                    config={config}
+                    setConfig={setConfig}
+                    intl={intl}
+                    sc={sc}
+                  />,
+                  <CustomConfigs
+                    key="CustomConfigs"
+                    config={config}
+                    intl={intl}
+                    setConfig={setConfig}
+                  />,
+                ],
+              }}
+            </IntegrationStatus>
+          </Box>
+          <Box>
+            <Grid
+              className="grid"
+              csx={{ marginY: 2 }}
+              templateColumns="25fr 75fr"
+            >
+              <Button
+                variant="primary"
+                onClick={() =>
+                  saveConfiguration({
+                    variables: {
+                      config,
+                    },
+                  })
+                }
+              >
+                {intl.formatMessage({ id: 'admin/app.save' })}
+              </Button>
+              {saveConfigLoading && <Spinner csx={{ marginX: 6 }} size={40} />}
+            </Grid>
+          </Box>
+        </div>
+        </SalesChannelCreationContextProvider>
     </Grid.Item>
   )
 }

@@ -1,4 +1,4 @@
-export const timezonesData = {
+export const timezonesData: { [code: string]: string } = {
   'Dateline Standard Time': '(UTC-12:00) International Date Line West',
   'UTC-11': '(UTC-11:00) Coordinated Universal Time-11',
   'Aleutian Standard Time': '(UTC-10:00) Aleutian Islands',

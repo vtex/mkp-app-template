@@ -15,12 +15,19 @@
   "admin/app.integrationStatus.tooltip": "Pause or start integration with {{appTitle}}.",
   "admin/app.email.tooltip": "Email that will receive a VTEX system notification when something happens to this affiliate.",
   "admin/app.input.requiredMessage": "Required field",
-  "admin/app.cultureInfo.title": "Country",
   "admin/app.error.affiliate.registerFail": "Something went wrong when registering the affiliate.",
   "admin/app.error.affiliate.alreadyRegistered": "The selected affiliate id already exists. Change the affiliate id or delete the one registered and try again.",
   "admin/app.error.affiliate.invalidFormat": "Affiliate with invalid format. It needs to be 3 consonants.",
   "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. It needs to be an integer number.",
   "admin/app.mapper.title": "Category mapping",
   "admin/app.sentoffers.error": "Something went wrong when consuming Sent Offers API.",
-  "admin/app.default.error": "Something went wrong."
+  "admin/app.default.error": "Something went wrong.",
+  "admin/app.country.title": "Country",
+  "admin/app.timezone.title": "Time zone",
+  "admin/app.cultureInfo.title": "Culture information",
+  "admin/app.currency.title": "Currency",
+  "admin/app.country.tooltip": "Country that will be used to create the sales channel for this marketplace",
+  "admin/app.timezone.tooltip": "Time zone that will be used to create the sales channel for this marketplace",
+  "admin/app.cultureInfo.tooltip": "Culture info that will be used to create the sales channel for this marketplace",
+  "admin/app.currency.tooltip": "Currency that will be used to create the sales channel for this marketplace"
 }

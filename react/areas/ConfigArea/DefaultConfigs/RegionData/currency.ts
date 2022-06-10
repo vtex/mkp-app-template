@@ -1,4 +1,4 @@
-export const currencyCodesData = {
+export const currencyCodesData: { [code: string]: string } = {
   ZAR: 'South African Rand (ZAR)',
   ETB: 'Ethiopian Birr (ETB)',
   AED: 'UAE Dirham (AED)',
