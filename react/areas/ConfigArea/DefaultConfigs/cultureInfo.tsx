@@ -8,7 +8,7 @@ import { cultureInfoData } from './RegionData/cultureInfo'
 const CultureInfo: React.FC<DefaultProps> = ({
   intl
 }) => {
-  const cultures = Object.keys(cultureInfoData).map(c => cultureInfoData[c])
+  const cultures = Object.keys(cultureInfoData).map(c => cultureInfoData[c]).sort()
   const { setSalesChannelData } = useSalesChannelCreationContext();
 
   return (

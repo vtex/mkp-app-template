@@ -8,7 +8,7 @@ import { currencyCodesData } from './RegionData/currency'
 const Currency: React.FC<DefaultProps> = ({
   intl
 }) => {
-  const currencies = Object.keys(currencyCodesData).map(c => currencyCodesData[c])
+  const currencies = Object.keys(currencyCodesData).map(c => currencyCodesData[c]).sort()
   const { setSalesChannelData } = useSalesChannelCreationContext();
 
   return (

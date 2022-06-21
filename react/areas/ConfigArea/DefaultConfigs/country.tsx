@@ -8,7 +8,7 @@ import { countryCodesData } from './RegionData/countryCode'
 const Country: React.FC<DefaultProps> = ({
   intl
 }) => {
-  const countries = Object.keys(countryCodesData).map(c => countryCodesData[c])
+  const countries = Object.keys(countryCodesData).map(c => countryCodesData[c]).sort()
   const { setSalesChannelData } = useSalesChannelCreationContext();
 
   return (
