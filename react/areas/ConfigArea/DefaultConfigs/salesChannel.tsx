@@ -10,7 +10,7 @@ import Timezone from './timezone'
 
 export interface SalesChannelProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
-  sc: SalesChannel[] | undefined
+  sc: SalesChannel | undefined
 }
 
 const SalesChannel: React.FC<SalesChannelProps> = ({
@@ -18,7 +18,7 @@ const SalesChannel: React.FC<SalesChannelProps> = ({
   config,
   sc,
 }) => {
-  const salesChannelSelected = sc?.find((x) => x.Id === config.salesChannel)
+  const salesChannelSelected = sc
   const countryCode = salesChannelSelected?.CountryCode ?? ''
   const salesChannelName = salesChannelSelected?.Name ?? ''
 

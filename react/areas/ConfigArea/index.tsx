@@ -7,7 +7,7 @@ import { useIntl } from 'react-intl'
 import saveConfig from '../../graphql/saveConfig.gql'
 import createSalesChannel from '../../graphql/createSalesChannel.gql'
 import getConfig from '../../graphql/getConfig.gql'
-import getSalesChannels from '../../graphql/getSalesChannels.gql'
+import getSalesChannel from '../../graphql/getSalesChannel.gql'
 import IntegrationStatus from './IntegrationStatus'
 import DefaultConfigs from './DefaultConfigs'
 import CustomConfigs from './CustomConfigs'
@@ -35,7 +35,7 @@ const ConfigArea: FC = () => {
   const intl = useIntl()
 
   const [config, setConfig] = useState<Configuration>(defaultConfigs)
-  const [sc, setSC] = useState<[SalesChannel]>()
+  const [sc, setSC] = useState<SalesChannel>()
   const [salesChannelData, setSalesChannelData] = useState<SalesChannel>(defaultSalesChannel);
   const salesChannelCreated = useRef(false)
 
@@ -56,11 +56,12 @@ const ConfigArea: FC = () => {
     },
   })
 
-  const { data: salesChannels, loading: loadingSC } = useQuery(
-    getSalesChannels,
+  const { data: salesChannel, loading: loadingSC } = useQuery(
+    getSalesChannel,
     {
+      variables: { salesChannelId: config?.salesChannel },
       onCompleted: () => {
-        if (!loadingSC) setSC(salesChannels.getSalesChannels)
+        if (!loadingSC) setSC(salesChannel.getSalesChannel)
       },
     }
   )
@@ -94,7 +95,7 @@ const ConfigArea: FC = () => {
         })
       },
       refetchQueries: [
-        { query: getSalesChannels }
+        { query: getSalesChannel }
       ]
     }
   )

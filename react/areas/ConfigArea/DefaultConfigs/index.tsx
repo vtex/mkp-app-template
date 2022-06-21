@@ -9,7 +9,7 @@ import { Box } from '@vtex/admin-ui'
 
 export interface DefaultConfigsProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
-  sc: SalesChannel[] | undefined
+  sc: SalesChannel | undefined
 }
 
 const DefaultConfigsArea: React.FC<DefaultConfigsProps> = ({
