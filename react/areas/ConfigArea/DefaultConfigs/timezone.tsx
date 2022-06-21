@@ -9,7 +9,7 @@ const Timezone: React.FC<DefaultProps> = ({
   intl
 }) => {
   const timezones = Object.keys(timezonesData).map(t => timezonesData[t])
-  const { setSalesChannelConfig } = useSalesChannelCreationContext();
+  const { setSalesChannelData } = useSalesChannelCreationContext();
 
   return (
     <SelectComponent
@@ -20,9 +20,9 @@ const Timezone: React.FC<DefaultProps> = ({
       tooltip={intl.formatMessage({ id: 'admin/app.timezone.tooltip' })}
       onChange={(selectState) => {
         if (selectState) {
-          setSalesChannelConfig((oldConfig) => ({
+          setSalesChannelData((oldConfig) => ({
             ...oldConfig,
-            TimeZone: selectState,
+            TimeZone: Object.keys(timezonesData).find(c => timezonesData[c] == selectState) ?? ''
           }))
         }
       }}

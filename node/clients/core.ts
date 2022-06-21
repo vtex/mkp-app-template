@@ -29,9 +29,6 @@ export default class CoreClient extends JanusClient {
           an: this.context.account,
         },
       })
-      .then((salesChannels) => {
-        return salesChannels.filter((sc) => sc.IsActive)
-      })
 
   public getConfigFromVBase = async (vbase: VBase) =>
     vbase

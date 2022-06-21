@@ -24,49 +24,57 @@ const SalesChannel: React.FC<SalesChannelProps> = ({
 
   return (
     salesChannelSelected ?
-    (
-      <Box csx={{ display: 'flex', alignItems: 'center' }}>
-        <Box csx={{ flexGrow: 1 }}>
-          <InputComponent
-            id="salesChannel"
-            initValue={salesChannelName}
-            label={intl.formatMessage({ id: 'admin/app.salesChannel.title' })}
-            canEdit={false}
-            tooltip={intl.formatMessage({ id: 'admin/app.salesChannel.tooltip' })}
-            type="text"
-          />
+      (
+        <Box csx={{ display: 'flex', alignItems: 'center' }}>
+          <Box csx={{ flexGrow: 1 }}>
+            <InputComponent
+              id="salesChannel"
+              initValue={salesChannelName}
+              label={intl.formatMessage({ id: 'admin/app.salesChannel.title' })}
+              canEdit={false}
+              tooltip={intl.formatMessage({ id: 'admin/app.salesChannel.tooltip' })}
+              type="text"
+            />
+          </Box>
+          <Box>
+            <InputComponent
+              id="country"
+              label={intl.formatMessage({ id: 'admin/app.country.title' })}
+              canEdit={false}
+              initValue={countryCode}
+              type="text"
+              csx={{ width: 75 }}
+            />
+          </Box>
         </Box>
-        <Box>
-          <InputComponent
-            id="country"
-            label={intl.formatMessage({ id: 'admin/app.country.title' })}
-            canEdit={false}
-            initValue={countryCode}
-            type="text"
-            csx={{ width: 75 }}
-          />
+      ) : (
+        <Box csx={{display: 'grid', gap: '0.25rem'}}>
+          <Box>
+            <Country
+              config={config}
+              intl={intl}
+            />
+          </Box>
+          <Box>
+            <CultureInfo
+              config={config}
+              intl={intl}
+            />
+          </Box>
+          <Box>
+            <Currency
+              config={config}
+              intl={intl}
+            />
+          </Box>
+          <Box>
+            <Timezone
+              config={config}
+              intl={intl}
+            />
+          </Box>
         </Box>
-      </Box>
-    ) : (
-      <>
-        <Country
-          config={config}
-          intl={intl}
-        />
-        <CultureInfo
-          config={config}
-          intl={intl}
-        />
-        <Currency
-          config={config}
-          intl={intl}
-        />
-        <Timezone
-          config={config}
-          intl={intl}
-        />
-      </>
-    )
+      )
   )
 }
 

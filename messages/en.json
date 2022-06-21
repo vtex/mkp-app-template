@@ -19,6 +19,7 @@
   "admin/app.error.affiliate.alreadyRegistered": "The selected affiliate id already exists. Change the affiliate id or delete the one registered and try again.",
   "admin/app.error.affiliate.invalidFormat": "Affiliate with invalid format. It needs to be 3 consonants.",
   "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. It needs to be an integer number.",
+  "admin/app.error.salesChannel.creation": "It was not possible to create a sales channel with the data provided.",
   "admin/app.mapper.title": "Category mapping",
   "admin/app.sentoffers.error": "Something went wrong when consuming Sent Offers API.",
   "admin/app.default.error": "Something went wrong.",

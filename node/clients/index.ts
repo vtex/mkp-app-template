@@ -1,5 +1,6 @@
 import { IOClients } from '@vtex/api'
 import AffiliateClient from './affiliate'
+import CatalogClient from './catalog'
 import ConnectorClient from './connector'
 
 import CoreClient from './core'
@@ -26,5 +27,9 @@ export class Clients extends IOClients {
 
   public get connector() {
     return this.getOrSet('connector', ConnectorClient)
+  }
+
+  public get catalog() {
+    return this.getOrSet('catalog', CatalogClient)
   }
 }

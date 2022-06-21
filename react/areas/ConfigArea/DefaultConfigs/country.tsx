@@ -9,7 +9,7 @@ const Country: React.FC<DefaultProps> = ({
   intl
 }) => {
   const countries = Object.keys(countryCodesData).map(c => countryCodesData[c])
-  const { setSalesChannelConfig } = useSalesChannelCreationContext();
+  const { setSalesChannelData } = useSalesChannelCreationContext();
 
   return (
     <SelectComponent
@@ -20,9 +20,9 @@ const Country: React.FC<DefaultProps> = ({
       tooltip={intl.formatMessage({ id: 'admin/app.country.tooltip' })}
       onChange={(selectState) => {
         if (selectState) {
-          setSalesChannelConfig((oldConfig) => ({
+          setSalesChannelData((oldConfig) => ({
             ...oldConfig,
-            CountryCode: Object.keys(countryCodesData).find(([_, value]) => value == selectState) ?? ''
+            CountryCode: Object.keys(countryCodesData).find(c => countryCodesData[c] == selectState) ?? ''
           }))
         }
       }}

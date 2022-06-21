@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
   saveConfiguration(config: ConfigurationInput): String
+  createSalesChannel(salesChannelData: SalesChannelInput): String
 }
 
 input ConfigurationInput {
@@ -14,4 +15,13 @@ input ConfigurationInput {
   salesChannel: String
   email: String
   allowFranchiseAccounts: Boolean
+}
+
+input SalesChannelInput {
+  Id: ID
+  Name: String
+  CountryCode: String
+  CultureInfo: String
+  TimeZone: String
+  CurrencyCode: String
 }

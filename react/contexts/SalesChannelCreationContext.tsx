@@ -2,8 +2,8 @@ import type { FC, ReactNode } from 'react'
 import React, { createContext, useContext } from 'react'
 
 interface SalesChannelCreationState {
-  salesChannelConfig: SalesChannel
-  setSalesChannelConfig: React.Dispatch<React.SetStateAction<SalesChannel>>
+  salesChannelData: SalesChannel
+  setSalesChannelData: React.Dispatch<React.SetStateAction<SalesChannel>>
 }
 
 interface SalesChannelCreationProps extends SalesChannelCreationState {
@@ -11,17 +11,17 @@ interface SalesChannelCreationProps extends SalesChannelCreationState {
 }
 
 const SalesChannelCreationContext = createContext<SalesChannelCreationState>({
-  salesChannelConfig: {} as SalesChannel,
-  setSalesChannelConfig: () => {}
+  salesChannelData: {} as SalesChannel,
+  setSalesChannelData: () => {}
 })
 
-export const SalesChannelCreationContextProvider: FC<SalesChannelCreationProps> = ({ children, salesChannelConfig, setSalesChannelConfig}) => {
+export const SalesChannelCreationContextProvider: FC<SalesChannelCreationProps> = ({ children, salesChannelData, setSalesChannelData}) => {
 
   return (
     <SalesChannelCreationContext.Provider
       value={{
-        salesChannelConfig: salesChannelConfig,
-        setSalesChannelConfig: setSalesChannelConfig
+        salesChannelData: salesChannelData,
+        setSalesChannelData: setSalesChannelData
       }}
     >
       {children}

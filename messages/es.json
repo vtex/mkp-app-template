@@ -19,6 +19,7 @@
   "admin/app.error.affiliate.alreadyRegistered": "El ID de afiliado seleccionado ya existe. Cambie la identificación de afiliado o elimine la registrada e intente nuevamente.",
   "admin/app.error.affiliate.invalidFormat": "Afiliado con formato inválido. Debe constar de 3 consonantes.",
   "admin/app.error.salesChannel.invalidFormat": "Canal de ventas con formato inválido. Debe ser un número entero.",
+  "admin/app.error.salesChannel.creation": "No fue posible crear un canal de ventas con los datos proporcionados.",
   "admin/app.mapper.title": "Mapeo de categorías",
   "admin/app.sentoffers.error": "Se produjo un error al consumir la API de Sent Offers.",
   "admin/app.default.error": "Se produjo un error.",

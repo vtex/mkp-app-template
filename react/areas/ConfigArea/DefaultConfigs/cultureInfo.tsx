@@ -9,7 +9,7 @@ const CultureInfo: React.FC<DefaultProps> = ({
   intl
 }) => {
   const cultures = Object.keys(cultureInfoData).map(c => cultureInfoData[c])
-  const { setSalesChannelConfig } = useSalesChannelCreationContext();
+  const { setSalesChannelData } = useSalesChannelCreationContext();
 
   return (
     <SelectComponent
@@ -20,9 +20,9 @@ const CultureInfo: React.FC<DefaultProps> = ({
       tooltip={intl.formatMessage({ id: 'admin/app.cultureInfo.tooltip' })}
       onChange={(selectState) => {
         if (selectState) {
-          setSalesChannelConfig((oldConfig) => ({
+          setSalesChannelData((oldConfig) => ({
             ...oldConfig,
-            CultureInfo: selectState,
+            CultureInfo: Object.keys(cultureInfoData).find(c => cultureInfoData[c] == selectState) ?? ''
           }))
         }
       }}

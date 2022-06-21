@@ -9,7 +9,7 @@ const Currency: React.FC<DefaultProps> = ({
   intl
 }) => {
   const currencies = Object.keys(currencyCodesData).map(c => currencyCodesData[c])
-  const { setSalesChannelConfig } = useSalesChannelCreationContext();
+  const { setSalesChannelData } = useSalesChannelCreationContext();
 
   return (
     <SelectComponent
@@ -20,9 +20,9 @@ const Currency: React.FC<DefaultProps> = ({
       tooltip={intl.formatMessage({ id: 'admin/app.currency.tooltip' })}
       onChange={(selectState) => {
         if (selectState) {
-          setSalesChannelConfig((oldConfig) => ({
+          setSalesChannelData((oldConfig) => ({
             ...oldConfig,
-            CurrencyCode: selectState,
+            CurrencyCode: Object.keys(currencyCodesData).find(c => currencyCodesData[c] == selectState) ?? ''
           }))
         }
       }}

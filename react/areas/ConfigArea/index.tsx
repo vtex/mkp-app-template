@@ -1,10 +1,11 @@
-import type { FC } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import React, { useState } from 'react'
 import { Grid, Box, Button, toast, Spinner } from '@vtex/admin-ui'
 import { useMutation, useQuery } from 'react-apollo'
 import { useIntl } from 'react-intl'
 
 import saveConfig from '../../graphql/saveConfig.gql'
+import createSalesChannel from '../../graphql/createSalesChannel.gql'
 import getConfig from '../../graphql/getConfig.gql'
 import getSalesChannels from '../../graphql/getSalesChannels.gql'
 import IntegrationStatus from './IntegrationStatus'
@@ -35,7 +36,19 @@ const ConfigArea: FC = () => {
 
   const [config, setConfig] = useState<Configuration>(defaultConfigs)
   const [sc, setSC] = useState<[SalesChannel]>()
-  const [salesChannelConfig, setSalesChannelConfig] = useState<SalesChannel>(defaultSalesChannel);
+  const [salesChannelData, setSalesChannelData] = useState<SalesChannel>(defaultSalesChannel);
+  const salesChannelCreated = useRef(false)
+
+  useEffect(() => {
+    if(salesChannelCreated.current) {
+      salesChannelCreated.current = false;
+      saveConfiguration({
+        variables: {
+          config
+        }
+      })
+    }
+  }, [config, setConfig])
 
   const { data, loading: loadingConfig } = useQuery(getConfig, {
     onCompleted: () => {
@@ -52,6 +65,40 @@ const ConfigArea: FC = () => {
     }
   )
 
+  const [createNewSalesChannel, { loading: createSCLoading }] = useMutation(
+    createSalesChannel,
+    {
+      onCompleted: (data) => {
+        setConfig(oldConfig => ({ ...oldConfig, salesChannel: data.createSalesChannel }))
+        salesChannelCreated.current = true;
+      },
+      onError: (error) => {
+        error.graphQLErrors.forEach((ex, _) => {
+          let message = ''
+          switch (ex.message) {
+            case 'admin/app.error.salesChannel.creation':
+              message = intl.formatMessage({
+                id: 'admin/app.error.salesChannel.creation',
+              })
+              break
+            default:
+              message = intl.formatMessage({ id: 'admin/app.default.error' })
+              break
+          }
+          toast.dispatch({
+            type: 'error',
+            dismissible: true,
+            duration: DEFAULT_TOAST_DURATION,
+            message,
+          })
+        })
+      },
+      refetchQueries: [
+        { query: getSalesChannels }
+      ]
+    }
+  )
+
   const [saveConfiguration, { loading: saveConfigLoading }] = useMutation(
     saveConfig,
     {
@@ -65,7 +112,7 @@ const ConfigArea: FC = () => {
       },
       onError: (error) => {
         error.graphQLErrors.forEach((ex, _) => {
-          let message = intl.formatMessage({ id: 'admin/app.default.error' })
+          let message = ''
 
           switch (ex.message) {
             case 'admin/app.sentoffers.error':
@@ -95,7 +142,7 @@ const ConfigArea: FC = () => {
               })
               break
             default:
-              message = ''
+              message = intl.formatMessage({ id: 'admin/app.default.error' })
               break
           }
 
@@ -106,19 +153,19 @@ const ConfigArea: FC = () => {
             message,
           })
         })
-      },
+      }
     }
   )
 
   if(loadingConfig || loadingSC) return (
-  <Spinner />
+    <Spinner />
   )
 
   return (
     <Grid.Item area="config">
       <SalesChannelCreationContextProvider
-        salesChannelConfig={salesChannelConfig}
-        setSalesChannelConfig={setSalesChannelConfig}
+        salesChannelData={salesChannelData}
+        setSalesChannelData={setSalesChannelData}
       >
         <div>
           <Box csx={{ bg: 'light.primary' }}>
@@ -155,21 +202,29 @@ const ConfigArea: FC = () => {
             >
               <Button
                 variant="primary"
-                onClick={() =>
-                  saveConfiguration({
-                    variables: {
-                      config,
-                    },
-                  })
-                }
+                onClick={() => {
+                  if(config.salesChannel) {
+                    saveConfiguration({
+                      variables: {
+                        config
+                      }
+                    })
+                  } else {
+                    createNewSalesChannel({
+                      variables: {
+                        salesChannelData
+                      }
+                    })
+                  }
+                }}
               >
                 {intl.formatMessage({ id: 'admin/app.save' })}
               </Button>
-              {saveConfigLoading && <Spinner csx={{ marginX: 6 }} size={40} />}
+              {(createSCLoading || saveConfigLoading) && <Spinner csx={{ marginX: 6 }} size={40} />}
             </Grid>
           </Box>
         </div>
-        </SalesChannelCreationContextProvider>
+      </SalesChannelCreationContextProvider>
     </Grid.Item>
   )
 }
