@@ -1,4 +1,5 @@
 import { UserInputError } from '@vtex/api'
+
 import { APP_VENDOR, CONNECTOR_NAME } from '../constants/variables'
 
 export const createSalesChannel = async (
@@ -6,11 +7,25 @@ export const createSalesChannel = async (
   { salesChannelData }: { salesChannelData: SalesChannel },
   ctx: Context
 ) => {
+  if (
+    !salesChannelData.CountryCode ||
+    !salesChannelData.CultureInfo ||
+    !salesChannelData.CurrencyCode ||
+    !salesChannelData.TimeZone
+  ) {
+    throw new UserInputError(
+      'admin/app.error.salesChannel.missingRequiredFields'
+    )
+  }
+
   salesChannelData.Name = `(${APP_VENDOR}) ${CONNECTOR_NAME}`
-  return await ctx.clients.catalog.createSalesChannel(salesChannelData)
-    .catch(_ => {
+
+  return ctx.clients.catalog
+    .createSalesChannel(salesChannelData)
+    .catch((__) => {
       throw new UserInputError('admin/app.error.salesChannel.creation')
-    }).then((salesChannelId) => {
+    })
+    .then((salesChannelId) => {
       return salesChannelId.toString()
     })
 }

@@ -20,6 +20,7 @@
   "admin/app.error.affiliate.invalidFormat": "Affiliate with invalid format. It needs to be 3 consonants.",
   "admin/app.error.salesChannel.invalidFormat": "Sales channel with invalid format. It needs to be an integer number.",
   "admin/app.error.salesChannel.creation": "It was not possible to create a sales channel with the data provided.",
+  "admin/app.error.salesChannel.missingRequiredFields": "Country, culture information, currency and time zone are required fields to create a sales channel for this marketplace.",
   "admin/app.mapper.title": "Category mapping",
   "admin/app.sentoffers.error": "Something went wrong when consuming Sent Offers API.",
   "admin/app.default.error": "Something went wrong.",
@@ -27,8 +28,8 @@
   "admin/app.timezone.title": "Time zone",
   "admin/app.cultureInfo.title": "Culture information",
   "admin/app.currency.title": "Currency",
-  "admin/app.country.tooltip": "Country that will be used to create the sales channel for this marketplace",
-  "admin/app.timezone.tooltip": "Time zone that will be used to create the sales channel for this marketplace",
-  "admin/app.cultureInfo.tooltip": "Culture info that will be used to create the sales channel for this marketplace",
-  "admin/app.currency.tooltip": "Currency that will be used to create the sales channel for this marketplace"
+  "admin/app.country.tooltip": "Country that will be used to create the sales channel for this marketplace.",
+  "admin/app.timezone.tooltip": "Time zone that will be used to create the sales channel for this marketplace.",
+  "admin/app.cultureInfo.tooltip": "Culture info that will be used to create the sales channel for this marketplace.",
+  "admin/app.currency.tooltip": "Currency that will be used to create the sales channel for this marketplace."
 }

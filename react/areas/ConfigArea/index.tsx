@@ -1,5 +1,5 @@
-import { FC, useEffect, useRef } from 'react'
-import React, { useState } from 'react'
+import type { FC } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Grid, Box, Button, toast, Spinner } from '@vtex/admin-ui'
 import { useMutation, useQuery } from 'react-apollo'
 import { useIntl } from 'react-intl'
@@ -11,22 +11,23 @@ import getSalesChannel from '../../graphql/getSalesChannel.gql'
 import IntegrationStatus from './IntegrationStatus'
 import DefaultConfigs from './DefaultConfigs'
 import CustomConfigs from './CustomConfigs'
-import { SalesChannelCreationContextProvider } from './../../contexts/SalesChannelCreationContext'
+import { SalesChannelCreationContextProvider } from '../../contexts/SalesChannelCreationContext'
 
 const defaultConfigs: Configuration = {
   active: false,
   affiliateId: '',
   salesChannel: '',
   email: 'email@email.com',
-  allowFranchiseAccounts: false
+  allowFranchiseAccounts: false,
 }
+
 const defaultSalesChannel: SalesChannel = {
   Id: '',
   Name: '',
   CountryCode: '',
   CurrencyCode: '',
   TimeZone: '',
-  CultureInfo: ''
+  CultureInfo: '',
 }
 
 const DEFAULT_TOAST_DURATION = 10000
@@ -36,19 +37,10 @@ const ConfigArea: FC = () => {
 
   const [config, setConfig] = useState<Configuration>(defaultConfigs)
   const [sc, setSC] = useState<SalesChannel>()
-  const [salesChannelData, setSalesChannelData] = useState<SalesChannel>(defaultSalesChannel);
-  const salesChannelCreated = useRef(false)
+  const [salesChannelData, setSalesChannelData] =
+    useState<SalesChannel>(defaultSalesChannel)
 
-  useEffect(() => {
-    if(salesChannelCreated.current) {
-      salesChannelCreated.current = false;
-      saveConfiguration({
-        variables: {
-          config
-        }
-      })
-    }
-  }, [config, setConfig])
+  const salesChannelCreated = useRef(false)
 
   const { data, loading: loadingConfig } = useQuery(getConfig, {
     onCompleted: () => {
@@ -56,36 +48,45 @@ const ConfigArea: FC = () => {
     },
   })
 
-  const { data: salesChannel, loading: loadingSC } = useQuery(
-    getSalesChannel,
-    {
-      variables: { salesChannelId: config?.salesChannel },
-      onCompleted: () => {
-        if (!loadingSC) setSC(salesChannel.getSalesChannel)
-      },
-    }
-  )
+  const { data: salesChannel, loading: loadingSC } = useQuery(getSalesChannel, {
+    variables: { salesChannelId: config?.salesChannel },
+    onCompleted: () => {
+      if (!loadingSC) setSC(salesChannel.getSalesChannel)
+    },
+  })
 
   const [createNewSalesChannel, { loading: createSCLoading }] = useMutation(
     createSalesChannel,
     {
-      onCompleted: (data) => {
-        setConfig(oldConfig => ({ ...oldConfig, salesChannel: data.createSalesChannel }))
-        salesChannelCreated.current = true;
+      onCompleted: (scData) => {
+        setConfig((oldConfig) => ({
+          ...oldConfig,
+          salesChannel: scData.createSalesChannel,
+        }))
+        salesChannelCreated.current = true
       },
       onError: (error) => {
         error.graphQLErrors.forEach((ex, _) => {
           let message = ''
+
           switch (ex.message) {
             case 'admin/app.error.salesChannel.creation':
               message = intl.formatMessage({
                 id: 'admin/app.error.salesChannel.creation',
               })
               break
+
+            case 'admin/app.error.salesChannel.missingRequiredFields':
+              message = intl.formatMessage({
+                id: 'admin/app.error.salesChannel.missingRequiredFields',
+              })
+              break
+
             default:
               message = intl.formatMessage({ id: 'admin/app.default.error' })
               break
           }
+
           toast.dispatch({
             type: 'error',
             dismissible: true,
@@ -94,9 +95,7 @@ const ConfigArea: FC = () => {
           })
         })
       },
-      refetchQueries: [
-        { query: getSalesChannel }
-      ]
+      refetchQueries: [{ query: getSalesChannel }],
     }
   )
 
@@ -137,11 +136,13 @@ const ConfigArea: FC = () => {
                 id: 'admin/app.error.affiliate.invalidFormat',
               })
               break
+
             case 'admin/app.error.affiliate.alreadyRegistered':
               message = intl.formatMessage({
                 id: 'admin/app.error.affiliate.alreadyRegistered',
               })
               break
+
             default:
               message = intl.formatMessage({ id: 'admin/app.default.error' })
               break
@@ -154,13 +155,22 @@ const ConfigArea: FC = () => {
             message,
           })
         })
-      }
+      },
     }
   )
 
-  if(loadingConfig || loadingSC) return (
-    <Spinner />
-  )
+  useEffect(() => {
+    if (salesChannelCreated.current) {
+      salesChannelCreated.current = false
+      saveConfiguration({
+        variables: {
+          config,
+        },
+      })
+    }
+  }, [config, setConfig])
+
+  if (loadingConfig || loadingSC) return <Spinner />
 
   return (
     <Grid.Item area="config">
@@ -204,24 +214,26 @@ const ConfigArea: FC = () => {
               <Button
                 variant="primary"
                 onClick={() => {
-                  if(config.salesChannel) {
+                  if (config.salesChannel) {
                     saveConfiguration({
                       variables: {
-                        config
-                      }
+                        config,
+                      },
                     })
                   } else {
                     createNewSalesChannel({
                       variables: {
-                        salesChannelData
-                      }
+                        salesChannelData,
+                      },
                     })
                   }
                 }}
               >
                 {intl.formatMessage({ id: 'admin/app.save' })}
               </Button>
-              {(createSCLoading || saveConfigLoading) && <Spinner csx={{ marginX: 6 }} size={40} />}
+              {(createSCLoading || saveConfigLoading) && (
+                <Spinner csx={{ marginX: 6 }} size={40} />
+              )}
             </Grid>
           </Box>
         </div>
