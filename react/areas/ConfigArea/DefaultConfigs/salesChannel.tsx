@@ -45,18 +45,10 @@ const SalesChannel: React.FC<SalesChannelProps> = ({ intl, config, sc }) => {
     </Box>
   ) : (
     <Box csx={{ display: 'grid', gap: '0.50rem', marginTop: '0.25rem' }}>
-      <Box>
-        <Country config={config} intl={intl} />
-      </Box>
-      <Box>
-        <CultureInfo config={config} intl={intl} />
-      </Box>
-      <Box>
-        <Currency config={config} intl={intl} />
-      </Box>
-      <Box>
-        <Timezone config={config} intl={intl} />
-      </Box>
+      <Country config={config} intl={intl} />
+      <CultureInfo config={config} intl={intl} />
+      <Currency config={config} intl={intl} />
+      <Timezone config={config} intl={intl} />
     </Box>
   )
 }
