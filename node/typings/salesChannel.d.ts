@@ -4,4 +4,6 @@ interface SalesChannel {
   Name: string
   CountryCode: string
   CultureInfo: string
+  CurrencyCode: string
+  TimeZone: string
 }
