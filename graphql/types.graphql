@@ -3,8 +3,6 @@ type SalesChannel {
   Name: String
   CountryCode: String
   CultureInfo: String
-  TimeZone: String
-  CurrencyCode: String
 }
 
 type Configuration {

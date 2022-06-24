@@ -1,0 +1,8 @@
+query getSalesChannels {
+    getSalesChannels {
+        Id
+        Name
+        CountryCode
+        CultureInfo
+    }
+}

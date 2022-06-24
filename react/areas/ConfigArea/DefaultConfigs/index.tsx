@@ -1,5 +1,4 @@
 import React from 'react'
-import { Box } from '@vtex/admin-ui'
 
 import Affiliate from './affiliate'
 import SearchEndpoint from './endpoint'
@@ -9,7 +8,7 @@ import type { DefaultProps } from '../../../typings/props'
 
 export interface DefaultConfigsProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
-  sc: SalesChannel | undefined
+  sc: SalesChannel[] | undefined
 }
 
 const DefaultConfigsArea: React.FC<DefaultConfigsProps> = ({
@@ -19,18 +18,12 @@ const DefaultConfigsArea: React.FC<DefaultConfigsProps> = ({
   sc,
 }) => {
   return (
-    <Box>
+    <div>
       <Affiliate config={config} intl={intl} setConfig={setConfig} />
       <SearchEndpoint config={config} intl={intl} />
+      <SalesChannel intl={intl} config={config} setConfig={setConfig} sc={sc} />
       <Email intl={intl} config={config} setConfig={setConfig} />
-      <SalesChannel
-        key={config?.salesChannel}
-        intl={intl}
-        config={config}
-        setConfig={setConfig}
-        sc={sc}
-      />
-    </Box>
+    </div>
   )
 }
 

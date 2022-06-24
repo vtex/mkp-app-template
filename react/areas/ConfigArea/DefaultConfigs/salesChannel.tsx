@@ -1,54 +1,59 @@
-import { Anchor, Box, IconStoreSettings } from '@vtex/admin-ui'
+import { Box } from '@vtex/admin-ui'
 import React from 'react'
 
 import InputComponent from '../../../components/InputComponent'
+import SelectComponent from '../../../components/SelectComponent'
 import type { DefaultProps } from '../../../typings/props'
-import Country from './country'
-import CultureInfo from './cultureInfo'
-import Currency from './currency'
-import Timezone from './timezone'
 
 export interface SalesChannelProps extends DefaultProps {
   setConfig: React.Dispatch<React.SetStateAction<Configuration>>
-  sc: SalesChannel | undefined
+  sc: SalesChannel[] | undefined
 }
 
-const SalesChannel: React.FC<SalesChannelProps> = ({ intl, config, sc }) => {
-  const salesChannelSelected = sc
+const SalesChannel: React.FC<SalesChannelProps> = ({
+  intl,
+  config,
+  setConfig,
+  sc,
+}) => {
+  const salesChannelSelected = sc?.find((x) => x.Id === config.salesChannel)
+  const cultureInfo = salesChannelSelected?.CountryCode ?? ''
   const salesChannelName = salesChannelSelected?.Name ?? ''
 
-  return salesChannelSelected ? (
-    <Box
-      csx={{
-        display: 'flex',
-        justifyContent: 'flex-end',
-        marginTop: '0.25rem',
-      }}
-    >
+  return (
+    <Box csx={{ display: 'flex', alignItems: 'center' }}>
       <Box csx={{ flexGrow: 1 }}>
-        <InputComponent
-          id="salesChannel"
-          initValue={salesChannelName}
+        <SelectComponent
+          items={
+            sc?.map((curSc) => {
+              return curSc.Name
+            }) ?? []
+          }
+          initialSelectedItem={salesChannelName}
           label={intl.formatMessage({ id: 'admin/app.salesChannel.title' })}
-          canEdit={false}
+          canEdit
           tooltip={intl.formatMessage({ id: 'admin/app.salesChannel.tooltip' })}
-          type="text"
+          onChange={(selectState) => {
+            if (selectState) {
+              setConfig((oldConfig) => ({
+                ...oldConfig,
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                salesChannel: sc?.find((x) => x.Name === selectState)?.Id ?? '',
+              }))
+            }
+          }}
         />
       </Box>
-      <Anchor
-        csx={{ marginX: 5, marginY: 4 }}
-        href={`/admin/Site/StoreForm.aspx?Id=${salesChannelSelected.Id}`}
-        target="_blank"
-      >
-        <IconStoreSettings />
-      </Anchor>
-    </Box>
-  ) : (
-    <Box csx={{ display: 'grid', gap: '0.50rem', marginTop: '0.25rem' }}>
-      <Country config={config} intl={intl} />
-      <CultureInfo config={config} intl={intl} />
-      <Currency config={config} intl={intl} />
-      <Timezone config={config} intl={intl} />
+      <Box>
+        <InputComponent
+          id="cultureInfo"
+          label={intl.formatMessage({ id: 'admin/app.cultureInfo.title' })}
+          canEdit={false}
+          initValue={cultureInfo}
+          type="text"
+          csx={{ width: 75 }}
+        />
+      </Box>
     </Box>
   )
 }
