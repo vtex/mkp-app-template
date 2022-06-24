@@ -30,7 +30,7 @@ export const getConfig = async (ctx: Context) => {
       message: 'Invalid appKey and/or appToken',
     })
   } else {
-    const config = await ctx.clients.configuration.getConfigFromVBase(ctx.clients.vbase)
+    const config = await ctx.clients.core.getConfigFromVBase(ctx.clients.vbase)
 
     if (!config) {
       response.status = httpStatus.NOT_FOUND

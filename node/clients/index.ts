@@ -1,9 +1,8 @@
 import { IOClients } from '@vtex/api'
 import AffiliateClient from './affiliate'
-import CatalogClient from './catalog'
 import ConnectorClient from './connector'
 
-import ConfigurationClient from './configuration'
+import CoreClient from './core'
 import SentOffers from './sentOffers'
 import VtexIDClient from './vtexId'
 
@@ -17,8 +16,8 @@ export class Clients extends IOClients {
     return this.getOrSet('vtexID', VtexIDClient)
   }
 
-  public get configuration() {
-    return this.getOrSet('configuration', ConfigurationClient)
+  public get core() {
+    return this.getOrSet('core', CoreClient)
   }
 
   public get sentOffers() {
@@ -27,9 +26,5 @@ export class Clients extends IOClients {
 
   public get connector() {
     return this.getOrSet('connector', ConnectorClient)
-  }
-
-  public get catalog() {
-    return this.getOrSet('catalog', CatalogClient)
   }
 }

@@ -1,3 +1,0 @@
-mutation createSalesChannel($salesChannelData: SalesChannelInput) {
-  createSalesChannel(salesChannelData: $salesChannelData)
-}

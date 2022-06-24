@@ -7,7 +7,11 @@ import {
   VBASE_CONFIG_BASE_PATH,
 } from '../constants/variables'
 
-export default class ConfigurationClient extends JanusClient {
+export default class CoreClient extends JanusClient {
+  private routes = {
+    getSalesChannelList: () => `/api/catalog_system/pvt/saleschannel/list`,
+  }
+
   constructor(context: IOContext, options?: InstanceOptions) {
     super(context, {
       ...options,
@@ -17,6 +21,17 @@ export default class ConfigurationClient extends JanusClient {
       },
     })
   }
+
+  public getSalesChannelsAsync = () =>
+    this.http
+      .get<[SalesChannel]>(this.routes.getSalesChannelList(), {
+        params: {
+          an: this.context.account,
+        },
+      })
+      .then((salesChannels) => {
+        return salesChannels.filter((sc) => sc.IsActive)
+      })
 
   public getConfigFromVBase = async (vbase: VBase) =>
     vbase
