@@ -1,6 +1,6 @@
 {
   "admin.app.example": {
     "component": "AdminPanel",
-    "path": "/admin/app/{{appVendor}}/{{appName}}"
+    "path": "/admin/app/vtex/external-mkp-test"
   }
 }

@@ -1,9 +1,9 @@
 {
-  "name": "{{appName}}",
-  "vendor": "{{appVendor}}",
-  "version": "0.0.0",
-  "title": "{{manifestTitle}}",
-  "description": "{{manifestDescription}}",
+  "name": "external-mkp-test",
+  "vendor": "vtex",
+  "version": "0.0.1",
+  "title": "External Marketplace Test Integration",
+  "description": "App Template for tests",
   "mustUpdateAt": "2018-01-04",
   "categories": [],
   "builders": {
@@ -25,7 +25,7 @@
     {
       "name": "outbound-access",
       "attrs": {
-        "host": "{{connectorEndpointHost}}",
+        "host": "test-vtex-app-template.free.beeceptor.com",
         "path": "*"
       }
     },

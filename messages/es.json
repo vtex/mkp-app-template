@@ -1,5 +1,5 @@
 {
-  "admin/app.title": "{{appTitle}}",
+  "admin/app.title": "External Marketplace Test",
   "admin/app.save": "Guardar",
   "admin/app.config.title": "Configuración",
   "admin/app.saveConfig.success": "La configuración se guardó con éxito.",
@@ -12,7 +12,7 @@
   "admin/app.integrationStatus.title": "Status de integración",
   "admin/app.integrationStatus.value.on": "Activada",
   "admin/app.integrationStatus.value.off": "Desactivada",
-  "admin/app.integrationStatus.tooltip": "Pausar o iniciar la integración con {{appTitle}}.",
+  "admin/app.integrationStatus.tooltip": "Pausar o iniciar la integración con External Marketplace Test.",
   "admin/app.email.tooltip": "Email al que notificará el sistema VTEX cuando algo ocurra con este afiliado.",
   "admin/app.input.requiredMessage": "Campo obligatorio",
   "admin/app.cultureInfo.title": "País",

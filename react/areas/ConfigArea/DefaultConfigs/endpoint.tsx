@@ -5,7 +5,7 @@ import InputComponent from '../../../components/InputComponent'
 import type { DefaultProps } from '../../../typings/props'
 import { buildNotificationEndpointForDisplay } from '../../../utils'
 
-const CONNECTOR_ENDPOINT = '{{connectorEndpoint}}'
+const CONNECTOR_ENDPOINT = 'https://test-vtex-app-template.free.beeceptor.com'
 const AFILLIATE_CATALOG_NOTIFICATION_PATH = "/catalog/notification";
 
 const SearchEndpoint: React.FC<DefaultProps> = ({ intl, config }) => {

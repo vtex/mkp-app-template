@@ -1,15 +1,15 @@
 {
   "section": "marketplace",
   "titleId": "admin/app.title",
-  "subSection": "{{appVendor}}.{{appName}}.configuration",
+  "subSection": "vtex.external-mkp-test.configuration",
   "subSectionItems": [
     {
       "labelId": "admin/app.config.title",
-      "path": "/admin/{{appVendor}}/{{appName}}"
+      "path": "/admin/vtex/external-mkp-test"
     },
     {
       "labelId": "admin/app.mapper.title",
-      "path": "/admin/mkp-category-mapper/{{mapperId}}"
+      "path": "/admin/mkp-category-mapper/categoriasTeste"
     }
   ]
 }
