@@ -1,7 +1,7 @@
 {
   "name": "external-mkp-test",
   "vendor": "vtex",
-  "version": "0.0.1",
+  "version": "0.0.2-beta.0",
   "title": "External Marketplace Test Integration",
   "description": "App Template for tests",
   "mustUpdateAt": "2018-01-04",
