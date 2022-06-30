@@ -13,6 +13,7 @@ export default class CatalogClient extends JanusClient {
       headers: {
         VtexIdclientAutCookie:
           context.adminUserAuthToken ?? context.authToken ?? '',
+          'x-vtex-user-agent': 'mkp-app-template'
       },
     })
   }
