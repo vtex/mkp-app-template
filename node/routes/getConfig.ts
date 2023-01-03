@@ -1,8 +1,8 @@
 import httpStatus from 'http-status-codes'
 
-import { APP_VENDOR } from '../constants/variables'
+import { APP_VENDOR, VTEX_APP_KEY_HEADER, VTEX_APP_TOKEN_HEADER } from '../constants/variables'
 
-const headersExist = (headers: any) => headers?.appkey && headers?.apptoken
+const headersExist = (headers: any) => (headers?.appkey && headers?.apptoken) || (headers[VTEX_APP_KEY_HEADER] && headers[VTEX_APP_TOKEN_HEADER])
 
 export const getConfig = async (ctx: Context) => {
   const {
@@ -21,8 +21,8 @@ export const getConfig = async (ctx: Context) => {
   } else if (
     !(await vtexID.areValidAppKeyAndAppToken(
       APP_VENDOR,
-      headers.appkey,
-      headers.apptoken
+      headers.appkey ?? headers[VTEX_APP_KEY_HEADER],
+      headers.apptoken ?? headers[VTEX_APP_TOKEN_HEADER]
     ))
   ) {
     response.status = httpStatus.FORBIDDEN
