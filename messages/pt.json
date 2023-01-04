@@ -15,12 +15,21 @@
   "admin/app.integrationStatus.tooltip": "Pausar ou iniciar a integração com {{appTitle}}.",
   "admin/app.email.tooltip": "Endereço de e-mail que será notificado pelo sistema VTEX quando algo acontecer com este afiliado.",
   "admin/app.input.requiredMessage": "Campo obrigatório",
-  "admin/app.cultureInfo.title": "País",
   "admin/app.error.affiliate.registerFail": "Ocorreu um erro ao registrar o afiliado.",
   "admin/app.error.affiliate.alreadyRegistered": "O ID de afiliado selecionado já existe. Troque o ID do afiliado ou delete o já registrado e tente novamente.",
   "admin/app.error.affiliate.invalidFormat": "Afiliado com formato inválido. Deve consistir em 3 consoantes.",
   "admin/app.error.salesChannel.invalidFormat": "Canal de vendas com formato inválido. Deve ser um número inteiro.",
+  "admin/app.error.salesChannel.creation": "Não foi possível criar um canal de vendas com os dados informados.",
+  "admin/app.error.salesChannel.missingRequiredFields": "País, informação de cultura, moeda e fuso horário são campos obrigatórios para criar um canal de vendas para este marketplace.",
   "admin/app.mapper.title": "Mapeamento de categorias",
   "admin/app.sentoffers.error": "Ocorreu um erro ao consumir a API do Sent Offers.",
-  "admin/app.default.error": "Ocorreu um erro."
+  "admin/app.default.error": "Ocorreu um erro.",
+  "admin/app.country.title": "País",
+  "admin/app.timezone.title": "Fuso horário",
+  "admin/app.cultureInfo.title": "Informação de cultura",
+  "admin/app.currency.title": "Moeda",
+  "admin/app.country.tooltip": "País que será utilizado para criar a política comercial para este marketplace.",
+  "admin/app.timezone.tooltip": "Fuso horário que será utilizado para criar a política comercial para este marketplace.",
+  "admin/app.cultureInfo.tooltip": "Informação de cultura que será utilizada para criar a política comercial para este marketplace.",
+  "admin/app.currency.tooltip": "Moeda que será utilizada para criar a política comercial para este marketplace."
 }

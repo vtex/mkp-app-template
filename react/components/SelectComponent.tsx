@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import type { StyleProp } from '@vtex/admin-ui'
 import { Select, useSelectState } from '@vtex/admin-ui'
+import { useIntl } from 'react-intl'
 
 import TooltipComponent from './TooltipComponent'
 
@@ -12,6 +13,7 @@ export interface SelectProps {
   tooltip?: string
   onChange: (value: string | undefined) => void
   csx?: StyleProp
+  required?: boolean
 }
 
 const SelectComponent: React.FC<SelectProps> = ({
@@ -22,12 +24,15 @@ const SelectComponent: React.FC<SelectProps> = ({
   canEdit,
   tooltip,
   csx,
+  required,
 }: SelectProps) => {
   const selectState = useSelectState({
     items,
     initialSelectedItem,
     onSelectedItemChange: (item) => (item ? onChange(item.selectedItem!) : {}),
   })
+
+  const intl = useIntl()
 
   useEffect(() => {
     selectState.selectItem(initialSelectedItem)
@@ -41,6 +46,10 @@ const SelectComponent: React.FC<SelectProps> = ({
       disabled={!canEdit ?? false}
       block
       csx={csx}
+      errorMessage={intl.formatMessage({
+        id: 'admin/app.input.requiredMessage',
+      })}
+      error={(required ?? false) && !selectState.selectedItem}
     />
   )
 

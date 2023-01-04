@@ -1,0 +1,8 @@
+query getSalesChannel($salesChannelId: String) {
+    getSalesChannel(salesChannelId: $salesChannelId) {
+        Id
+        Name
+        CountryCode
+        CultureInfo
+    }
+}
