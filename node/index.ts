@@ -3,6 +3,7 @@ import { LRUCache, Service } from '@vtex/api'
 import { mapObjIndexed } from 'ramda'
 
 import { Clients } from './clients'
+import { updateConnectionStatus } from './events'
 import { mutations, queries } from './resolvers'
 import { getConfig } from './routes/getConfig'
 import { getConnectorConfig } from './routes/getConnectorConfig'
@@ -57,4 +58,7 @@ export default new Service({
     getConfig,
     getConnectorConfig,
   }),
+  events: {
+    updateConnectionStatus,
+  },
 })

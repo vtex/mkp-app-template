@@ -55,7 +55,7 @@ export const saveConfiguration = async (
     isActive: config.active,
     connectorId: CONNECTOR_ID,
     affiliateId: config.affiliateId,
-    merchantAccount: config.accountName,
+    merchantAccount: ctx.vtex.account,
   }
 
   ctx.clients.events.sendEvent(

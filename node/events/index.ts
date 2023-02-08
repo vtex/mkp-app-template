@@ -16,7 +16,7 @@ interface UpdateConnectionStatus extends IOEventContext {
   body: ConnectionStatusInformation
 }
 
-export const updateConnectionStatus = (ctx: UpdateConnectionStatus) => {
+export function updateConnectionStatus(ctx: UpdateConnectionStatus) {
   const data: ConnectionEventMessage = {
     affiliateId: ctx.body.affiliateId,
     isActive: ctx.body.isActive,
