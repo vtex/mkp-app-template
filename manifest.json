@@ -46,6 +46,9 @@
     },
     {
       "name": "WorkflowAction"
+    },
+    {
+      "name": "colossus-fire-event"
     }
   ],
   "credentialType": "absolute",

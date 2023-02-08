@@ -60,7 +60,7 @@ export const saveConfiguration = async (
 
   ctx.clients.events.sendEvent(
     EMPTY_STRING,
-    `${CONNECTOR_NAME}-${APP_NAME}-${UPDATE_CHANNEL_MANAGER_CONNECTION_STATUS_KEY}`,
+    `${UPDATE_CHANNEL_MANAGER_CONNECTION_STATUS_KEY}`,
     eventBody
   )
 
