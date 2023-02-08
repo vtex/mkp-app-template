@@ -1,8 +1,13 @@
 export const CONNECTOR_NAME = '{{appTitle}}'
 export const CONNECTOR_ENDPOINT = '{{connectorEndpoint}}'
 export const VBASE_BUCKET = '{{appName}}'
+export const APP_NAME = '{{appName}}'
 export const VBASE_CONFIG_BASE_PATH = 'storeConfig'
 export const APP_VENDOR = '{{appVendor}}'
 export const FEED_ID = '{{feedId}}'
 export const VTEX_APP_KEY_HEADER = 'x-vtex-api-appkey'
 export const VTEX_APP_TOKEN_HEADER = 'x-vtex-api-apptoken'
+export const CONNECTOR_ID = '{{connectorId}}'
+export const EMPTY_STRING = ''
+export const UPDATE_CHANNEL_MANAGER_CONNECTION_STATUS_KEY =
+  '{{appVendor}}.{{appName}}-update-channel-manager-connection-status'
