@@ -1,9 +1,7 @@
 import { UserInputError } from '@vtex/api'
 
 import {
-  APP_NAME,
   CONNECTOR_ID,
-  CONNECTOR_NAME,
   EMPTY_STRING,
   FEED_ID,
   UPDATE_CHANNEL_MANAGER_CONNECTION_STATUS_KEY,
