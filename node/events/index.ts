@@ -1,6 +1,7 @@
 import type { EventContext } from '@vtex/api'
 
 import type { Clients } from '../clients'
+import type { ConnectionEventMessage } from '../clients/channelManager'
 
 export type IOEventContext = EventContext<Clients>
 
@@ -16,5 +17,13 @@ interface UpdateConnectionStatus extends IOEventContext {
 }
 
 export const updateConnectionStatus = (ctx: UpdateConnectionStatus) => {
-  return ctx.body.affiliateId
+  const data: ConnectionEventMessage = {
+    affiliateId: ctx.body.affiliateId,
+    isActive: ctx.body.isActive,
+  }
+
+  ctx.clients.channelManager.upsertMerchantConnection(
+    data,
+    ctx.body.connectorId
+  )
 }
