@@ -1,11 +1,12 @@
 import { IOClients } from '@vtex/api'
+
 import AffiliateClient from './affiliate'
 import CatalogClient from './catalog'
 import ConnectorClient from './connector'
-
 import ConfigurationClient from './configuration'
 import SentOffers from './sentOffers'
 import VtexIDClient from './vtexId'
+import ChannelManager from './channelManager'
 
 // Extend the default IOClients implementation with our own custom clients.
 export class Clients extends IOClients {
@@ -31,5 +32,9 @@ export class Clients extends IOClients {
 
   public get catalog() {
     return this.getOrSet('catalog', CatalogClient)
+  }
+
+  public get channelManager() {
+    return this.getOrSet('channelManager', ChannelManager)
   }
 }

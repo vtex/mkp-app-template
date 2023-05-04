@@ -15,5 +15,13 @@
       "path": "/_v/{{appVendor}}/{{appName}}/connectorConfig",
       "public": true
     }
+  },
+  "events": {
+    "updateConnectionStatus": {
+      "sender": "{{appVendor}}.{{appName}}",
+      "keys": [
+        "{{appVendor}}.{{appName}}-update-channel-manager-connection-status"
+      ]
+    }
   }
 }
