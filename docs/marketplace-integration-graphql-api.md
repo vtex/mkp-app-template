@@ -103,7 +103,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Endpoint to modify the integration configuration.</td>
+      <td>Updates the integration configuration with the provided settings. Returns a success message or error if the operation fails. </td>
     </tr>
     <tr>
       <td colspan="2" align="right" valign="top">config</td>
