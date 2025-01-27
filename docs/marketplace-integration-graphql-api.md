@@ -119,7 +119,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Endpoint to create or modify a new sales channel.</td>
+      <td> Creates or updates a sales channel with the provided data. Returns a success message or error if the operation fails. </td>
     </tr>
     <tr>
       <td colspan="2" align="right" valign="top">salesChannelData</td>
