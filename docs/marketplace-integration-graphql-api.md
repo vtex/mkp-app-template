@@ -133,7 +133,7 @@ classDiagram
 
 ## Schema description
 
->⚠️ Arguments must be provided by the user. Required arguments are marked with an exclamation mark (`!`).
+>⚠️ Arguments must be provided by the user. Required fields are marked with an exclamation mark (`!`).
 
 ### Configuration
 
