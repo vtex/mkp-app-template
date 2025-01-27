@@ -162,7 +162,7 @@ classDiagram
       <td valign="top">
         Boolean
       </td>
-      <td>Property defining if the integration is active. If <code>true</code>, the integration is active. If <code>false</code>, the integration is not active.</td>
+      <td>Indicates whether the integration is active. If <code>true</code>, the integration is active. If <code>false</code>, the integration is not active.</td>
     </tr>
     <tr>
       <td valign="top">
