@@ -309,7 +309,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>ID (3 consonants) to represent the connection with the external marketplace. Needs to be unique in the VTEX seller account. Example: <code>LVL</code>.</td>
+      <td>ID (3 consonants) representing the connection with the external marketplace. Needs to be unique in the VTEX seller account. Example: <code>LVL</code>.</td>
     </tr>
     <tr>
       <td valign="top">
