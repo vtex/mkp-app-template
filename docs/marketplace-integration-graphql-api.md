@@ -55,7 +55,7 @@ classDiagram
         <strong id="query.getconfiguration">getConfiguration</strong>
       </td>
       <td valign="top"><a href="#configuration">Configuration</a></td>
-      <td>Endpoint to retrieve the integration configuration.</td>
+      <td>Retrieves the current marketplace integration configuration, including account settings, affiliate details, and sales channel information.</td>
     </tr>
     <tr>
       <td colspan="2" valign="top">
