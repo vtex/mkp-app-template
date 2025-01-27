@@ -198,7 +198,7 @@ classDiagram
       <td valign="top">
         Boolean
       </td>
-      <td>Property defining if the integration allows franchise accounts. If <code>true</code>, the integration allows. If <code>false</code>, the integration does not allow.</td>
+      <td>Indicates whether the integration allows franchise accounts. If <code>true</code>, the integration allows. If <code>false</code>, the integration does not allow.</td>
     </tr>
   </tbody>
 </table>
