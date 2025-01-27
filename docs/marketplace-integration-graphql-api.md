@@ -62,7 +62,7 @@ classDiagram
         <strong id="query.getsaleschannel">getSalesChannel</strong>
       </td>
       <td valign="top"><a href="#saleschannel">SalesChannel</a></td>
-      <td>Endpoint to retrieve the sales channel properties from the sales channel ID.</td>
+      <td>Retrieves detailed properties of a specific sales channel using its unique ID.</td>
     </tr>
     <tr>
       <td colspan="2" align="right" valign="top">salesChannelId</td>
