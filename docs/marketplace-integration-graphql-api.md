@@ -327,7 +327,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Email that will receive a VTEX system notification when something happens to the affiliate.</td>
+      <td>Email that will receive VTEX notifications related to the affiliate.</td>
     </tr>
     <tr>
       <td valign="top">
