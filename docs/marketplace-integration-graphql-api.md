@@ -119,7 +119,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td> Creates or updates a sales channel with the provided data. Returns a success message or error if the operation fails. </td>
+      <td>Creates or updates a sales channel with the provided data. Returns a success message or error if the operation fails.</td>
     </tr>
     <tr>
       <td colspan="2" align="right" valign="top">salesChannelData</td>
@@ -409,4 +409,4 @@ classDiagram
   </tbody>
 </table>
 
-<div style="text-align: right"><a href="#mutation">Mutation</a> 🔼</div>
+<div style="text-align: right"><a href="#mutation">Mutation</a🔼</div>
