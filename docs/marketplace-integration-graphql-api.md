@@ -67,7 +67,7 @@ classDiagram
     <tr>
       <td colspan="2" align="right" valign="top">salesChannelId</td>
       <td valign="top">String</td>
-      <td>Sales Channel ID.</td>
+      <td>Sales channel ID.</td>
     </tr>
   </tbody>
 </table>
@@ -119,21 +119,21 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Creates or updates a sales channel with the provided data. Returns a success message or error if the operation fails.</td>
+      <td>Creates or updates a sales channel with the provided information. Returns a success message or error if the operation fails.</td>
     </tr>
     <tr>
       <td colspan="2" align="right" valign="top">salesChannelData</td>
       <td valign="top">
         <a href="#saleschannelinput">SalesChannelInput</a>
       </td>
-      <td>Properties of the sales channel to be created or modified.</td>
+      <td>Sales channel properties to be created or modified.</td>
     </tr>
   </tbody>
 </table>
 
 ## Schema description
 
->⚠️ Arguments must be provided by the user. Required fields are marked with an exclamation mark (`!`).
+> ⚠️ Arguments must be provided by the user. Required fields are marked with an exclamation mark (`!`).
 
 ### Configuration
 
@@ -162,7 +162,7 @@ classDiagram
       <td valign="top">
         Boolean
       </td>
-      <td>Indicates whether the integration is active. If <code>true</code>, the integration is active. If <code>false</code>, the integration is not active.</td>
+      <td>Indicates whether the integration is active. If <code>true</code>, the integration is active. If <code>false</code>, the integration is inactive.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -171,7 +171,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>ID (3 consonants) representing the connection with the external marketplace. Needs to be unique in the VTEX seller account. Example: <code>LVL</code>.</td>
+      <td>ID (3 consonants) that represents the connection with the external marketplace. The ID needs to be unique in the VTEX seller account. Example: <code>LVL</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -180,7 +180,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Sales channel ID. It defines the catalog that will be sent to the marketplace. Example: <code>1</code>.</td>
+      <td>Sales channel ID, which defines the catalog that will be sent to the marketplace. Example: <code>1</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -198,7 +198,7 @@ classDiagram
       <td valign="top">
         Boolean
       </td>
-      <td>Indicates whether the integration allows franchise accounts. If <code>true</code>, the integration allows. If <code>false</code>, the integration does not allow.</td>
+      <td>Indicates whether the integration allows franchise accounts. If <code>true</code>, the integration allows them. If <code>false</code>, the integration doesn't allow them.</td>
     </tr>
   </tbody>
 </table>
@@ -239,7 +239,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Country code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">ISO 3166-1 alpha-2 format</a> of the sales channel for the external marketplace. Example: <code>"US"</code>.</td>
+      <td>Sales channel country code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">ISO 3166-1 alpha-2 format</a> for the external marketplace. Example: <code>"US"</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -248,7 +248,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Culture info of the sales channel for the external marketplace. It is uses the <a href="https://www.rfc-editor.org/info/bcp47" target="_blank">IETF BCP 47 format</a>, combining a language code in <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes" target="_blank">ISO-639 format</a>, and a region code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">ISO 3166-1 alpha-2 format</a>. Example: <code>"en-US"</code>.</td>
+      <td>Sales channel culture information for the external marketplace in <a href="https://www.rfc-editor.org/info/bcp47" target="_blank">IETF BCP 47 format</a> and combining a language code in <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes" target="_blank">ISO-639 format</a> and a region code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">ISO 3166-1 alpha-2 format</a>. Example: <code>"en-US"</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -257,7 +257,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td><a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11" target="_blank">Time zone name</a> of the sales channel for the external marketplace. Example: <code>"Pacific Standard Time"</code>.</td>
+      <td>Sales channel <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11" target="_blank">time zone name</a> for the external marketplace. Example: <code>"Pacific Standard Time"</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -266,7 +266,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Currency code in <a href="https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes" target="_blank">ISO 4217 format</a> of the sales channel for the external marketplace. Example: <code>"USD"</code>.</td>
+      <td>Sales channel currency code in <a href="https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes" target="_blank">ISO 4217 format</a> for the external marketplace. Example: <code>"USD"</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -291,7 +291,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Account name where the integration is installed.</td>
+      <td>Name of the account where the integration is installed.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -300,7 +300,7 @@ classDiagram
       <td valign="top">
         Boolean
       </td>
-      <td>Property defining if the integration is active. If <code>true</code>, the integration is active. If <code>false</code>, the integration is not active.</td>
+      <td>Property that defines if the integration is active. If <code>true</code>, the integration is active. If <code>false</code>, the integration is inactive.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -309,7 +309,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>ID (3 consonants) representing the connection with the external marketplace. Needs to be unique in the VTEX seller account. Example: <code>LVL</code>.</td>
+      <td>ID (3 consonants) that represents the connection with the external marketplace. The ID needs to be unique in the VTEX seller account. Example: <code>LVL</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -318,7 +318,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Sales channel ID. It defines the catalog that will be sent to the marketplace. Example: <code>1</code>.</td>
+      <td>Sales channel ID, which defines the catalog that will be sent to the marketplace. Example: <code>1</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -336,7 +336,7 @@ classDiagram
       <td valign="top">
         Boolean
       </td>
-      <td>Property defining if the integration allows franchise accounts. If <code>true</code>, the integration allows. If <code>false</code>, the integration does not allow.</td>
+      <td>Property that defines if the integration allows franchise accounts. If <code>true</code>, the integration allows them. If <code>false</code>, the integration doesn't allow them.</td>
     </tr>
   </tbody>
 </table>
@@ -377,7 +377,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Country code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">ISO 3166-1 alpha-2 format</a> of the sales channel for the external marketplace. Example: <code>"US"</code>.</td>
+      <td>Sales channel country code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">ISO 3166-1 alpha-2 format</a> for the external marketplace. Example: <code>"US"</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -386,7 +386,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Culture info of the sales channel for the external marketplace. It is uses the <a href="https://www.rfc-editor.org/info/bcp47" target="_blank">IETF BCP 47 format</a>, combining a language code in <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes" target="_blank">ISO-639 format</a>, and a region code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">ISO 3166-1 alpha-2 format</a>. Example: <code>"en-US"</code>.</td>
+      <td>Sales channel culture information for the external marketplace in <a href="https://www.rfc-editor.org/info/bcp47" target="_blank">IETF BCP 47 format</a> and combining a language code in <a href="https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes" target="_blank">ISO-639 format</a> and a region code in <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">ISO 3166-1 alpha-2 format</a>. Example: <code>"en-US"</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -395,7 +395,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td><a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11" target="_blank">Time zone name</a> of the sales channel for the external marketplace. Example: <code>"Pacific Standard Time"</code>.</td>
+      <td>Sales channel <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/default-time-zones?view=windows-11" target="_blank">time zone name</a> for the external marketplace. Example: <code>"Pacific Standard Time"</code>.</td>
     </tr>
     <tr>
       <td valign="top">
@@ -404,7 +404,7 @@ classDiagram
       <td valign="top">
         String
       </td>
-      <td>Currency code in <a href="https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes" target="_blank">ISO 4217 format</a> of the sales channel for the external marketplace. Example: <code>"USD"</code>.</td>
+      <td>Sales channel currency code in <a href="https://en.wikipedia.org/wiki/ISO_4217#List_of_ISO_4217_currency_codes" target="_blank">ISO 4217 format</a> for the external marketplace. Example: <code>"USD"</code>.</td>
     </tr>
   </tbody>
 </table>
